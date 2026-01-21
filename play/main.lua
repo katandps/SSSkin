@@ -27,6 +27,8 @@ local function main()
 
     -- 記述順に描画される
     require("play/background/default").load(skin)
+    require("play/parts/lane").load(skin)
+
     require("play/keybeam/default").load(skin)
     require("play/note/default").load(skin)
     require("play/parts/judgeline").load(skin)
