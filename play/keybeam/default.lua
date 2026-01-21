@@ -1,6 +1,7 @@
 local append_all = require("utils/append_all")
 local geometry = require("play/geometry").build(27)
 local timers = require("play/consts").timers
+local offsets = require("play/consts").offsets
 
 local h = 564
 local kind = { "kb_w", "kb_b", "kb_w", "kb_b", "kb_w", "kb_b", "kb_w", "kb_s" }
@@ -33,18 +34,18 @@ local function load(skin)
         id = "kb_s",
         timer = timer_ref[8],
         dst = {
-            { x = geometry.lane_left_margin + lane_x_positions[8], y = geometry.lane_under_margin, w = geometry.lane_scratch_width, h = h },
+            { x = geometry.lane_left_margin + lane_x_positions[8], y = geometry.lane_under_margin, w = geometry.lane_scratch_width, h = h * 0.2 },
         }
     })
 
     for i = 1, 7 do
         table.insert(skin.destination, {
             id = kind[i],
-            offset = 3,
+            offset = { offsets.OFFSET_LIFT },
             timer = timer_ref[i],
             blend = 1,
             dst = {
-                { x = geometry.lane_left_margin + lane_x_positions[i], y = geometry.lane_under_margin, w = width[i], h = h }
+                { x = geometry.lane_left_margin + lane_x_positions[i], y = geometry.lane_under_margin, w = width[i], h = h * 0.2 }
             }
         })
     end
