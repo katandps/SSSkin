@@ -1,6 +1,7 @@
 local consts = require("play/consts")
 local append_all = require("utils/append_all")
 local geometry = require("play/geometry").build(27)
+local offsets = consts.offsets
 
 local looptime = 500
 local f_w = 227
@@ -38,7 +39,7 @@ local function load(skin)
                     id = "judge_f_pg",
                     loop = -1,
                     timer = 46,
-                    offsets = { 3, 32 },
+                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = f_w, h = f_h },
                         { time = looptime }
@@ -48,7 +49,7 @@ local function load(skin)
                     id = "judge_f_gr",
                     loop = -1,
                     timer = 46,
-                    offsets = { 3, 32 },
+                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = f_w, h = f_h },
                         { time = looptime }
@@ -58,7 +59,7 @@ local function load(skin)
                     id = "judge_f_gd",
                     loop = -1,
                     timer = 46,
-                    offsets = { 3, 32 },
+                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = f_w, h = f_h },
                         { time = looptime }
@@ -68,7 +69,7 @@ local function load(skin)
                     id = "judge_f_bd",
                     loop = -1,
                     timer = 46,
-                    offsets = { 3, 32 },
+                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = f_w, h = f_h },
                         { time = looptime }
@@ -78,7 +79,7 @@ local function load(skin)
                     id = "judge_f_pr",
                     loop = -1,
                     timer = 46,
-                    offsets = { 3, 32 },
+                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = f_w, h = f_h },
                         { time = looptime }
@@ -88,7 +89,7 @@ local function load(skin)
                     id = "judge_f_ms",
                     loop = -1,
                     timer = 46,
-                    offsets = { 3, 32 },
+                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = f_w, h = f_h },
                         { time = looptime }
@@ -99,7 +100,7 @@ local function load(skin)
                 {
                     id = "judge_n_pg",
                     loop = -1,
-                    offset = { 32 },
+                    offset = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     timer = 46,
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = n_w, h = f_h },
@@ -109,7 +110,7 @@ local function load(skin)
                 {
                     id = "judge_n_gr",
                     loop = -1,
-                    offset = 32,
+                    offset = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     timer = 46,
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = n_w, h = f_h },
@@ -119,7 +120,7 @@ local function load(skin)
                 {
                     id = "judge_n_gd",
                     loop = -1,
-                    offset = 32,
+                    offset = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     timer = 46,
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = n_w, h = f_h },
@@ -129,7 +130,7 @@ local function load(skin)
                 {
                     id = "judge_n_bd",
                     loop = -1,
-                    offset = 32,
+                    offset = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     timer = 46,
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = n_w, h = f_h },
@@ -139,7 +140,7 @@ local function load(skin)
                 {
                     id = "judge_n_pr",
                     loop = -1,
-                    offset = 32,
+                    offset = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     timer = 46,
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = n_w, h = f_h },
@@ -149,7 +150,7 @@ local function load(skin)
                 {
                     id = "judge_n_ms",
                     loop = -1,
-                    offset = 32,
+                    offset = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     timer = 46,
                     dst = {
                         { time = 0,       x = geometry.lane_left_margin, y = geometry.lane_under_margin + 200, w = n_w, h = f_h },
