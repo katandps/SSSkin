@@ -7,7 +7,10 @@ local properties = {
 --- 組み込み定数
 -- @see https://github.com/exch-bms2/beatoraja/blob/master/src/bms/player/beatoraja/skin/SkinProperty.java
 local refs = {
-    current_combo = 75,
+    STRING_FULLTITLE  = 12,
+    STRING_FULLARTIST = 16,
+    current_combo     = 75,
+    STRING_TABLE_FULL = 1003,
 }
 local numbers = {
     NUMBER_MAXBPM = 90,

@@ -8,7 +8,9 @@ local function main()
 
     skin.source = {}
     skin.image = {}
-    skin.font = {}
+    skin.font = {
+        { id = "vl-gothic-regular", path = "common/font/VL-Gothic-Regular.ttf" },
+    }
     skin.imageset = {}
     skin.value = {}
     skin.text = {}
@@ -34,6 +36,7 @@ local function main()
     require("play/parts/judgeline").load(skin)
     require("play/judge/default").load(skin)
     require("play/parts/bpm").load(skin)
+    require("play/parts/title").load(skin)
 
     return skin
 end
