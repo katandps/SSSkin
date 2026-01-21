@@ -11,9 +11,9 @@ local function load(skin)
     })
 
     append_all(skin.image, {
-        { id = "note_w",       src = "src_note_w",    x = 0, y = 0, w = 60,  h = 12 },
-        { id = "note_b",       src = "src_note_b",    x = 0, y = 0, w = 48,  h = 12 },
-        { id = "note_s",       src = "src_note_s",    x = 0, y = 0, w = 108, h = 12 },
+        { id = "note_w",       src = "src_note_w",    x = 0, y = 0, w = 60,  h = 24 },
+        { id = "note_b",       src = "src_note_b",    x = 0, y = 0, w = 48,  h = 24 },
+        { id = "note_s",       src = "src_note_s",    x = 0, y = 0, w = 108, h = 24 },
         { id = "section_line", src = "src_green1dot", x = 0, y = 0, w = 1,   h = 1 },
     })
 
