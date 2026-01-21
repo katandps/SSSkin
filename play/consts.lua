@@ -1,6 +1,8 @@
+-- プロパティ用定数
 local properties = {
-    -- プロパティ用定数
+    -- 27インチモニターで43インチモニターと同等のサイズ
     size_27inch = 920,
+    -- 43インチモニターでちょうどよいサイズ
     size_43inch = 921,
 }
 
@@ -8,6 +10,7 @@ local properties = {
 -- @see https://github.com/exch-bms2/beatoraja/blob/master/src/bms/player/beatoraja/skin/SkinProperty.java
 local refs = {
     STRING_FULLTITLE  = 12,
+    NUMBER_LANECOVER1 = 14,
     STRING_FULLARTIST = 16,
     current_combo     = 75,
     STRING_TABLE_FULL = 1003,
@@ -29,8 +32,14 @@ local timers = {
     TIMER_KEYON_1P_KEY7 = 107,
 }
 
-local options = {
-    OPTION_BPMCHANGE = 177
+local offsets = {
+    OFFSET_LIFT     = 3,
+    OFFSET_JUDGE_1P = 32,
 }
 
-return { properties = properties, refs = refs, numbers = numbers, options = options, timers = timers }
+local options = {
+    OPTION_BPMCHANGE           = 177,
+    OPTION_LANECOVER1_CHANGING = 270,
+}
+
+return { properties = properties, refs = refs, offsets = offsets, numbers = numbers, options = options, timers = timers }
