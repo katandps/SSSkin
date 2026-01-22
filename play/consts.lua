@@ -28,8 +28,12 @@ local numbers = {
     NUMBER_NOWBPM = 160,
     NUMBER_HIGHSCORE2 = 170, -- 更新前のEXSCORE
 }
+local value = {
+    VALUE_JUDGE_1P_DURATION = 525,
+}
 
 local timers = {
+    TIMER_JUDGE_1P = 46,
     TIMER_KEYON_1P_SCRATCH = 100,
     TIMER_KEYON_1P_KEY1 = 101,
     TIMER_KEYON_1P_KEY2 = 102,
@@ -71,5 +75,6 @@ return {
     properties = properties,
     refs = refs,
     timers = timers,
+    value = value,
     values = values,
 }
