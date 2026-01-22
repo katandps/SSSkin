@@ -14,7 +14,7 @@ local function load(skin)
     table.insert(skin.destination, {
         id = "info_difficulty",
         dst = {
-            { x = 80, y = 164, w = 1040, h = title_h - 4 },
+            { x = 60, y = 144, w = 1040, h = title_h - 4 },
         }
     })
 
@@ -30,7 +30,7 @@ local function load(skin)
     table.insert(skin.destination, {
         id = "info_title",
         dst = {
-            { x = 80, y = 120, w = 1040, h = title_h },
+            { x = 60, y = 100, w = 1040, h = title_h },
         }
     })
 
@@ -46,7 +46,7 @@ local function load(skin)
     table.insert(skin.destination, {
         id = "info_artist",
         dst = {
-            { x = 80, y = 80, w = 1040, h = title_h - 4 },
+            { x = 60, y = 60, w = 1040, h = title_h - 4 },
         }
     })
 end
