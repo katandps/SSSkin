@@ -8,6 +8,7 @@ local properties = {
 
 --- 組み込み定数
 -- @see https://github.com/exch-bms2/beatoraja/blob/master/src/bms/player/beatoraja/skin/SkinProperty.java
+-- @see https://right-stick.sub.jp/lr2skinhelp/hanyou.html#src_number
 local refs = {
     STRING_FULLTITLE      = 12,
     NUMBER_LANECOVER1     = 14,
@@ -17,9 +18,15 @@ local refs = {
     NUMBER_DURATION_GREEN = 313,
 }
 local numbers = {
+    NUMBER_SCORE = 101,
+    NUMBER_SCORE_RATE = 102,
+    NUMBER_SCORE_RATE_AFTERDOT = 103,
     NUMBER_MAXBPM = 90,
     NUMBER_MINBPM = 91,
+    NUMBER_HIGHSCORE = 150,
+    NUMBER_DIFF_HIGHSCORE = 152,
     NUMBER_NOWBPM = 160,
+    NUMBER_HIGHSCORE2 = 170, -- 更新前のEXSCORE
 }
 
 local timers = {

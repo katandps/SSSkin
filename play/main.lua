@@ -37,6 +37,7 @@ local function main()
     require("play/sudden/default").load(skin)
     require("play/judge/default").load(skin)
     require("play/parts/bpm").load(skin)
+    require("play/info_panel/default").load(skin)
     require("play/parts/title").load(skin)
 
     return skin
