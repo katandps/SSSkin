@@ -50,4 +50,26 @@ local options = {
     OPTION_LANECOVER1_CHANGING = 270,
 }
 
-return { properties = properties, refs = refs, offsets = offsets, numbers = numbers, options = options, timers = timers }
+local buttons = {
+    BUTTON_RANDOM_1P = 42,
+}
+
+--- skin.valueに使えるオプション
+local values = {
+    zeropadding = {       -- zeropadding要素に指定する
+        SPACEPADDING = 0, -- 埋める場所には何も表示しない
+        ZEROPADDING = 1,  -- 数字を0埋めで表示する
+        ZERO2PADDING = 2, -- 数字を裏0埋めで表示する
+    }
+}
+
+return {
+    buttons = buttons,
+    numbers = numbers,
+    offsets = offsets,
+    options = options,
+    properties = properties,
+    refs = refs,
+    timers = timers,
+    values = values,
+}

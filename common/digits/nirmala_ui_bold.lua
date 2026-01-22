@@ -3,20 +3,24 @@ local append_all = require("utils/append_all")
 
 local width = 14
 local height = 33
-local divx = 24
 local divy = 1
-local common = { src = "src_number_nirmala_ui_bold", divx = divx, divy = divy, w = width * divx, h = height }
+local natural = { src = "src_number_nirmala_ui_bold", divx = 10, divy = divy, w = width * 10, h = height }
+local integer = { src = "src_number_nirmala_ui_bold", divx = 24, divy = divy, w = width * 24, h = height }
 
 local function white(t)
-    return merge_all(merge_all(t, common), { x = 0, y = 0, })
+    return merge_all(merge_all(t, natural), { x = 0, y = 0, })
+end
+
+local function white_integer(t)
+    return merge_all(merge_all(t, integer), { x = 0, y = 0, })
 end
 
 local function green(t)
-    return merge_all(merge_all(t, common), { x = 0, y = height, })
+    return merge_all(merge_all(t, natural), { x = 0, y = height, })
 end
 
 local function yellow(t)
-    return merge_all(merge_all(t, common), { x = 0, y = height * 2, })
+    return merge_all(merge_all(t, natural), { x = 0, y = height * 2, })
 end
 
 local function load(skin)
@@ -42,6 +46,7 @@ end
 return {
     load = load,
     white = white,
+    white_integer = white_integer,
     green = green,
     yellow = yellow,
     width = width,
