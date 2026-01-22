@@ -4,6 +4,15 @@ local refs = require("play/consts").refs
 local options = require("play/consts").options
 local offsets = require("play/consts").offsets
 local nirmala_ui_bold = require("common/digits/nirmala_ui_bold")
+local main_state = require("main_state")
+
+--- モニタサイズが変わっても正しく表示されるようにレーンカバーの値を再計算する
+local function calc_lanecover_value()
+    local cover = main_state.number(refs.NUMBER_LANECOVER1)
+    local lane_height = geometry.lane_height * (1000 - cover) / 1000 -- pixel換算
+    return (1 - lane_height / geometry.lane_all_height) * 1000
+end
+
 
 local function load(skin)
     nirmala_ui_bold.load(skin)
@@ -18,7 +27,7 @@ local function load(skin)
         nirmala_ui_bold.white({
             id = "num_lanecover",
             digit = 4,
-            ref = refs.NUMBER_LANECOVER1
+            value = calc_lanecover_value,
         }),
         nirmala_ui_bold.green({
             id = "num_green_number",
