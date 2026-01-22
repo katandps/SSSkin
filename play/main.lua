@@ -21,7 +21,7 @@ local function main()
     skin.note = {}
     skin.gauge = {}
     skin.judge = {}
-    skin.bga = { id = "bga" }
+    skin.bga = {}
     skin.destination = {}
     skin.judgegraph = { { id = "judgegraph", type = 1, backTexOff = 1 } }
     skin.bpmgraph = { { id = "bpmgraph" } }
@@ -40,6 +40,7 @@ local function main()
     require("play/parts/bpm").load(skin)
     require("play/score_panel").load(skin)
     require("play/parts/title").load(skin)
+    require("play/bga").load(skin)
 
     return skin
 end
