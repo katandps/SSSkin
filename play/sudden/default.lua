@@ -13,7 +13,6 @@ local function calc_lanecover_value()
     return (1 - lane_height / geometry.lane_all_height) * 1000
 end
 
-
 local function load(skin)
     nirmala_ui_bold.load(skin)
 
