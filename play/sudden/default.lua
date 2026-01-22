@@ -15,13 +15,18 @@ local function load(skin)
     )
 
     append_all(skin.value, {
-        nirmala_ui_bold.green({
+        nirmala_ui_bold.white({
             id = "num_lanecover",
-            divx = 10,
             digit = 4,
             ref = refs.NUMBER_LANECOVER1
         }),
+        nirmala_ui_bold.green({
+            id = "num_green_number",
+            digit = 4,
+            ref = refs.NUMBER_DURATION_GREEN
+        }),
     })
+
 
     append_all(skin.destination, {
         {
@@ -35,7 +40,14 @@ local function load(skin)
             id = "num_lanecover",
             op = { options.OPTION_LANECOVER1_CHANGING },
             dst = {
-                { x = geometry.lane_left_margin + geometry.lane_width * 0.25, y = 1080 - 36, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+                { x = geometry.lane_left_margin + geometry.lane_width * 0.3, y = 1044, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+            }
+        },
+        {
+            id = "num_green_number",
+            op = { options.OPTION_LANECOVER1_CHANGING },
+            dst = {
+                { x = geometry.lane_left_margin + geometry.lane_width * 0.6, y = 1044, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
             }
         },
     })
