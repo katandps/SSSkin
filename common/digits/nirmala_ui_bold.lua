@@ -1,4 +1,4 @@
-local merge_all = require("utils.merge_all")
+local merge_all = require("utils/merge_all")
 local append_all = require("utils/append_all")
 
 local width = 14
