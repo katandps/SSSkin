@@ -61,7 +61,7 @@ local buttons = {
 --- skin.valueに使えるオプション
 local values = {
     zeropadding = {       -- zeropadding要素に指定する
-        SPACEPADDING = 0, -- 埋める場所には何も表示しない
+        NOPADDING = 0,    -- スペースを埋めない
         ZEROPADDING = 1,  -- 数字を0埋めで表示する
         ZERO2PADDING = 2, -- 数字を裏0埋めで表示する
     }

@@ -11,15 +11,11 @@ local function load(skin)
 
     append_all(skin.value, {
         -- 判定タイミングのズレ（ミリ）
-        nirmala_ui_bold.white_integer({
+        nirmala_ui_bold.minus_plus({
             id = "judge_timing",
-            x = 1400,
-            y = 121,
-            w = 324,
-            h = 40,
             digit = 4,
             ref = value.VALUE_JUDGE_1P_DURATION,
-            zeropadding = values.zeropadding.ZEROPADDING
+            zeropadding = values.zeropadding.NOPADDING
         }),
     })
 

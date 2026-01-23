@@ -23,6 +23,16 @@ local function yellow(t)
     return merge_all(merge_all(t, natural), { x = 0, y = height * 2, })
 end
 
+--- プラスが青 マイナスが赤のimageを取得
+local function plus_minus(t)
+    return merge_all(merge_all(t, integer), { x = 0, y = height * 3, })
+end
+
+--- マイナスが青 プラスが赤のimageを取得
+local function minus_plus(t)
+    return merge_all(merge_all(t, integer), { x = 0, y = height * 4, })
+end
+
 local function load(skin)
     append_all(skin.source, { { id = "src_number_nirmala_ui_bold", path = "common/digits/nirmala_ui_bold.png" } })
 end
@@ -49,8 +59,10 @@ return {
     white_integer = white_integer,
     green = green,
     yellow = yellow,
+    plus_minus = plus_minus,
+    minus_plus = minus_plus,
     width = width,
     height = height,
     white_image = white_image,
-    white_pick = white_pick
+    white_pick = white_pick,
 }
