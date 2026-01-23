@@ -23,4 +23,4 @@ luaの範囲内で計算するのは厳しいと考えられる
 
 #### 判定文字 reiko-square
 
-[Reiko Font](https://fontesk.com/reiko-font/) Muzaffer Yıldırım
+[Reiko Font](https://fontesk.com/reiko-font/) [Muzaffer Yıldırım](https://www.behance.net/muzafferyldrm/projects)
