@@ -98,12 +98,25 @@ local values = {
     }
 }
 
+local gauge_types = {
+    GAUGE_TYPE_ASSIST_EASY  = 0,
+    GAUGE_TYPE_EASY         = 1,
+    GAUGE_TYPE_NORMAL       = 2,
+    GAUGE_TYPE_HARD         = 3,
+    GAUGE_TYPE_EXHARD       = 4,
+    GAUGE_TYPE_HAZARD       = 5,
+    GAUGE_TYPE_GRADE        = 6,
+    GAUGE_TYPE_EX_GRADE     = 7,
+    GAUGE_TYPE_EXHARD_GRADE = 8,
+}
+
 local resource_ids = {
     WHITE = -111
 }
 
 return {
     buttons = buttons,
+    gauge_types = gauge_types,
     numbers = numbers,
     offsets = offsets,
     options = options,
