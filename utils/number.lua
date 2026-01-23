@@ -1,4 +1,4 @@
-local merge_all = require("utils.merge_all")
+local merge_all = require("utils/merge_all")
 local function number(t)
     local number_size = {
         src_number_newtown = { w = 70, h = 70 },
