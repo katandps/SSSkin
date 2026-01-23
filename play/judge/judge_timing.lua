@@ -19,7 +19,7 @@ local function load(skin)
         }),
     })
 
-    local x = geometry.lane_left_margin + geometry.lane_width / 2 - 227 / 2
+    local x = geometry.lane_left_margin + geometry.lane_width / 2 - nirmala_ui_bold.width * 2
 
     -- +-ms
     append_all(skin.destination, {
@@ -30,7 +30,7 @@ local function load(skin)
             loop = -1,
             timer = timers.TIMER_JUDGE_1P,
             dst = {
-                { time = 0,  x = x, y = geometry.lane_under_margin + 300, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+                { time = 0,  x = x, y = 650, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
                 { time = 500 }
             }
         },

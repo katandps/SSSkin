@@ -29,7 +29,9 @@ local function load(skin)
         { id = "judge_n_ms", src = "src_judge", x = 0, y = judge_height * 5, w = number_chip_width, h = judge_height, divx = 10, digit = 6, ref = consts.current_combo, space = num_space },
     })
     local x = geometry.lane_left_margin + geometry.lane_width / 2 - judge_font_w / 2 - geometry.lane_margin -- いい感じの位置
-    local y = geometry.lane_under_margin + 200 - judge_height / 2 -- 判定文字の種類による差を軽減する
+    local y = geometry.lane_under_margin + 200 -
+        judge_height /
+        2 -- 判定文字の種類による差を軽減する
     skin.judge = {
         {
             id = "judge",
@@ -40,7 +42,7 @@ local function load(skin)
                     timer = 46,
                     offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
-                        { time = 0, x = x, y = geometry.lane_under_margin + 200, w = judge_font_w, h = judge_height },
+                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
                     }
                 },
                 {
@@ -48,7 +50,7 @@ local function load(skin)
                     timer = 46,
                     offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
-                        { time = 0, x = x, y = geometry.lane_under_margin + 200, w = judge_font_w, h = judge_height },
+                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
                     }
                 },
                 {
@@ -56,7 +58,7 @@ local function load(skin)
                     timer = 46,
                     offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
-                        { time = 0, x = x, y = geometry.lane_under_margin + 200, w = judge_font_w, h = judge_height },
+                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
                     }
                 },
                 {
@@ -64,7 +66,7 @@ local function load(skin)
                     timer = 46,
                     offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
-                        { time = 0, x = x, y = geometry.lane_under_margin + 200, w = judge_font_w, h = judge_height },
+                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
                     }
                 },
                 {
@@ -72,7 +74,7 @@ local function load(skin)
                     timer = 46,
                     offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
-                        { time = 0, x = x, y = geometry.lane_under_margin + 200, w = judge_font_w, h = judge_height },
+                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
                     }
                 },
                 {
@@ -80,7 +82,7 @@ local function load(skin)
                     timer = 46,
                     offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
                     dst = {
-                        { time = 0, x = x, y = geometry.lane_under_margin + 200, w = judge_font_w, h = judge_height },
+                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
                     }
                 }
             },
