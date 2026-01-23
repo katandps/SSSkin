@@ -5,10 +5,10 @@ local function load(skin)
     table.insert(skin.destination, {
         id = -110,
         timer = timers.TIMER_FADEOUT,
-        loop = 50,
+        loop = -1,
         dst = {
             { time = 0,   x = 0,  y = 0, w = header.w, h = header.h, a = 0 },
-            { time = 100, a = 255 }
+            { time = 500, a = 255 }
         }
     })
 end

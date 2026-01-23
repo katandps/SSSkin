@@ -36,12 +36,12 @@ local function main()
     require("play/parts/judgeline").load(skin)
     require("play/sudden/default").load(skin)
     require("play/judge/default").load(skin)
-    require("play/judge_timing").load(skin)
+    require("play/judge/judge_timing").load(skin)
     require("play/parts/bpm").load(skin)
-    require("play/score_panel").load(skin)
+    require("play/parts/score_panel").load(skin)
     require("play/parts/title").load(skin)
-    require("play/bga").load(skin)
-    require("play/fadeout").load(skin)
+    require("play/parts/bga").load(skin)
+    require("play/parts/fadeout").load(skin)
 
     return skin
 end
