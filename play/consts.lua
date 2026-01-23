@@ -33,6 +33,10 @@ local value = {
 }
 
 local timers = {
+    TIMER_STARTINPUT = 1,
+    TIMER_FADEOUT = 2,
+    TIMER_FAILED = 3,
+
     TIMER_JUDGE_1P = 46,
     TIMER_KEYON_1P_SCRATCH = 100,
     TIMER_KEYON_1P_KEY1 = 101,

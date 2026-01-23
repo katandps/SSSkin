@@ -41,6 +41,7 @@ local function main()
     require("play/score_panel").load(skin)
     require("play/parts/title").load(skin)
     require("play/bga").load(skin)
+    require("play/fadeout").load(skin)
 
     return skin
 end
