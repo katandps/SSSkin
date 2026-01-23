@@ -61,6 +61,7 @@ local function build(display_size_inch)
         note_height = display_size.note_height,
         lane_under_margin = display_size.lane_under_margin,
         lane_left_margin = display_size.lane_left_margin,
+        lane_margin = 20,
 
         lane_x_positions = lane_x_positions(display_size),
         lane_width = lane_width(display_size),

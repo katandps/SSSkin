@@ -18,3 +18,9 @@
 beatorajaの2026/01/23のmasterではリザルト画面上でしか取得できないオプションだった(NUMBER 450~470あたり)
 luaの範囲内で計算するのは厳しいと考えられる
 (ネット上の譜面データと突き合わせて計算できる可能性はあるが、本体をバージョンアップするほうがマシそう)
+
+### 使用させていただいたフォント・素材
+
+#### 判定文字 reiko-square
+
+[Reiko Font](https://fontesk.com/reiko-font/) Muzaffer Yıldırım
