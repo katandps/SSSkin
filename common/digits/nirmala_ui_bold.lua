@@ -4,7 +4,7 @@ local append_all = require("utils/append_all")
 local width = 14
 local height = 33
 local divy = 1
-local natural = { src = "src_number_nirmala_ui_bold", divx = 10, divy = divy, w = width * 10, h = height }
+local natural = { src = "src_number_nirmala_ui_bold", divx = 11, divy = divy, w = width * 11, h = height }
 local integer = { src = "src_number_nirmala_ui_bold", divx = 24, divy = divy, w = width * 24, h = height }
 
 local function white(t)
@@ -28,10 +28,19 @@ local function plus_minus(t)
     return merge_all(merge_all(t, integer), { x = 0, y = height * 3, })
 end
 
+local function blue(t)
+    return merge_all(merge_all(t, natural), { x = 0, y = height * 3, })
+end
+
 --- マイナスが青 プラスが赤のimageを取得
 local function minus_plus(t)
     return merge_all(merge_all(t, integer), { x = 0, y = height * 4, })
 end
+
+local function red(t)
+    return merge_all(merge_all(t, natural), { x = 0, y = height * 4, })
+end
+
 
 local function load(skin)
     append_all(skin.source, { { id = "src_number_nirmala_ui_bold", path = "common/digits/nirmala_ui_bold.png" } })
@@ -59,6 +68,8 @@ return {
     white_integer = white_integer,
     green = green,
     yellow = yellow,
+    red = red,
+    blue = blue,
     plus_minus = plus_minus,
     minus_plus = minus_plus,
     width = width,
