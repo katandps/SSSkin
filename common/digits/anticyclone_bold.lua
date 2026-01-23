@@ -4,7 +4,7 @@ local append_all = require("utils/append_all")
 local width = 30
 local height = 40
 local divy = 1
-local natural = { src = "src_anticyclone_bold", divx = 11, divy = divy, w = width * 10, h = height }
+local natural = { src = "src_anticyclone_bold", divx = 11, divy = divy, w = width * 11, h = height }
 
 local function white(t)
     return merge_all(merge_all(t, natural), { x = 0, y = 0, })
