@@ -29,7 +29,7 @@ local function plus_minus(t)
 end
 
 local function blue(t)
-    return merge_all(merge_all(t, natural), { x = 0, y = height * 3, })
+    return merge_all(merge_all(t, natural), { x = 0, y = height * 4, })
 end
 
 --- マイナスが青 プラスが赤のimageを取得
@@ -38,7 +38,7 @@ local function minus_plus(t)
 end
 
 local function red(t)
-    return merge_all(merge_all(t, natural), { x = 0, y = height * 4, })
+    return merge_all(merge_all(t, natural), { x = 0, y = height * 3, })
 end
 
 
