@@ -1,11 +1,3 @@
--- プロパティ用定数
-local properties = {
-    -- 27インチモニターで43インチモニターと同等のサイズ
-    size_27inch = 920,
-    -- 43インチモニターでちょうどよいサイズ
-    size_43inch = 921,
-}
-
 --- 組み込み定数
 -- @see https://github.com/exch-bms2/beatoraja/blob/master/src/bms/player/beatoraja/skin/SkinProperty.java
 -- @see https://right-stick.sub.jp/lr2skinhelp/hanyou.html#src_number
@@ -126,16 +118,24 @@ local resource_ids = {
     WHITE = -111
 }
 
+local PLAYER1 = {
+    SCRATCH = "LEFT",
+}
+local PLAYER2 = {
+    SCRATCH = "RIGHT",
+}
+
 return {
     buttons = buttons,
     gauge_types = gauge_types,
     numbers = numbers,
     offsets = offsets,
     options = options,
-    properties = properties,
     refs = refs,
     resource_ids = resource_ids,
     timers = timers,
     value = value,
     values = values,
+    PLAYER1 = PLAYER1,
+    PLAYER2 = PLAYER2,
 }

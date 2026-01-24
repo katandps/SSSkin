@@ -1,6 +1,6 @@
 local consts = require("play/consts")
 local append_all = require("utils/append_all")
-local geometry = require("play/geometry").build(27)
+local geometry = require("play/geometry").build()
 local offsets = consts.offsets
 
 local judge_font_w = 420

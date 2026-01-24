@@ -4,7 +4,7 @@ local values = require("play/consts").values
 local value = require("play/consts").value
 local offsets = require("play/consts").offsets
 local timers = require("play/consts").timers
-local geometry = require("play/geometry").build(27)
+local geometry = require("play/geometry").build()
 
 local function load(skin)
     nirmala_ui_bold.load(skin)

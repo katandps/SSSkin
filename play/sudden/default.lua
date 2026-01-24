@@ -1,4 +1,4 @@
-local geometry = require("play/geometry").build(27)
+local geometry = require("play/geometry").build()
 local append_all = require("utils/append_all")
 local refs = require("play/consts").refs
 local options = require("play/consts").options

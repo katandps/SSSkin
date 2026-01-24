@@ -1,5 +1,5 @@
 local append_all = require("utils/append_all")
-local geometry = require("play/geometry").build(27)
+local geometry = require("play/geometry").build()
 local timers = require("play/consts").timers
 local offsets = require("play/consts").offsets
 
