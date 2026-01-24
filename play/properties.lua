@@ -47,7 +47,7 @@ local property = {
     {
         name = "Player Side",
         item = {
-            { name = "1P(未実装)", op = PROPERTY.SIDE_1P },
+            { name = "1P", op = PROPERTY.SIDE_1P },
             { name = "2P", op = PROPERTY.SIDE_2P }
         }
     }
