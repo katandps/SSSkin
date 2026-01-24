@@ -43,7 +43,6 @@ local function lane_x_positions(display_size, player_side)
     local m = ds.lane_between_margin
     if type == "LEFT" then
         return {
-            0,
             s + m,
             s + w + m * 2,
             s + w + b + m * 3,
@@ -51,6 +50,7 @@ local function lane_x_positions(display_size, player_side)
             s + w * 2 + b * 2 + m * 5,
             s + w * 3 + b * 2 + m * 6,
             s + w * 3 + b * 3 + m * 7,
+            0,
         }
     elseif type == "RIGHT" then
         return {
