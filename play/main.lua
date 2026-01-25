@@ -33,7 +33,7 @@ local function main()
 
     require("play/keybeam/default").load(skin)
     require("play/note/default").load(skin)
-    require("play/parts/judgeline").load(skin)
+    require("play/parts/judgeline/glow").load(skin)
     require("play/sudden/default").load(skin)
     require("play/judge/default").load(skin)
     require("play/judge/judge_timing").load(skin)
