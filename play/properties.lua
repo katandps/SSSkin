@@ -53,4 +53,19 @@ local property = {
     }
 }
 
-return { property = property, display_size = display_size, player_side = player_side }
+local filepath = {
+    { name = "dummy", path = "play/resource/*.png" }
+}
+
+local offset = {
+    { name = "dummy_offset", id = 40, a = true }
+}
+
+return {
+    property = property,
+    filepath = filepath,
+    offset = offset,
+    display_size = display_size,
+    player_side =
+        player_side
+}

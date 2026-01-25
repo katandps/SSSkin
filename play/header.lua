@@ -1,3 +1,5 @@
+local config = require("play/properties")
+
 local header = {
     type = 0,
     name = "SSS Play skin 0.1",
@@ -10,13 +12,9 @@ local header = {
     input = 500,
     close = 500,
     fadeout = 500,
-    property = require("play/properties").property,
-    filepath = {
-        { name = "dummy", path = "play/resource/*.png" }
-    },
-    offset = {
-        { name = "dummy_offset", id = 40, a = true }
-    }
+    property = config.property,
+    filepath = config.filepath,
+    offset = config.offset,
 }
 
 return header
