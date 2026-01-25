@@ -66,6 +66,5 @@ return {
     filepath = filepath,
     offset = offset,
     display_size = display_size,
-    player_side =
-        player_side
+    player_side = player_side
 }
