@@ -19,6 +19,8 @@ local PROPERTY = {
     JUDGE_LINE_SIMPLE = 1000,
     --- 判定ライン：発光付き
     JUDGE_LINE_GLOW = 1001,
+    --- 判定ライン：発光付き（タイミング）
+    JUDGE_LINE_GLOW_TIMING = 1002,
 }
 
 
@@ -45,14 +47,7 @@ local function player_side()
 end
 
 local function judge_line_type()
-    local op = skin_config.option["Judge Line Type"]
-    if op == PROPERTY.JUDGE_LINE_SIMPLE then
-        return "simple"
-    elseif op == PROPERTY.JUDGE_LINE_GLOW then
-        return "glow"
-    else
-        error("Invalid Judge Line Type option: " .. tostring(op))
-    end
+    return skin_config.option["Judge Line Type"]
 end
 
 local property = {
@@ -84,8 +79,9 @@ local property = {
         name = "Judge Line Type",
         category = "Custom Parts",
         item = {
-            { name = "Simple", op = PROPERTY.JUDGE_LINE_SIMPLE },
-            { name = "Glow",   op = PROPERTY.JUDGE_LINE_GLOW },
+            { name = "Simple",       op = PROPERTY.JUDGE_LINE_SIMPLE },
+            { name = "Glow",         op = PROPERTY.JUDGE_LINE_GLOW },
+            { name = "Glow(timing)", op = PROPERTY.JUDGE_LINE_GLOW_TIMING },
         }
     },
     {
@@ -108,5 +104,6 @@ return {
     offset = offset,
     display_size = display_size,
     player_side = player_side,
-    judge_line_type = judge_line_type
+    judge_line_type = judge_line_type,
+    PROPERTY = PROPERTY,
 }

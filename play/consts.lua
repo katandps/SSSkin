@@ -60,8 +60,6 @@ local timers = {
 
     TIMER_BOMB_1P_SCRATCH = 50,
     TIMER_BOMB_1P_KEY1 = 51,
-    TIMER_HCN_ACTIVE_1P_SCRATCH = 250,
-    TIMER_HCN_ACTIVE_1P_KEY1 = 251,
     TIMER_BOMB_1P_KEY2 = 52,
     TIMER_BOMB_1P_KEY3 = 53,
     TIMER_BOMB_1P_KEY4 = 54,
@@ -87,6 +85,15 @@ local offsets = {
 local options = {
     OPTION_BPMCHANGE           = 177,
     OPTION_LANECOVER1_CHANGING = 270,
+
+    OPTION_1P_PERFECT          = 241,
+    OPTION_1P_GREAT            = 242,
+    OPTION_1P_EARLY            = 1242,
+    OPTION_1P_GOOD             = 243,
+    OPTION_1P_LATE             = 1243,
+    OPTION_1P_BAD              = 244,
+    OPTION_1P_POOR             = 245,
+    OPTION_1P_MISS             = 246,
 }
 
 local buttons = {
