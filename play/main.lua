@@ -23,8 +23,8 @@ local function main()
     skin.judge = {}
     skin.bga = {}
     skin.destination = {}
-    skin.judgegraph = { { id = "judgegraph", type = 1, backTexOff = 1 } }
-    skin.bpmgraph = { { id = "bpmgraph" } }
+    skin.judgegraph = {}
+    skin.bpmgraph = {}
     skin.timingvisualizer = { { id = "timing" } }
 
     -- 記述順に描画される
