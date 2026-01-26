@@ -1,11 +1,11 @@
 -- 発光付き判定ライン
 
 local geometry = require("play/geometry").build()
-local offsets = require("play/consts").offsets
+local OFFSETS = require("play/consts").OFFSETS
 local append_all = require("utils/append_all")
-local resource_ids = require("play/consts").resource_ids
-local timers = require("play/consts").timers
-local options = require("play/consts").options
+local RESOURCE_IDS = require("play/consts").RESOURCE_IDS
+local TIMERS = require("play/consts").TIMERS
+local OPTIONS = require("play/consts").OPTIONS
 
 local function load(skin)
     local left_margin = geometry.lane_left_margin
@@ -13,8 +13,8 @@ local function load(skin)
 
     local y = geometry.lane_under_margin - geometry.lane_margin
     table.insert(skin.destination, {
-        id = resource_ids.WHITE,
-        offset = offsets.OFFSET_LIFT,
+        id = RESOURCE_IDS.WHITE,
+        offset = OFFSETS.OFFSET_LIFT,
         dst = { { x = left_margin, y = y, w = geometry.lane_width, h = geometry.note_height, r = 80, g = 0, b = 0 }, }
     })
 
@@ -29,8 +29,8 @@ local function load(skin)
 
     local function dst(timer, position, width, options, color)
         return {
-            id = resource_ids.WHITE,
-            offsets = { offsets.OFFSET_LIFT },
+            id = RESOURCE_IDS.WHITE,
+            offsets = { OFFSETS.OFFSET_LIFT },
             loop = -1,
             op = options,
             timer = timer,
@@ -44,19 +44,19 @@ local function load(skin)
 
     local function dsts(options, color)
         return {
-            dst(timers.TIMER_BOMB_1P_KEY1, lane_x_positions[1], geometry.lane_white_key_width, options, color),
-            dst(timers.TIMER_BOMB_1P_KEY2, lane_x_positions[2], geometry.lane_black_key_width, options, color),
-            dst(timers.TIMER_BOMB_1P_KEY3, lane_x_positions[3], geometry.lane_white_key_width, options, color),
-            dst(timers.TIMER_BOMB_1P_KEY4, lane_x_positions[4], geometry.lane_black_key_width, options, color),
-            dst(timers.TIMER_BOMB_1P_KEY5, lane_x_positions[5], geometry.lane_white_key_width, options, color),
-            dst(timers.TIMER_BOMB_1P_KEY6, lane_x_positions[6], geometry.lane_black_key_width, options, color),
-            dst(timers.TIMER_BOMB_1P_KEY7, lane_x_positions[7], geometry.lane_white_key_width, options, color),
-            dst(timers.TIMER_BOMB_1P_SCRATCH, lane_x_positions[8], geometry.lane_scratch_width, options, color),
+            dst(TIMERS.TIMER_BOMB_1P_KEY1, lane_x_positions[1], geometry.lane_white_key_width, options, color),
+            dst(TIMERS.TIMER_BOMB_1P_KEY2, lane_x_positions[2], geometry.lane_black_key_width, options, color),
+            dst(TIMERS.TIMER_BOMB_1P_KEY3, lane_x_positions[3], geometry.lane_white_key_width, options, color),
+            dst(TIMERS.TIMER_BOMB_1P_KEY4, lane_x_positions[4], geometry.lane_black_key_width, options, color),
+            dst(TIMERS.TIMER_BOMB_1P_KEY5, lane_x_positions[5], geometry.lane_white_key_width, options, color),
+            dst(TIMERS.TIMER_BOMB_1P_KEY6, lane_x_positions[6], geometry.lane_black_key_width, options, color),
+            dst(TIMERS.TIMER_BOMB_1P_KEY7, lane_x_positions[7], geometry.lane_white_key_width, options, color),
+            dst(TIMERS.TIMER_BOMB_1P_SCRATCH, lane_x_positions[8], geometry.lane_scratch_width, options, color),
         }
     end
 
-    append_all(skin.destination, dsts({ -options.OPTION_1P_EARLY, -options.OPTION_1P_LATE }, white))
-    append_all(skin.destination, dsts({ options.OPTION_1P_EARLY }, red))
-    append_all(skin.destination, dsts({ options.OPTION_1P_LATE }, blue))
+    append_all(skin.destination, dsts({ -OPTIONS.OPTION_1P_EARLY, -OPTIONS.OPTION_1P_LATE }, white))
+    append_all(skin.destination, dsts({ OPTIONS.OPTION_1P_EARLY }, red))
+    append_all(skin.destination, dsts({ OPTIONS.OPTION_1P_LATE }, blue))
 end
 return { load = load }

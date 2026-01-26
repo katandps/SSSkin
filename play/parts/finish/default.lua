@@ -1,11 +1,11 @@
 local append_all = require("utils/append_all")
-local timers = require("play/consts").timers
-local options = require("play/consts").options
+local TIMERS = require("play/consts").TIMERS
+local OPTIONS = require("play/consts").OPTIONS
 local main_state = require("main_state")
+local geometry = require("play/geometry").build()
+local OFFSETS = require("play/consts").OFFSETS
 
 local function load(skin)
-    local geometry = require("play/geometry").build()
-    local offsets = require("play/consts").offsets
     table.insert(skin.source, { id = "src_finish", path = "play/parts/finish/finish.png" })
 
     local finish_w = 450
@@ -23,10 +23,10 @@ local function load(skin)
     append_all(skin.destination, {
         {
             id = "finish_finish",
-            offset = offsets.OFFSET_LIFT,
-            timer = timers.TIMER_ENDOFNOTE_1P,
+            offset = OFFSETS.OFFSET_LIFT,
+            timer = TIMERS.TIMER_ENDOFNOTE_1P,
             draw = function()
-                return main_state.option(options.OPTION_BAD_EXIST) or main_state.option(options.OPTION_POOR_EXIST)
+                return main_state.option(OPTIONS.OPTION_BAD_EXIST) or main_state.option(OPTIONS.OPTION_POOR_EXIST)
             end,
             loop = 1000,
             dst = {
@@ -36,9 +36,9 @@ local function load(skin)
         },
         {
             id = "finish_fullcombo",
-            offset = offsets.OFFSET_LIFT,
-            timer = timers.TIMER_ENDOFNOTE_1P,
-            op = { options.OPTION_GOOD_EXIST, -options.OPTION_BAD_EXIST, -options.OPTION_POOR_EXIST },
+            offset = OFFSETS.OFFSET_LIFT,
+            timer = TIMERS.TIMER_ENDOFNOTE_1P,
+            op = { OPTIONS.OPTION_GOOD_EXIST, -OPTIONS.OPTION_BAD_EXIST, -OPTIONS.OPTION_POOR_EXIST },
             loop = 1000,
             dst = {
                 { time = 0,    x = geometry.lane_left_margin + geometry.lane_width / 2 - fullcombo_w / 2, y = y, w = fullcombo_w, h = height, a = 0 },
@@ -47,9 +47,9 @@ local function load(skin)
         },
         {
             id = "finish_perfect",
-            offset = offsets.OFFSET_LIFT,
-            timer = timers.TIMER_ENDOFNOTE_1P,
-            op = { -options.OPTION_GOOD_EXIST, -options.OPTION_BAD_EXIST, -options.OPTION_POOR_EXIST },
+            offset = OFFSETS.OFFSET_LIFT,
+            timer = TIMERS.TIMER_ENDOFNOTE_1P,
+            op = { -OPTIONS.OPTION_GOOD_EXIST, -OPTIONS.OPTION_BAD_EXIST, -OPTIONS.OPTION_POOR_EXIST },
             loop = 1000,
             dst = {
                 { time = 0,    x = geometry.lane_left_margin + geometry.lane_width / 2 - perfect_w / 2, y = y, w = perfect_w, h = height, a = 0 },

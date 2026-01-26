@@ -1,15 +1,14 @@
 local geometry = require("play/geometry").build()
 local append_all = require("utils/append_all")
-local refs = require("play/consts").refs
-local options = require("play/consts").options
-local offsets = require("play/consts").offsets
+local NUMBERS = require("play/consts").NUMBERS
+local OFFSETS = require("play/consts").OFFSETS
+local OPTIONS = require("play/consts").OPTIONS
 local nirmala_ui_bold = require("common/digits/nirmala_ui_bold")
 local main_state = require("main_state")
-local numbers = require("play/consts").numbers
 
 --- モニタサイズが変わっても正しく表示されるようにレーンカバーの値を再計算する
 local function calc_lanecover_value()
-    local cover = main_state.number(numbers.NUMBER_LANECOVER1)
+    local cover = main_state.number(NUMBERS.NUMBER_LANECOVER1)
     local lane_height = geometry.lane_height * (1000 - cover) / 1000 -- pixel換算
     return (1 - lane_height / geometry.lane_all_height) * 1000
 end
@@ -32,7 +31,7 @@ local function load(skin)
         nirmala_ui_bold.green({
             id = "num_green_number",
             digit = 4,
-            ref = numbers.NUMBER_DURATION_GREEN
+            ref = NUMBERS.NUMBER_DURATION_GREEN
         }),
     })
 
@@ -40,21 +39,21 @@ local function load(skin)
     append_all(skin.destination, {
         {
             id = "lanecover",
-            offset = { offsets.OFFSET_LIFT },
+            offset = { OFFSETS.OFFSET_LIFT },
             dst = {
                 { x = geometry.lane_left_margin, y = geometry.lane_under_margin + geometry.lane_height, w = geometry.lane_width, h = geometry.lane_height },
             }
         },
         {
             id = "num_lanecover",
-            op = { options.OPTION_LANECOVER1_CHANGING },
+            op = { OPTIONS.OPTION_LANECOVER1_CHANGING },
             dst = {
                 { x = geometry.lane_left_margin + geometry.lane_width * 0.3, y = 1044, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
             }
         },
         {
             id = "num_green_number",
-            op = { options.OPTION_LANECOVER1_CHANGING },
+            op = { OPTIONS.OPTION_LANECOVER1_CHANGING },
             dst = {
                 { x = geometry.lane_left_margin + geometry.lane_width * 0.6, y = 1044, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
             }

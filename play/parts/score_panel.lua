@@ -1,7 +1,7 @@
 local nirmala_ui_bold = require("common/digits/nirmala_ui_bold")
 local append_all = require("utils/append_all")
-local numbers = require("play/consts").numbers
-local values = require("play/consts").values
+local NUMBERS = require("play/consts").NUMBERS
+local VALUES = require("play/consts").VALUES
 
 local function load(skin)
     nirmala_ui_bold.load(skin)
@@ -11,28 +11,28 @@ local function load(skin)
         nirmala_ui_bold.yellow({
             id = "num_info_panel_score",
             digit = 5,
-            ref = numbers.NUMBER_SCORE
+            ref = NUMBERS.NUMBER_SCORE
         }),
         nirmala_ui_bold.yellow({
             id = "num_info_panel_rate_integer_part",
             digit = 3,
-            ref = numbers.NUMBER_SCORE_RATE
+            ref = NUMBERS.NUMBER_SCORE_RATE
         }),
         nirmala_ui_bold.yellow({
             id = "num_info_panel_rate_decimal_part",
             digit = 2,
-            zeropadding = values.zeropadding.ZEROPADDING,
-            ref = numbers.NUMBER_SCORE_RATE_AFTERDOT
+            zeropadding = VALUES.zeropadding.ZEROPADDING,
+            ref = NUMBERS.NUMBER_SCORE_RATE_AFTERDOT
         }),
         nirmala_ui_bold.white({
             id = "num_info_panel_high_score",
             digit = 5,
-            ref = numbers.NUMBER_HIGHSCORE
+            ref = NUMBERS.NUMBER_HIGHSCORE
         }),
         nirmala_ui_bold.white_integer({
             id = "num_info_panel_diff_high_score",
             digit = 5,
-            ref = numbers.NUMBER_DIFF_HIGHSCORE
+            ref = NUMBERS.NUMBER_DIFF_HIGHSCORE
         }),
     })
 

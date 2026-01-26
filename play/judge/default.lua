@@ -1,7 +1,6 @@
-local consts = require("play/consts")
 local append_all = require("utils/append_all")
 local geometry = require("play/geometry").build()
-local offsets = consts.offsets
+local OFFSETS = require("play/consts").OFFSETS
 
 local judge_font_w = 420
 local judge_height = 96
@@ -21,12 +20,12 @@ local function load(skin)
     })
 
     append_all(skin.value, {
-        { id = "judge_n_pg", src = "src_judge", x = 0, y = 0,                w = number_chip_width, h = judge_height, divx = 10, digit = 6, ref = consts.current_combo, space = num_space },
-        { id = "judge_n_gr", src = "src_judge", x = 0, y = judge_height,     w = number_chip_width, h = judge_height, divx = 10, digit = 6, ref = consts.current_combo, space = num_space },
-        { id = "judge_n_gd", src = "src_judge", x = 0, y = judge_height * 2, w = number_chip_width, h = judge_height, divx = 10, digit = 6, ref = consts.current_combo, space = num_space },
-        { id = "judge_n_bd", src = "src_judge", x = 0, y = judge_height * 3, w = number_chip_width, h = judge_height, divx = 10, digit = 6, ref = consts.current_combo, space = num_space },
-        { id = "judge_n_pr", src = "src_judge", x = 0, y = judge_height * 4, w = number_chip_width, h = judge_height, divx = 10, digit = 6, ref = consts.current_combo, space = num_space },
-        { id = "judge_n_ms", src = "src_judge", x = 0, y = judge_height * 5, w = number_chip_width, h = judge_height, divx = 10, digit = 6, ref = consts.current_combo, space = num_space },
+        { id = "judge_n_pg", src = "src_judge", x = 0, y = 0,                w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
+        { id = "judge_n_gr", src = "src_judge", x = 0, y = judge_height,     w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
+        { id = "judge_n_gd", src = "src_judge", x = 0, y = judge_height * 2, w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
+        { id = "judge_n_bd", src = "src_judge", x = 0, y = judge_height * 3, w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
+        { id = "judge_n_pr", src = "src_judge", x = 0, y = judge_height * 4, w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
+        { id = "judge_n_ms", src = "src_judge", x = 0, y = judge_height * 5, w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
     })
     local x = geometry.lane_left_margin + geometry.lane_width / 2 - judge_font_w / 2 - geometry.lane_margin
     local y = geometry.lane_under_margin + 200 - judge_height / 2 -- 判定文字の種類による差を軽減する
@@ -36,7 +35,7 @@ local function load(skin)
         return {
             id = id,
             timer = 46,
-            offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
+            offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGE_1P },
             dst = { text_dst }
         }
     end
@@ -46,7 +45,7 @@ local function load(skin)
         return {
             id = id,
             timer = 46,
-            offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
+            offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGE_1P },
             dst = { number_dst }
         }
     end

@@ -1,13 +1,13 @@
 --- 組み込み定数
 -- @see https://github.com/exch-bms2/beatoraja/blob/master/src/bms/player/beatoraja/skin/SkinProperty.java
 -- @see https://right-stick.sub.jp/lr2skinhelp/hanyou.html#src_number
-local strings = {
+local STRINGS = {
     STRING_FULLTITLE  = 12,
     STRING_FULLARTIST = 16,
     STRING_TABLE_FULL = 1003,
 }
 
-local numbers = {
+local NUMBERS = {
     NUMBER_JUDGETIMING             = 12,
     NUMBER_LANECOVER1              = 14,
 
@@ -51,11 +51,11 @@ local numbers = {
     NUMBER_POOR_PLUS_MISS          = 426,
     NUMBER_BAD_PLUS_POOR_PLUS_MISS = 427,
 }
-local value = {
+local VALUE = {
     VALUE_JUDGE_1P_DURATION = 525,
 }
 
-local timers = {
+local TIMERS = {
     TIMER_STARTINPUT = 1,
     TIMER_FADEOUT = 2,
     TIMER_FAILED = 3,
@@ -87,12 +87,12 @@ local timers = {
     CUSTOM_TIMER_SLOW_SOFLAN_1P = 10000,
 }
 
-local offsets = {
+local OFFSETS = {
     OFFSET_LIFT     = 3,
     OFFSET_JUDGE_1P = 32,
 }
 
-local options = {
+local OPTIONS = {
     OPTION_AUTOPLAYOFF         = 32,
 
     OPTION_BPMCHANGE           = 177,
@@ -115,12 +115,12 @@ local options = {
     OPTION_MISS_EXIST          = 2246,
 }
 
-local buttons = {
+local BUTTONS = {
     BUTTON_RANDOM_1P = 42,
 }
 
 --- skin.valueに使えるオプション
-local values = {
+local VALUES = {
     zeropadding = {       -- zeropadding要素に指定する
         NOPADDING = 0,    -- スペースを埋めない
         ZEROPADDING = 1,  -- 数字を0埋めで表示する
@@ -128,7 +128,7 @@ local values = {
     }
 }
 
-local gauge_types = {
+local GAUGE_TYPES = {
     GAUGE_TYPE_ASSIST_EASY  = 0,
     GAUGE_TYPE_EASY         = 1,
     GAUGE_TYPE_NORMAL       = 2,
@@ -140,7 +140,7 @@ local gauge_types = {
     GAUGE_TYPE_EXHARD_GRADE = 8,
 }
 
-local resource_ids = {
+local RESOURCE_IDS = {
     WHITE = -111
 }
 
@@ -152,16 +152,16 @@ local PLAYER2 = {
 }
 
 return {
-    buttons = buttons,
-    gauge_types = gauge_types,
-    numbers = numbers,
-    offsets = offsets,
-    options = options,
-    strings = strings,
-    resource_ids = resource_ids,
-    timers = timers,
-    value = value,
-    values = values,
+    BUTTONS = BUTTONS,
+    GAUGE_TYPES = GAUGE_TYPES,
+    NUMBERS = NUMBERS,
+    OFFSETS = OFFSETS,
+    OPTIONS = OPTIONS,
+    STRINGS = STRINGS,
+    RESOURCE_IDS = RESOURCE_IDS,
+    TIMERS = TIMERS,
+    VALUE = VALUE,
+    VALUES = VALUES,
     PLAYER1 = PLAYER1,
     PLAYER2 = PLAYER2,
 }
