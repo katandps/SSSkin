@@ -75,6 +75,8 @@ local timers = {
     TIMER_KEYON_1P_KEY5 = 105,
     TIMER_KEYON_1P_KEY6 = 106,
     TIMER_KEYON_1P_KEY7 = 107,
+
+    TIMER_ENDOFNOTE_1P = 143,
 }
 
 local offsets = {
@@ -94,6 +96,13 @@ local options = {
     OPTION_1P_BAD              = 244,
     OPTION_1P_POOR             = 245,
     OPTION_1P_MISS             = 246,
+
+    OPTION_PERFECT_EXIST       = 2241,
+    OPTION_GREAT_EXIST         = 2242,
+    OPTION_GOOD_EXIST          = 2243,
+    OPTION_BAD_EXIST           = 2244,
+    OPTION_POOR_EXIST          = 2245,
+    OPTION_MISS_EXIST          = 2246,
 }
 
 local buttons = {

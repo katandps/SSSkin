@@ -44,6 +44,7 @@ local function main()
     require("play/parts/title").load(skin)
     require("play/parts/bga").load(skin)
     require("play/parts/judge_graph").load(skin)
+    require("play/parts/finish/default").load(skin)
     require("play/parts/fadeout").load(skin)
 
     return skin
