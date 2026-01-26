@@ -1,16 +1,15 @@
 --- 組み込み定数
 -- @see https://github.com/exch-bms2/beatoraja/blob/master/src/bms/player/beatoraja/skin/SkinProperty.java
 -- @see https://right-stick.sub.jp/lr2skinhelp/hanyou.html#src_number
-local refs = {
-    STRING_FULLTITLE      = 12,
-    NUMBER_LANECOVER1     = 14,
-    STRING_FULLARTIST     = 16,
-    current_combo         = 75,
-    STRING_TABLE_FULL     = 1003,
-    NUMBER_DURATION_GREEN = 313,
+local strings = {
+    STRING_FULLTITLE  = 12,
+    STRING_FULLARTIST = 16,
+    STRING_TABLE_FULL = 1003,
 }
+
 local numbers = {
     NUMBER_JUDGETIMING             = 12,
+    NUMBER_LANECOVER1              = 14,
 
     NUMBER_SCORE                   = 101,
     NUMBER_SCORE_RATE              = 102,
@@ -42,6 +41,9 @@ local numbers = {
     NUMBER_MISS                    = 420,
     NUMBER_EARLY_MISS              = 421,
     NUMBER_LATE_MISS               = 422,
+
+    NUMBER_DURATION                = 312, -- 表示時間(ms)
+    NUMBER_DURATION_GREEN          = 313, -- 表示時間(緑数字)
 
     NUMBER_TOTALEARLY              = 423,
     NUMBER_TOTALLATE               = 424,
@@ -79,6 +81,10 @@ local timers = {
     TIMER_KEYON_1P_KEY7 = 107,
 
     TIMER_ENDOFNOTE_1P = 143,
+
+    --- CUSTOM TIMERS ---
+    --- 値は10000 ~ 19999が利用できる
+    CUSTOM_TIMER_SLOW_SOFLAN_1P = 10000,
 }
 
 local offsets = {
@@ -151,7 +157,7 @@ return {
     numbers = numbers,
     offsets = offsets,
     options = options,
-    refs = refs,
+    strings = strings,
     resource_ids = resource_ids,
     timers = timers,
     value = value,

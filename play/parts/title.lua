@@ -1,4 +1,4 @@
-local ref = require("play/consts").refs
+local strings = require("play/consts").strings
 
 local title_h = 28
 local function load(skin)
@@ -9,7 +9,7 @@ local function load(skin)
         size = title_h,
         align = 0, -- 左揃え
         overflow = 1,
-        ref = ref.STRING_TABLE_FULL
+        ref = strings.STRING_TABLE_FULL
     })
     table.insert(skin.destination, {
         id = "info_difficulty",
@@ -25,7 +25,7 @@ local function load(skin)
         size = title_h,
         align = 0, -- 左揃え
         overflow = 1,
-        ref = ref.STRING_FULLTITLE
+        ref = strings.STRING_FULLTITLE
     })
     table.insert(skin.destination, {
         id = "info_title",
@@ -41,7 +41,7 @@ local function load(skin)
         size = title_h,
         align = 0, -- 左揃え
         overflow = 1,
-        ref = ref.STRING_FULLARTIST
+        ref = strings.STRING_FULLARTIST
     })
     table.insert(skin.destination, {
         id = "info_artist",
