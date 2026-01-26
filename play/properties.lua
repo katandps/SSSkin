@@ -3,6 +3,9 @@
 
 -- プロパティ用定数
 local PROPERTY = {
+    -- 設定画面用ダミー
+    DUMMY_PROPERTY = 901,
+
     -- 27インチモニターで43インチモニターと同等のサイズ
     SIZE_27INCH = 920,
     -- 43インチモニターでちょうどよいサイズ
@@ -11,6 +14,11 @@ local PROPERTY = {
     SIDE_1P = 930,
     -- 2Pサイド
     SIDE_2P = 931,
+
+    --- 判定ライン：シンプル
+    JUDGE_LINE_SIMPLE = 1000,
+    --- 判定ライン：発光付き
+    JUDGE_LINE_GLOW = 1001,
 }
 
 
@@ -36,9 +44,25 @@ local function player_side()
     end
 end
 
+local function judge_line_type()
+    local op = skin_config.option["Judge Line Type"]
+    if op == PROPERTY.JUDGE_LINE_SIMPLE then
+        return "simple"
+    elseif op == PROPERTY.JUDGE_LINE_GLOW then
+        return "glow"
+    else
+        error("Invalid Judge Line Type option: " .. tostring(op))
+    end
+end
+
 local property = {
     {
+        name = "---全般設定---",
+        item = { { name = "-", op = PROPERTY.DUMMY_PROPERTY } }
+    },
+    {
         name = "Display Size",
+        category = "General",
         item = {
             { name = "27inch", op = PROPERTY.SIZE_27INCH },
             { name = "43inch(未実装)", op = PROPERTY.SIZE_43INCH }
@@ -46,11 +70,28 @@ local property = {
     },
     {
         name = "Player Side",
+        category = "General",
         item = {
             { name = "1P", op = PROPERTY.SIDE_1P },
             { name = "2P", op = PROPERTY.SIDE_2P }
         }
-    }
+    },
+    {
+        name = "---パーツ設定---",
+        item = { { name = "-", op = PROPERTY.DUMMY_PROPERTY } }
+    },
+    {
+        name = "Judge Line Type",
+        category = "Custom Parts",
+        item = {
+            { name = "Simple", op = PROPERTY.JUDGE_LINE_SIMPLE },
+            { name = "Glow",   op = PROPERTY.JUDGE_LINE_GLOW },
+        }
+    },
+    {
+        name = "---パーツ位置調整---",
+        item = { { name = "-", op = PROPERTY.DUMMY_PROPERTY } }
+    },
 }
 
 local filepath = {
@@ -66,5 +107,6 @@ return {
     filepath = filepath,
     offset = offset,
     display_size = display_size,
-    player_side = player_side
+    player_side = player_side,
+    judge_line_type = judge_line_type
 }
