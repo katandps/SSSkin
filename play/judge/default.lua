@@ -28,114 +28,49 @@ local function load(skin)
         { id = "judge_n_pr", src = "src_judge", x = 0, y = judge_height * 4, w = number_chip_width, h = judge_height, divx = 10, digit = 6, ref = consts.current_combo, space = num_space },
         { id = "judge_n_ms", src = "src_judge", x = 0, y = judge_height * 5, w = number_chip_width, h = judge_height, divx = 10, digit = 6, ref = consts.current_combo, space = num_space },
     })
-    local x = geometry.lane_left_margin + geometry.lane_width / 2 - judge_font_w / 2 - geometry.lane_margin -- いい感じの位置
-    local y = geometry.lane_under_margin + 200 -
-        judge_height /
-        2 -- 判定文字の種類による差を軽減する
+    local x = geometry.lane_left_margin + geometry.lane_width / 2 - judge_font_w / 2 - geometry.lane_margin
+    local y = geometry.lane_under_margin + 200 - judge_height / 2 -- 判定文字の種類による差を軽減する
+
+    local text_dst = { time = 0, x = x, y = y, w = judge_font_w, h = judge_height }
+    local function text_image(id)
+        return {
+            id = id,
+            timer = 46,
+            offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
+            dst = { text_dst }
+        }
+    end
+
+    local number_dst = { time = 0, x = judge_font_w + 40, y = 0, w = number_width, h = judge_height }
+    local function number_image(id)
+        return {
+            id = id,
+            timer = 46,
+            offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
+            dst = { number_dst }
+        }
+    end
     skin.judge = {
         {
             id = "judge",
             index = 0,
             images = {
-                {
-                    id = "judge_f_pg",
-                    timer = 46,
-                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
-                    dst = {
-                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
-                    }
-                },
-                {
-                    id = "judge_f_gr",
-                    timer = 46,
-                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
-                    dst = {
-                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
-                    }
-                },
-                {
-                    id = "judge_f_gd",
-                    timer = 46,
-                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
-                    dst = {
-                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
-                    }
-                },
-                {
-                    id = "judge_f_bd",
-                    timer = 46,
-                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
-                    dst = {
-                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
-                    }
-                },
-                {
-                    id = "judge_f_pr",
-                    timer = 46,
-                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
-                    dst = {
-                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
-                    }
-                },
-                {
-                    id = "judge_f_ms",
-                    timer = 46,
-                    offsets = { offsets.OFFSET_LIFT, offsets.OFFSET_JUDGE_1P },
-                    dst = {
-                        { time = 0, x = x, y = y, w = judge_font_w, h = judge_height },
-                    }
-                }
+                text_image("judge_f_pg"),
+                text_image("judge_f_gr"),
+                text_image("judge_f_gd"),
+                text_image("judge_f_bd"),
+                text_image("judge_f_pr"),
+                text_image("judge_f_ms"),
             },
+
             -- numbersはimagesの場所を基準として表示される
             numbers = {
-                {
-                    id = "judge_n_pg",
-                    offsets = { offsets.OFFSET_JUDGE_1P },
-                    timer = 46,
-                    dst = {
-                        { time = 0, x = judge_font_w + 40, y = 0, w = number_width, h = judge_height },
-                    }
-                },
-                {
-                    id = "judge_n_gr",
-                    offsets = { offsets.OFFSET_JUDGE_1P },
-                    timer = 46,
-                    dst = {
-                        { time = 0, x = judge_font_w + 40, y = 0, w = number_width, h = judge_height },
-                    }
-                },
-                {
-                    id = "judge_n_gd",
-                    offsets = { offsets.OFFSET_JUDGE_1P },
-                    timer = 46,
-                    dst = {
-                        { time = 0, x = judge_font_w + 40, y = 0, w = number_width, h = judge_height },
-                    }
-                },
-                {
-                    id = "judge_n_bd",
-                    offsets = { offsets.OFFSET_JUDGE_1P },
-                    timer = 46,
-                    dst = {
-                        { time = 0, x = judge_font_w + 40, y = 0, w = number_width, h = judge_height },
-                    }
-                },
-                {
-                    id = "judge_n_pr",
-                    offsets = { offsets.OFFSET_JUDGE_1P },
-                    timer = 46,
-                    dst = {
-                        { time = 0, x = judge_font_w + 40, y = 0, w = number_width, h = judge_height },
-                    }
-                },
-                {
-                    id = "judge_n_ms",
-                    offsets = { offsets.OFFSET_JUDGE_1P },
-                    timer = 46,
-                    dst = {
-                        { time = 0, x = judge_font_w + 40, y = 0, w = number_width, h = judge_height },
-                    }
-                }
+                number_image("judge_n_pg"),
+                number_image("judge_n_gr"),
+                number_image("judge_n_gd"),
+                number_image("judge_n_bd"),
+                number_image("judge_n_pr"),
+                number_image("judge_n_ms"),
             },
             shift = true
         }
