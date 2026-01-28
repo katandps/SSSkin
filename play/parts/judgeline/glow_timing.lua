@@ -56,7 +56,7 @@ local function load(skin)
     end
 
     append_all(skin.destination, dsts({ -OPTIONS.OPTION_1P_EARLY, -OPTIONS.OPTION_1P_LATE }, white))
-    append_all(skin.destination, dsts({ OPTIONS.OPTION_1P_EARLY }, red))
-    append_all(skin.destination, dsts({ OPTIONS.OPTION_1P_LATE }, blue))
+    append_all(skin.destination, dsts({ OPTIONS.OPTION_1P_EARLY }, blue))
+    append_all(skin.destination, dsts({ OPTIONS.OPTION_1P_LATE }, red))
 end
 return { load = load }
