@@ -62,7 +62,7 @@ local function load(skin)
             loop = -1,
             timer = TIMERS.TIMER_JUDGE_1P,
             dst = {
-                { time = 0,  x = x, y = 420, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+                { time = 0,  x = x, y = 420, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height, r = 96, g = 96, b = 96 },
                 { time = 500 }
             }
         },
