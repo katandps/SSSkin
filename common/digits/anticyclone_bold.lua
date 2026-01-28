@@ -1,4 +1,4 @@
-local merge_all = require("utils/merge_all")
+local merge_recursive = require("utils/merge_recursive")
 local append_all = require("utils/append_all")
 
 local width = 30
@@ -7,10 +7,10 @@ local divy = 1
 local natural = { src = "src_anticyclone_bold", divx = 10, divy = divy, w = width * 10, h = height }
 
 local function white(t)
-    return merge_all(merge_all(t, natural), { x = 0, y = 0, })
+    return merge_recursive(merge_recursive({ x = 0, y = 0, }, natural), t)
 end
 local function white0(t)
-    return merge_all(merge_all(t, natural), { x = 0, y = 0, divx = 11, w = width * 11 })
+    return merge_recursive(merge_recursive({ x = 0, y = 0, divx = 11, w = width * 11 }, natural), t)
 end
 
 local function load(skin)

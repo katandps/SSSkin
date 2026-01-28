@@ -1,9 +1,11 @@
 local geometry = require("play/geometry").build()
 local OFFSETS = require("play/consts").OFFSETS
 local TIMERS = require("play/consts").TIMERS
+local NUMBERS = require("play/consts").NUMBERS
 
 local slow_soflan = require("play/judge/slow_soflan")
 local append_all = require("utils/append_all")
+local merge_recursive = require("utils/merge_recursive")
 
 local judge_font_w = 420
 local judge_height = 96
@@ -14,22 +16,38 @@ local num_space = -4
 
 local function load(skin)
     table.insert(skin.source, { id = "src_judge", path = "play/judge/reiko-square.png" })
+    local text_chip = {
+        src = "src_judge",
+        w = judge_font_w,
+        h = judge_height,
+    }
+
     append_all(skin.image, {
-        { id = "judge_f_pg", src = "src_judge", x = number_chip_width, y = 0,                w = judge_font_w, h = judge_height },
-        { id = "judge_f_gr", src = "src_judge", x = number_chip_width, y = judge_height,     w = judge_font_w, h = judge_height },
-        { id = "judge_f_gd", src = "src_judge", x = number_chip_width, y = judge_height * 2, w = judge_font_w, h = judge_height },
-        { id = "judge_f_bd", src = "src_judge", x = number_chip_width, y = judge_height * 3, w = judge_font_w, h = judge_height },
-        { id = "judge_f_pr", src = "src_judge", x = number_chip_width, y = judge_height * 4, w = judge_font_w, h = judge_height },
-        { id = "judge_f_ms", src = "src_judge", x = number_chip_width, y = judge_height * 5, w = judge_font_w, h = judge_height },
+        merge_recursive({ id = "judge_f_pg", x = number_chip_width, y = 0 }, text_chip),
+        merge_recursive({ id = "judge_f_gr", x = number_chip_width, y = judge_height }, text_chip),
+        merge_recursive({ id = "judge_f_gd", x = number_chip_width, y = judge_height * 2 }, text_chip),
+        merge_recursive({ id = "judge_f_bd", x = number_chip_width, y = judge_height * 3 }, text_chip),
+        merge_recursive({ id = "judge_f_pr", x = number_chip_width, y = judge_height * 4 }, text_chip),
+        merge_recursive({ id = "judge_f_ms", x = number_chip_width, y = judge_height * 5 }, text_chip),
     })
 
+    local number_chip = {
+        src = "src_judge",
+        w = number_chip_width,
+        h = judge_height,
+        divx = 10,
+        digit = 6,
+        space = num_space,
+        ref = NUMBERS.NUMBER_SCORE, -- current combo
+    }
+
     append_all(skin.value, {
-        { id = "judge_n_pg", src = "src_judge", x = 0, y = 0,                w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
-        { id = "judge_n_gr", src = "src_judge", x = 0, y = judge_height,     w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
-        { id = "judge_n_gd", src = "src_judge", x = 0, y = judge_height * 2, w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
-        { id = "judge_n_bd", src = "src_judge", x = 0, y = judge_height * 3, w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
-        { id = "judge_n_pr", src = "src_judge", x = 0, y = judge_height * 4, w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
-        { id = "judge_n_ms", src = "src_judge", x = 0, y = judge_height * 5, w = number_chip_width, h = judge_height, divx = 10, digit = 6, space = num_space },
+        merge_recursive({ id = "judge_n_pg", x = 0, y = 0 }, number_chip),
+        merge_recursive({ id = "judge_n_gr", x = 0, y = judge_height }, number_chip),
+        merge_recursive({ id = "judge_n_gd", x = 0, y = judge_height * 2 }, number_chip),
+        merge_recursive({ id = "judge_n_bd", x = 0, y = judge_height * 3 }, number_chip),
+        merge_recursive({ id = "judge_n_pr", x = 0, y = judge_height * 4 }, number_chip),
+        merge_recursive({ id = "judge_n_ms", x = 0, y = judge_height * 5 }, number_chip),
     })
     local x = geometry.lane_left_margin + geometry.lane_width / 2 - judge_font_w / 2 - geometry.lane_margin
     local y = geometry.lane_under_margin + 200 - judge_height / 2 -- 判定文字の種類による差を軽減する

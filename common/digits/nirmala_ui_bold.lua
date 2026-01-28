@@ -1,4 +1,4 @@
-local merge_all = require("utils/merge_all")
+local merge_recursive = require("utils/merge_recursive")
 local append_all = require("utils/append_all")
 
 local width = 14
@@ -8,37 +8,37 @@ local natural = { src = "src_number_nirmala_ui_bold", divx = 11, divy = divy, w 
 local integer = { src = "src_number_nirmala_ui_bold", divx = 24, divy = divy, w = width * 24, h = height }
 
 local function white(t)
-    return merge_all(merge_all(t, natural), { x = 0, y = 0, })
+    return merge_recursive(merge_recursive(t, natural), { x = 0, y = 0, })
 end
 
 local function white_integer(t)
-    return merge_all(merge_all(t, integer), { x = 0, y = 0, })
+    return merge_recursive(merge_recursive(t, integer), { x = 0, y = 0, })
 end
 
 local function green(t)
-    return merge_all(merge_all(t, natural), { x = 0, y = height, })
+    return merge_recursive(merge_recursive(t, natural), { x = 0, y = height, })
 end
 
 local function yellow(t)
-    return merge_all(merge_all(t, natural), { x = 0, y = height * 2, })
+    return merge_recursive(merge_recursive(t, natural), { x = 0, y = height * 2, })
 end
 
 --- プラスが青 マイナスが赤のimageを取得
 local function plus_minus(t)
-    return merge_all(merge_all(t, integer), { x = 0, y = height * 3, })
+    return merge_recursive(merge_recursive(t, integer), { x = 0, y = height * 3, })
 end
 
 local function blue(t)
-    return merge_all(merge_all(t, natural), { x = 0, y = height * 4, })
+    return merge_recursive(merge_recursive(t, natural), { x = 0, y = height * 4, })
 end
 
 --- マイナスが青 プラスが赤のimageを取得
 local function minus_plus(t)
-    return merge_all(merge_all(t, integer), { x = 0, y = height * 4, })
+    return merge_recursive(merge_recursive(t, integer), { x = 0, y = height * 4, })
 end
 
 local function red(t)
-    return merge_all(merge_all(t, natural), { x = 0, y = height * 3, })
+    return merge_recursive(merge_recursive(t, natural), { x = 0, y = height * 3, })
 end
 
 
