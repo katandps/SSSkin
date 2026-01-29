@@ -1,3 +1,7 @@
+--- Reiko Square Judge Skin
+--- 96 x 96
+---
+
 local append_all = require("utils/append_all")
 local merge_recursive = require("utils/merge_recursive")
 
