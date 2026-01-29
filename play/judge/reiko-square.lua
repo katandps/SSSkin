@@ -1,14 +1,11 @@
 local append_all = require("utils/append_all")
 local merge_recursive = require("utils/merge_recursive")
+
+local property = require("play/properties")
+
 local NUMBERS = require("play/consts").NUMBERS
 
-local chip = {
-    src = "src_judge",
-    text_width = 420,
-    number_width = 96,
-    number_chip_width = 960,
-    judge_height = 96,
-}
+
 local judge_height = 96
 local text_width = 420
 local number_width = 96
@@ -51,5 +48,18 @@ local function load(skin)
         merge_recursive({ id = "judge_n_pr", x = 0, y = judge_height * 4 }, number_chip),
         merge_recursive({ id = "judge_n_ms", x = 0, y = judge_height * 5 }, number_chip),
     })
+
+    local display = property.display()
+
+    local chip = {
+        src = "src_judge",
+        text_width = 420 * display.lane_magnification,
+        number_width = 96 * display.lane_magnification,
+        number_chip_width = 960 * display.lane_magnification,
+        judge_height = 96 * display.lane_magnification,
+    }
+
+
+    return chip
 end
-return { load = load, chip = chip }
+return { load = load }

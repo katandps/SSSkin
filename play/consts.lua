@@ -145,11 +145,24 @@ local RESOURCE_IDS = {
     WHITE = -111
 }
 
-local PLAYER1 = {
-    SCRATCH = "LEFT",
+local PLAYERS = {
+    PLAYER1 = {
+        SCRATCH = "LEFT",
+    },
+    PLAYER2 = {
+        SCRATCH = "RIGHT",
+    }
 }
-local PLAYER2 = {
-    SCRATCH = "RIGHT",
+
+local DISPLAY = {
+    INCH_27 = {
+        size = 27,
+        lane_magnification = 1
+    },
+    INCH_43 = {
+        size = 43,
+        lane_magnification = 10 / 16
+    }
 }
 
 return {
@@ -163,6 +176,6 @@ return {
     TIMERS = TIMERS,
     VALUE = VALUE,
     VALUES = VALUES,
-    PLAYER1 = PLAYER1,
-    PLAYER2 = PLAYER2,
+    PLAYERS = PLAYERS,
+    DISPLAY = DISPLAY,
 }

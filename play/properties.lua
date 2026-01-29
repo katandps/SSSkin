@@ -24,12 +24,12 @@ local PROPERTY = {
 }
 
 
-local function display_size()
+local function display()
     local op = skin_config.option["Display Size"]
     if op == PROPERTY.SIZE_27INCH then
-        return 27
+        return require("play/consts").DISPLAY.INCH_27
     elseif op == PROPERTY.SIZE_43INCH then
-        return 43
+        return require("play/consts").DISPLAY.INCH_43
     else
         error("Invalid Display Size option: " .. tostring(op))
     end
@@ -38,9 +38,9 @@ end
 local function player_side()
     local op = skin_config.option["Player Side"]
     if op == PROPERTY.SIDE_1P then
-        return require("play/consts").PLAYER1
+        return require("play/consts").PLAYERS.PLAYER1
     elseif op == PROPERTY.SIDE_2P then
-        return require("play/consts").PLAYER2
+        return require("play/consts").PLAYERS.PLAYER2
     else
         error("Invalid Player Side option: " .. tostring(op))
     end
@@ -102,7 +102,7 @@ return {
     property = property,
     filepath = filepath,
     offset = offset,
-    display_size = display_size,
+    display = display,
     player_side = player_side,
     judge_line_type = judge_line_type,
     PROPERTY = PROPERTY,

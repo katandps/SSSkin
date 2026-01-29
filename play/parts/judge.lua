@@ -6,8 +6,7 @@ local slow_soflan = require("play/judge/slow_soflan")
 local reiko_square = require("play/judge/reiko-square")
 
 local function load(skin)
-    reiko_square.load(skin)
-    local chip = reiko_square.chip
+    local chip = reiko_square.load(skin)
     local text_width = chip.text_width
     local number_width = chip.number_width
     local judge_height = chip.judge_height

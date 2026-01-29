@@ -34,13 +34,12 @@ local function lane_width(display_size)
         display_size.lane_between_margin * 7
 end
 
-local function lane_x_positions(display_size, player_side)
-    local ds = display_size
+local function lane_x_positions(display, player_side)
     local type = player_side.SCRATCH
-    local w = ds.lane_white_key_width
-    local b = ds.lane_black_key_width
-    local s = ds.lane_scratch_width
-    local m = ds.lane_between_margin
+    local w = display.lane_white_key_width
+    local b = display.lane_black_key_width
+    local s = display.lane_scratch_width
+    local m = display.lane_between_margin
     if type == "LEFT" then
         return {
             s + m,
@@ -68,11 +67,11 @@ local function lane_x_positions(display_size, player_side)
     end
 end
 
-local function build_display_size()
-    local size = property.display_size()
-    if size == 27 then
+local function build_display()
+    local display = property.display()
+    if display.size == 27 then
         return INCH_27
-    elseif size == 43 then
+    elseif display.size == 43 then
         return INCH_43
     else
         error("Invalid display size: " .. tostring(size))
@@ -80,26 +79,26 @@ local function build_display_size()
 end
 
 local function build()
-    local display_size = build_display_size()
+    local display = build_display()
     local player_side = property.player_side()
 
     return {
         inch_27 = INCH_27,
         inch_43 = INCH_43,
-        lane_white_key_width = display_size.lane_white_key_width,
-        lane_black_key_width = display_size.lane_black_key_width,
-        lane_scratch_width = display_size.lane_scratch_width,
-        lane_between_margin = display_size.lane_between_margin,
-        lane_all_height = display_size.lane_all_height,
-        lane_height = display_size.lane_height,
-        note_height = display_size.note_height,
-        lane_under_margin = display_size.lane_under_margin,
-        lane_left_margin = display_size.lane_left_margin,
-        lane_x_center = display_size.lane_left_margin + lane_width(display_size) / 2,
+        lane_white_key_width = display.lane_white_key_width,
+        lane_black_key_width = display.lane_black_key_width,
+        lane_scratch_width = display.lane_scratch_width,
+        lane_between_margin = display.lane_between_margin,
+        lane_all_height = display.lane_all_height,
+        lane_height = display.lane_height,
+        note_height = display.note_height,
+        lane_under_margin = display.lane_under_margin,
+        lane_left_margin = display.lane_left_margin,
+        lane_x_center = display.lane_left_margin + lane_width(display) / 2,
         lane_margin = 20,
 
-        lane_x_positions = lane_x_positions(display_size, player_side),
-        lane_width = lane_width(display_size),
+        lane_x_positions = lane_x_positions(display, player_side),
+        lane_width = lane_width(display),
     }
 end
 
