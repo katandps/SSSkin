@@ -8,33 +8,30 @@ local reiko_square = require("play/judge/reiko-square")
 local function load(skin)
     reiko_square.load(skin)
     local chip = reiko_square.chip
+    local text_width = chip.text_width
+    local number_width = chip.number_width
+    local judge_height = chip.judge_height
 
-    local x = geometry.lane_x_center - chip.text_width / 2 - geometry.lane_margin
-    local y = geometry.lane_under_margin + 200 - chip.judge_height / 2 -- 判定文字の種類による差を軽減する
+    local x = geometry.lane_x_center - text_width / 2 - geometry.lane_margin
+    local y = geometry.lane_under_margin + 200 - judge_height -- 判定文字の上側を基準にする
 
-    local function text_dst(a)
-        return { time = 0, x = x, y = y, w = chip.text_width, h = chip.judge_height, a = a }
-    end
     local function text_image(id, draw, a)
         return {
             id = id,
             timer = TIMERS.TIMER_JUDGE_1P,
             -- draw = draw, -- 現状では出し分けを実現できない
             offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGE_1P },
-            dst = { text_dst(a) }
+            dst = { { time = 0, x = x, y = y, w = text_width, h = judge_height, a = a } }
         }
     end
 
-    local function number_dst(a)
-        return { time = 0, x = chip.text_width + 40, y = 0, w = chip.number_width, h = chip.judge_height, a = a }
-    end
     local function number_image(id, draw, a)
         return {
             id = id,
             timer = TIMERS.TIMER_JUDGE_1P,
             -- draw = draw, -- 現状では出し分けを実現できない
             offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGE_1P },
-            dst = { number_dst(a) }
+            dst = { { time = 0, x = text_width + 40, y = 0, w = number_width, h = judge_height, a = a } }
         }
     end
     skin.judge = {
