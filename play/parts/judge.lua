@@ -1,59 +1,19 @@
 local geometry = require("play/geometry").build()
 local OFFSETS = require("play/consts").OFFSETS
 local TIMERS = require("play/consts").TIMERS
-local NUMBERS = require("play/consts").NUMBERS
 
 local slow_soflan = require("play/judge/slow_soflan")
-local append_all = require("utils/append_all")
-local merge_recursive = require("utils/merge_recursive")
-
-local judge_font_w = 420
-local judge_height = 96
-
-local number_width = 96
-local number_chip_width = number_width * 10
-local num_space = -4
+local reiko_square = require("play/judge/reiko-square")
 
 local function load(skin)
-    table.insert(skin.source, { id = "src_judge", path = "play/judge/reiko-square.png" })
-    local text_chip = {
-        src = "src_judge",
-        w = judge_font_w,
-        h = judge_height,
-    }
+    reiko_square.load(skin)
+    local chip = reiko_square.chip
 
-    append_all(skin.image, {
-        merge_recursive({ id = "judge_f_pg", x = number_chip_width, y = 0 }, text_chip),
-        merge_recursive({ id = "judge_f_gr", x = number_chip_width, y = judge_height }, text_chip),
-        merge_recursive({ id = "judge_f_gd", x = number_chip_width, y = judge_height * 2 }, text_chip),
-        merge_recursive({ id = "judge_f_bd", x = number_chip_width, y = judge_height * 3 }, text_chip),
-        merge_recursive({ id = "judge_f_pr", x = number_chip_width, y = judge_height * 4 }, text_chip),
-        merge_recursive({ id = "judge_f_ms", x = number_chip_width, y = judge_height * 5 }, text_chip),
-    })
-
-    local number_chip = {
-        src = "src_judge",
-        w = number_chip_width,
-        h = judge_height,
-        divx = 10,
-        digit = 6,
-        space = num_space,
-        ref = NUMBERS.NUMBER_SCORE, -- current combo
-    }
-
-    append_all(skin.value, {
-        merge_recursive({ id = "judge_n_pg", x = 0, y = 0 }, number_chip),
-        merge_recursive({ id = "judge_n_gr", x = 0, y = judge_height }, number_chip),
-        merge_recursive({ id = "judge_n_gd", x = 0, y = judge_height * 2 }, number_chip),
-        merge_recursive({ id = "judge_n_bd", x = 0, y = judge_height * 3 }, number_chip),
-        merge_recursive({ id = "judge_n_pr", x = 0, y = judge_height * 4 }, number_chip),
-        merge_recursive({ id = "judge_n_ms", x = 0, y = judge_height * 5 }, number_chip),
-    })
-    local x = geometry.lane_left_margin + geometry.lane_width / 2 - judge_font_w / 2 - geometry.lane_margin
-    local y = geometry.lane_under_margin + 200 - judge_height / 2 -- 判定文字の種類による差を軽減する
+    local x = geometry.lane_x_center - chip.text_width / 2 - geometry.lane_margin
+    local y = geometry.lane_under_margin + 200 - chip.judge_height / 2 -- 判定文字の種類による差を軽減する
 
     local function text_dst(a)
-        return { time = 0, x = x, y = y, w = judge_font_w, h = judge_height, a = a }
+        return { time = 0, x = x, y = y, w = chip.text_width, h = chip.judge_height, a = a }
     end
     local function text_image(id, draw, a)
         return {
@@ -66,7 +26,7 @@ local function load(skin)
     end
 
     local function number_dst(a)
-        return { time = 0, x = judge_font_w + 40, y = 0, w = number_width, h = judge_height, a = a }
+        return { time = 0, x = chip.text_width + 40, y = 0, w = chip.number_width, h = chip.judge_height, a = a }
     end
     local function number_image(id, draw, a)
         return {

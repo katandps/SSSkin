@@ -95,6 +95,7 @@ local function build()
         note_height = display_size.note_height,
         lane_under_margin = display_size.lane_under_margin,
         lane_left_margin = display_size.lane_left_margin,
+        lane_x_center = display_size.lane_left_margin + lane_width(display_size) / 2,
         lane_margin = 20,
 
         lane_x_positions = lane_x_positions(display_size, player_side),
