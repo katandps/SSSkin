@@ -1,6 +1,7 @@
 --!strict
 --- propertyとconstsから設定値を取得して座標の設定値を構築する
 local property = require("play/properties")
+local serialize_value = require("utils/serialize_value").serialize_value
 
 local INCH_27 = {              -- 43インチ比率から1.6倍
     lane_white_key_width = 83, -- 83.2
@@ -63,7 +64,7 @@ local function lane_x_positions(display, player_side)
             w * 4 + b * 3 + m * 7,
         }
     else
-        error("Invalid player side type: " .. tostring(type))
+        error("Invalid player side type: " .. serialize_value(player_side))
     end
 end
 
@@ -74,7 +75,7 @@ local function build_display()
     elseif display.size == 43 then
         return INCH_43
     else
-        error("Invalid display size: " .. tostring(size))
+        error("Invalid display: " .. serialize_value(display))
     end
 end
 
