@@ -1,3 +1,5 @@
+--- スコアゴースト表示
+
 local nirmala_ui_bold = require("common/digits/nirmala_ui_bold")
 local append_all = require("utils/append_all")
 local NUMBERS = require("play/consts").NUMBERS
@@ -18,12 +20,14 @@ local function load(skin)
     })
 
     local x = geometry.lane_left_margin + geometry.lane_width / 2 - nirmala_ui_bold.width * 2 - 80
+    local y = geometry.lane_under_margin + geometry.judge_detail_default_y
+
     append_all(skin.destination, {
         {
             id = "ghost_diff_high_score",
-            offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGE_1P },
+            offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGEDETAIL_1P },
             dst = {
-                { x = x, y = 420, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+                { x = x, y = y, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
             }
         },
     })

@@ -41,28 +41,29 @@ local function load(skin)
     })
 
     local x = geometry.lane_left_margin + geometry.lane_width / 2 - nirmala_ui_bold.width * 2
+    local y = geometry.lane_under_margin + geometry.judge_detail_default_y
 
     -- +-ms
     append_all(skin.destination, {
         {
             id = "judge_timing",
-            offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGE_1P },
+            offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGEDETAIL_1P },
             loop = -1,
             timer = TIMERS.TIMER_JUDGE_1P,
             draw = function() return is_not_precise() and is_autoplay_off() end,
             dst = {
-                { time = 0,  x = x, y = 420, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+                { time = 0,  x = x, y = y, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
                 { time = 500 }
             }
         },
         {
             id = "judge_timing_precise",
-            offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGE_1P },
+            offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGEDETAIL_1P },
             draw = function() return is_precise() and is_autoplay_off() end,
             loop = -1,
             timer = TIMERS.TIMER_JUDGE_1P,
             dst = {
-                { time = 0,  x = x, y = 420, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height, r = 96, g = 96, b = 96 },
+                { time = 0,  x = x, y = y, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height, r = 96, g = 96, b = 96 },
                 { time = 500 }
             }
         },

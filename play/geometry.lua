@@ -8,15 +8,17 @@ local INCH_27 = {              -- 43インチ比率から1.6倍
     lane_black_key_width = 64,
     lane_between_margin = 3,   -- 3.2
     lane_scratch_width = 144,
-    lane_all_height = 1158,    -- 表示できない分も含めたレーン長
-    lane_height = 927,         -- 1157.8 FULL HDで表示できない 白数字の表示などで補正する
+    lane_all_height = 1158,
+    lane_height = 927, -- 1157.8 FULL HDで表示できない 白数字の表示などで補正する
     note_height = 24,
     lane_under_margin = 153,
-    lane_left_margin = 615
+    lane_left_margin = 615,
+    judge_default_y = 320,
+    judge_detail_default_y = 352,
 }
 
 local INCH_43 = {
-    lane_white_key_width = 52, -- 83.2
+    lane_white_key_width = 52,
     lane_black_key_width = 40,
     lane_between_margin = 2,
     lane_scratch_width = 90,
@@ -25,6 +27,8 @@ local INCH_43 = {
     note_height = 15,
     lane_under_margin = 357,
     lane_left_margin = 1200,
+    judge_default_y = 200,
+    judge_detail_default_y = 220,
 }
 
 
@@ -90,13 +94,15 @@ local function build()
         lane_black_key_width = display.lane_black_key_width,
         lane_scratch_width = display.lane_scratch_width,
         lane_between_margin = display.lane_between_margin,
-        lane_all_height = display.lane_all_height,
-        lane_height = display.lane_height,
+        lane_all_height = display.lane_all_height, -- 表示できない分も含めたレーン長
+        lane_height = display.lane_height,         -- 実際に表示されるレーン長
         note_height = display.note_height,
         lane_under_margin = display.lane_under_margin,
         lane_left_margin = display.lane_left_margin,
         lane_x_center = display.lane_left_margin + lane_width(display) / 2,
         lane_margin = 20,
+        judge_default_y = display.judge_default_y,               -- デフォルト判定表示位置 判定ラインから上辺までの高さ
+        judge_detail_default_y = display.judge_detail_default_y, -- 詳細判定表示位置 判定ラインから上辺までの高さ
 
         lane_x_positions = lane_x_positions(display, player_side),
         lane_width = lane_width(display),

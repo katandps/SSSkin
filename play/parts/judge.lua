@@ -12,7 +12,7 @@ local function load(skin)
     local judge_height = chip.judge_height
 
     local x = geometry.lane_x_center - text_width / 2 - geometry.lane_margin
-    local y = geometry.lane_under_margin + 200 - judge_height -- 判定文字の上側を基準にする
+    local y = geometry.lane_under_margin + geometry.judge_default_y - judge_height -- 判定文字の上側を基準にする
 
     local function text_image(id, draw, a)
         return {

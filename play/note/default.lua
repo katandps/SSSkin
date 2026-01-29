@@ -1,6 +1,8 @@
 local geometry = require("play/geometry").build()
 local append_all = require("utils/append_all")
 
+local OFFSETS = require("play/consts").OFFSETS
+
 
 local function load(skin)
     append_all(skin.source, {
@@ -93,6 +95,6 @@ local function load(skin)
             }
         }
     }
-    table.insert(skin.destination, { id = "notes" })
+    table.insert(skin.destination, { id = "notes", offset = OFFSETS.OFFSET_NOTES_1P })
 end
 return { load = load }

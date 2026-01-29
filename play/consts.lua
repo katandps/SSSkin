@@ -89,8 +89,14 @@ local TIMERS = {
 }
 
 local OFFSETS = {
-    OFFSET_LIFT     = 3,
-    OFFSET_JUDGE_1P = 32,
+    OFFSET_LIFT           = 3,
+    OFFSET_NOTES_1P       = 30, -- ノーツの縦方向の大きさ調整
+    OFFSET_JUDGE_1P       = 32, -- 判定文字のオフセット
+    OFFSET_JUDGEDETAIL_1P = 33, -- 判定文字に付随する数字などのオフセット
+    OFFSET_JUDGE_2P       = 32, -- 1P以外を別々の値で調整することはできない
+    OFFSET_JUDGEDETAIL_2P = 33,
+    OFFSET_JUDGE_3P       = 32,
+    OFFSET_JUDGEDETAIL_3P = 33,
 }
 
 local OPTIONS = {
