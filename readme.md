@@ -97,6 +97,10 @@ luaの範囲内で計算するのは厳しそう
 
 ## 使用させていただいたフォント・素材
 
+### UI文字
+
+[Nirmala UI](https://learn.microsoft.com/ja-jp/typography/font-list/nirmala-ui)
+
 ### 判定文字 reiko-square
 
 [Reiko Font](https://fontesk.com/reiko-font/) [Muzaffer Yıldırım](https://www.behance.net/muzafferyldrm/projects)
