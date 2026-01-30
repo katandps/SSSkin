@@ -5,7 +5,7 @@ local function load(skin)
     -- 難易度表
     table.insert(skin.text, {
         id = "info_difficulty",
-        font = "vl-gothic-regular",
+        font = "genshin-gothic-heavy",
         size = title_h,
         align = 0, -- 左揃え
         overflow = 1,
@@ -21,7 +21,7 @@ local function load(skin)
     -- フルタイトル
     table.insert(skin.text, {
         id = "info_title",
-        font = "vl-gothic-regular",
+        font = "genshin-gothic-heavy",
         size = title_h,
         align = 0, -- 左揃え
         overflow = 1,
@@ -37,7 +37,7 @@ local function load(skin)
     -- アーティスト
     table.insert(skin.text, {
         id = "info_artist",
-        font = "vl-gothic-regular",
+        font = "genshin-gothic-heavy",
         size = title_h,
         align = 0, -- 左揃え
         overflow = 1,

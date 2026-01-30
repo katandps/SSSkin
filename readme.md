@@ -101,6 +101,8 @@ luaの範囲内で計算するのは厳しそう
 
 [Nirmala UI](https://learn.microsoft.com/ja-jp/typography/font-list/nirmala-ui)
 
+[源真ゴシック](http://jikasei.me/font/genshin/)
+
 ### 判定文字 reiko-square
 
 [Reiko Font](https://fontesk.com/reiko-font/) [Muzaffer Yıldırım](https://www.behance.net/muzafferyldrm/projects)

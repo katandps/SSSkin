@@ -9,7 +9,7 @@ local function main()
     skin.source = {}
     skin.image = {}
     skin.font = {
-        { id = "vl-gothic-regular", path = "common/font/VL-Gothic-Regular.ttf" },
+        { id = "genshin-gothic-heavy", path = "common/font/GenShinGothic-Heavy.ttf" },
     }
     skin.imageset = {}
     skin.value = {}
