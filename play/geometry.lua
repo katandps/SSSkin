@@ -15,6 +15,9 @@ local INCH_27 = {              -- 43インチ比率から1.6倍
     lane_left_margin = 615,
     judge_default_y = 320,
     judge_detail_default_y = 352,
+
+    score_panel_x = 200,
+    score_panel_y = 400,
 }
 
 local INCH_43 = {
@@ -29,6 +32,9 @@ local INCH_43 = {
     lane_left_margin = 1200,
     judge_default_y = 200,
     judge_detail_default_y = 220,
+
+    score_panel_x = 200,
+    score_panel_y = 400,
 }
 
 
@@ -106,6 +112,11 @@ local function build()
 
         lane_x_positions = lane_x_positions(display, player_side),
         lane_width = lane_width(display),
+
+        score_panel_x = display.score_panel_x,
+        score_panel_y = display.score_panel_y,
+        score_panel_w = 200,
+        score_panel_h = 200,
     }
 end
 

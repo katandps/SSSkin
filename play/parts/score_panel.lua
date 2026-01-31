@@ -3,6 +3,8 @@ local append_all = require("utils/append_all")
 local NUMBERS = require("play/consts").NUMBERS
 local VALUES = require("play/consts").VALUES
 
+local geometry = require("play/geometry").build()
+
 local function load(skin)
     nirmala_ui_bold.load(skin)
 
@@ -40,37 +42,37 @@ local function load(skin)
         { -- 背景
             id = -111,
             dst = {
-                { x = 200, y = 400, w = 200, h = 200, r = 50, g = 50, b = 50, a = 128 },
+                { x = geometry.score_panel_x, y = geometry.score_panel_y, w = geometry.score_panel_w, h = geometry.score_panel_h, r = 50, g = 50, b = 50, a = 128 },
             }
         },
         {
             id = "num_info_panel_score",
             dst = {
-                { x = 360 - nirmala_ui_bold.width * 5, y = 440, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+                { x = geometry.score_panel_x + 160 - nirmala_ui_bold.width * 5, y = geometry.score_panel_y + 40, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
             }
         },
         {
             id = "num_info_panel_rate_integer_part",
             dst = {
-                { x = 360 - nirmala_ui_bold.width * 6, y = 480, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+                { x = geometry.score_panel_x + 160 - nirmala_ui_bold.width * 6, y = geometry.score_panel_y + 80, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
             }
         },
         {
             id = "num_info_panel_rate_decimal_part",
             dst = {
-                { x = 360 - nirmala_ui_bold.width * 2, y = 480, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+                { x = geometry.score_panel_x + 160 - nirmala_ui_bold.width * 2, y = geometry.score_panel_y + 80, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
             }
         },
         {
             id = "num_info_panel_high_score",
             dst = {
-                { x = 360 - nirmala_ui_bold.width * 5, y = 520, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+                { x = geometry.score_panel_x + 160 - nirmala_ui_bold.width * 5, y = geometry.score_panel_y + 120, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
             }
         },
         {
             id = "num_info_panel_diff_high_score",
             dst = {
-                { x = 360 - nirmala_ui_bold.width * 5, y = 560, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+                { x = geometry.score_panel_x + 160 - nirmala_ui_bold.width * 5, y = geometry.score_panel_y + 160, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
             }
         },
     })
