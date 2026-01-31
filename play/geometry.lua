@@ -18,6 +18,9 @@ local INCH_27 = {              -- 43インチ比率から1.6倍
 
     score_panel_x = 200,
     score_panel_y = 400,
+
+    judge_panel_x = 1400,
+    judge_panel_y = 300,
 }
 
 local INCH_43 = {
@@ -35,6 +38,9 @@ local INCH_43 = {
 
     score_panel_x = 200,
     score_panel_y = 400,
+
+    judge_panel_x = 810,
+    judge_panel_y = 300,
 }
 
 
@@ -117,6 +123,11 @@ local function build()
         score_panel_y = display.score_panel_y,
         score_panel_w = 200,
         score_panel_h = 200,
+
+        judge_panel_x = display.judge_panel_x,
+        judge_panel_y = display.judge_panel_y,
+        judge_panel_w = 300,
+        judge_panel_h = 300,
     }
 end
 

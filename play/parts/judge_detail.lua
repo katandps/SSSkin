@@ -3,6 +3,8 @@ local nirmala_ui_bold = require("common/digits/nirmala_ui_bold")
 local RESOURCE_IDS = require("play/consts").RESOURCE_IDS
 local NUMBERS = require("play/consts").NUMBERS
 
+local geometry = require("play/geometry").build()
+
 local function load(skin)
     nirmala_ui_bold.load(skin)
 
@@ -36,10 +38,10 @@ local function load(skin)
 
     })
 
-    local panel_x = 1400
-    local panel_y = 300
-    local panel_w = 300
-    local panel_h = 300
+    local panel_x = geometry.judge_panel_x
+    local panel_y = geometry.judge_panel_y
+    local panel_w = geometry.judge_panel_w
+    local panel_h = geometry.judge_panel_h
     local w = nirmala_ui_bold.width
     local h = nirmala_ui_bold.height
 
