@@ -33,6 +33,7 @@ local function main()
 
     require("play/keybeam/default").load(skin)
     require("play/note/default").load(skin)
+    require("play/parts/lane_frame").load(skin)
     require("play/parts/judgeline/load").load(skin)
     require("play/sudden/default").load(skin)
     require("play/parts/judge").load(skin)

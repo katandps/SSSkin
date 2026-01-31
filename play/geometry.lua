@@ -11,6 +11,7 @@ local INCH_27 = {              -- 43インチ比率から1.6倍
     lane_all_height = 1158,
     lane_height = 927, -- 1157.8 FULL HDで表示できない 白数字の表示などで補正する
     note_height = 24,
+
     lane_under_margin = 153,
     lane_left_margin = 615,
     judge_default_y = 320,
@@ -26,6 +27,9 @@ local INCH_27 = {              -- 43インチ比率から1.6倍
     judge_graph_y = 100,
     judge_graph_w = 400,
     judge_graph_h = 150,
+
+    gauge_value_x = 1340,
+    gauge_value_y = 800,
 }
 
 local INCH_43 = {
@@ -37,7 +41,7 @@ local INCH_43 = {
     lane_height = 723,
     note_height = 15,
     lane_under_margin = 357,
-    lane_left_margin = 1200,
+    lane_left_margin = 1413, -- lane right margin = 75
     judge_default_y = 200,
     judge_detail_default_y = 220,
 
@@ -51,6 +55,9 @@ local INCH_43 = {
     judge_graph_y = 100,
     judge_graph_w = 400,
     judge_graph_h = 150,
+
+    gauge_value_x = 1200,
+    gauge_value_y = 900,
 }
 
 
@@ -126,6 +133,8 @@ local function build()
         judge_default_y = display.judge_default_y,               -- デフォルト判定表示位置 判定ラインから上辺までの高さ
         judge_detail_default_y = display.judge_detail_default_y, -- 詳細判定表示位置 判定ラインから上辺までの高さ
 
+        judge_line_y = display.lane_under_margin,
+
         lane_x_positions = lane_x_positions(display, player_side),
         lane_width = lane_width(display),
 
@@ -143,6 +152,9 @@ local function build()
         judge_graph_y = display.judge_graph_y,
         judge_graph_w = display.judge_graph_w,
         judge_graph_h = display.judge_graph_h,
+
+        gauge_value_x = display.gauge_value_x,
+        gauge_value_y = display.gauge_value_y,
     }
 end
 

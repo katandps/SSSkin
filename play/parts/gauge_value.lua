@@ -4,6 +4,8 @@ local NUMBERS          = require("play/consts").NUMBERS
 local GAUGE_TYPES      = require("play/consts").GAUGE_TYPES
 local main_state       = require("main_state")
 
+local geometry         = require("play/geometry").build()
+
 local function gauge_type(type)
     local function func()
         local gauge = main_state.gauge_type()
@@ -23,7 +25,7 @@ local function load(skin)
         }),
         anticyclone_bold.white({ id = "gaugevalue_ad", digit = 1, ref = NUMBERS.NUMBER_GROOVEGAUGE_AFTERDOT }),
     })
-    local x, y, w, h = 1340, 800, anticyclone_bold.width, anticyclone_bold.height
+    local x, y, w, h = geometry.gauge_value_x, geometry.gauge_value_y, anticyclone_bold.width, anticyclone_bold.height
     append_all(skin.destination, {
         -- ASSIST EASY
         {

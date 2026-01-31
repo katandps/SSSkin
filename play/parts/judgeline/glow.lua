@@ -10,19 +10,18 @@ local function load(skin)
     local left_margin = geometry.lane_left_margin
     local lane_x_positions = geometry.lane_x_positions
 
-    local y = geometry.lane_under_margin - geometry.lane_margin
     table.insert(skin.destination, {
         id = RESOURCE_IDS.WHITE,
         offsets = { OFFSETS.OFFSET_NOTES_1P, OFFSETS.OFFSET_LIFT },
-        dst = { { x = left_margin, y = y, w = geometry.lane_width, h = geometry.note_height, r = 80, g = 0, b = 0 }, }
+        dst = { { x = left_margin, y = geometry.judge_line_y, w = geometry.lane_width, h = geometry.note_height, r = 80, g = 0, b = 0 }, }
     })
 
 
     local function animation(position, width)
         return {
-            { time = 0,   x = geometry.lane_left_margin + position, y = y, w = width, h = geometry.note_height, a = 255 },
-            { time = 250, x = geometry.lane_left_margin + position, y = y, w = width, h = geometry.note_height, a = 128 },
-            { time = 500, x = geometry.lane_left_margin + position, y = y, w = width, h = geometry.note_height, a = 0 },
+            { time = 0,   x = geometry.lane_left_margin + position, y = geometry.judge_line_y, w = width, h = geometry.note_height, a = 255 },
+            { time = 250, x = geometry.lane_left_margin + position, y = geometry.judge_line_y, w = width, h = geometry.note_height, a = 128 },
+            { time = 500, x = geometry.lane_left_margin + position, y = geometry.judge_line_y, w = width, h = geometry.note_height, a = 0 },
         }
     end
 
