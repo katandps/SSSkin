@@ -1,4 +1,6 @@
+-- 判定状況を表示するグラフ
 local append_all = require("utils/append_all")
+local geometry = require("play/geometry").build()
 
 local function load(skin)
     skin.judgegraph = {
@@ -6,18 +8,17 @@ local function load(skin)
     }
     skin.bpmgraph = { { id = "bpmgraph" } }
 
-    local x, y, w, h = 1400, 100, 400, 150
     append_all(skin.destination, {
         {
             id = "judgegraph",
             dst = {
-                { time = 0, x = x, y = y, w = w, h = h },
+                { time = 0, x = geometry.judge_graph_x, y = geometry.judge_graph_y, w = geometry.judge_graph_w, h = geometry.judge_graph_h },
             }
         },
         {
             id = "bpmgraph",
             dst = {
-                { time = 0, x = x, y = y, w = w, h = h }
+                { time = 0, x = geometry.judge_graph_x, y = geometry.judge_graph_y, w = geometry.judge_graph_w, h = geometry.judge_graph_h }
             }
         },
     })
