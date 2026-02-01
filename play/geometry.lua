@@ -3,7 +3,9 @@
 local property = require("play/properties")
 local serialize_value = require("utils/serialize_value").serialize_value
 
-local INCH_27 = {              -- 43インチ比率から1.6倍
+local INCH_27 = { -- 43インチ比率から1.6倍
+    SIZE = 27,
+
     lane_white_key_width = 83, -- 83.2
     lane_black_key_width = 64,
     lane_between_margin = 3,   -- 3.2
@@ -13,7 +15,6 @@ local INCH_27 = {              -- 43インチ比率から1.6倍
     note_height = 24,
 
     lane_under_margin = 153,
-    lane_left_margin = 615,
     judge_default_y = 320,
     judge_detail_default_y = 352,
 
@@ -33,6 +34,8 @@ local INCH_27 = {              -- 43インチ比率から1.6倍
 }
 
 local INCH_43 = {
+    SIZE = 43,
+
     lane_white_key_width = 52,
     lane_black_key_width = 40,
     lane_between_margin = 2,
@@ -50,7 +53,6 @@ local INCH_43 = {
 
     judge_panel_x = 810,
     judge_panel_y = 300,
-
     judge_graph_x = 760,
     judge_graph_y = 100,
     judge_graph_w = 400,
@@ -59,6 +61,70 @@ local INCH_43 = {
     gauge_value_x = 1200,
     gauge_value_y = 900,
 }
+
+local function gauge_value_x(display, player_side)
+    if display.SIZE == 27 then
+        return 1340
+    elseif display.SIZE == 43 then
+        if player_side.SCRATCH == "LEFT" then
+            return 560
+        elseif player_side.SCRATCH == "RIGHT" then
+            return 1200
+        else
+            error("Invalid player side type: " .. serialize_value(player_side))
+        end
+    else
+        error("Invalid display: " .. serialize_value(display))
+    end
+end
+
+local function bga_area_x(display, player_side)
+    if display.SIZE == 27 then
+        return 60
+    elseif display.SIZE == 43 then
+        if player_side.SCRATCH == "LEFT" then
+            return 1320
+        elseif player_side.SCRATCH == "RIGHT" then
+            return 60
+        else
+            error("Invalid player side type: " .. serialize_value(player_side))
+        end
+    else
+        error("Invalid display: " .. serialize_value(display))
+    end
+end
+
+local function score_panel_x(display, player_side)
+    if display.SIZE == 27 then
+        return 200
+    elseif display.SIZE == 43 then
+        if player_side.SCRATCH == "LEFT" then
+            return 1320
+        elseif player_side.SCRATCH == "RIGHT" then
+            return 200
+        else
+            error("Invalid player side type: " .. serialize_value(player_side))
+        end
+    else
+        error("Invalid display: " .. serialize_value(display))
+    end
+end
+
+local function lane_left_margin(display, player_side)
+    if display.SIZE == 27 then
+        return 615
+    elseif display.SIZE == 43 then
+        if player_side.SCRATCH == "LEFT" then
+            return 75
+        elseif player_side.SCRATCH == "RIGHT" then
+            return 1413
+        else
+            error("Invalid player side type: " .. serialize_value(player_side))
+        end
+    else
+        error("Invalid display: " .. serialize_value(display))
+    end
+end
 
 
 local function lane_width(display_size)
@@ -116,6 +182,9 @@ local function build()
     local display = build_display()
     local player_side = property.player_side()
 
+    local lane_width = lane_width(display)
+    local lane_left_margin = lane_left_margin(display, player_side)
+
     return {
         inch_27 = INCH_27,
         inch_43 = INCH_43,
@@ -127,8 +196,8 @@ local function build()
         lane_height = display.lane_height,         -- 実際に表示されるレーン長
         note_height = display.note_height,
         lane_under_margin = display.lane_under_margin,
-        lane_left_margin = display.lane_left_margin,
-        lane_x_center = display.lane_left_margin + lane_width(display) / 2,
+        lane_left_margin = lane_left_margin,
+        lane_x_center = lane_left_margin + lane_width / 2,
         lane_margin = 20,
         judge_default_y = display.judge_default_y,               -- デフォルト判定表示位置 判定ラインから上辺までの高さ
         judge_detail_default_y = display.judge_detail_default_y, -- 詳細判定表示位置 判定ラインから上辺までの高さ
@@ -136,12 +205,14 @@ local function build()
         judge_line_y = display.lane_under_margin,
 
         lane_x_positions = lane_x_positions(display, player_side),
-        lane_width = lane_width(display),
+        lane_width = lane_width,
 
-        score_panel_x = display.score_panel_x,
+        score_panel_x = score_panel_x(display, player_side),
         score_panel_y = display.score_panel_y,
         score_panel_w = 200,
         score_panel_h = 200,
+
+        bga_area_x = bga_area_x(display, player_side),
 
         judge_panel_x = display.judge_panel_x,
         judge_panel_y = display.judge_panel_y,
@@ -153,7 +224,7 @@ local function build()
         judge_graph_w = display.judge_graph_w,
         judge_graph_h = display.judge_graph_h,
 
-        gauge_value_x = display.gauge_value_x,
+        gauge_value_x = gauge_value_x(display, player_side),
         gauge_value_y = display.gauge_value_y,
     }
 end

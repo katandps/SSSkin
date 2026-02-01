@@ -60,7 +60,7 @@ local property = {
         category = "General",
         item = {
             { name = "27inch", op = PROPERTY.SIZE_27INCH },
-            { name = "43inch(未実装)", op = PROPERTY.SIZE_43INCH }
+            { name = "43inch", op = PROPERTY.SIZE_43INCH }
         }
     },
     {
