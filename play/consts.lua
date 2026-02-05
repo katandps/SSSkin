@@ -23,6 +23,10 @@ local NUMBERS = {
     NUMBER_NOWBPM                        = 160,
     NUMBER_HIGHSCORE2                    = 170, -- 更新前のEXSCORE
 
+    NUMBER_TIMELEFT_MINUTE               = 163,
+    NUMBER_TIMELEFT_SECOND               = 164,
+
+    NUMBER_TOTALNOTES2                   = 106, -- プレイ中の総ノーツ数
     NUMBER_PERFECT                       = 110,
     NUMBER_EARLY_PERFECT                 = 410,
     NUMBER_LATE_PERFECT                  = 411,

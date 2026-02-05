@@ -38,6 +38,10 @@ local function load(skin)
         }),
     })
 
+    append_all(skin.image, {
+        nirmala_ui_bold.yellow_percent({ id = "num_info_panel_rate_percent", }),
+    })
+
     append_all(skin.destination, {
         { -- 背景
             id = -111,

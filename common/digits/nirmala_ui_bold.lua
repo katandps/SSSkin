@@ -13,21 +13,27 @@ local period_x = 360
 local period_w = 14
 local ms_x = 374
 local ms_w = 38
+local colon_x = 412
+local colon_w = 14
 
 local function white(t)
     return merge_recursive(merge_recursive(t, natural), { x = 0, y = 0, })
 end
 
 local function white_percent(t)
-    return merge_recursive(merge_recursive(t, natural), { x = percent_x, y = 0, w = percent_w, })
+    return merge_recursive(t, { src = source_id, x = percent_x, y = 0, w = percent_w, h = height })
 end
 
 local function white_period(t)
-    return merge_recursive(merge_recursive(t, natural), { x = period_x, y = 0, w = period_w, })
+    return merge_recursive(t, { src = source_id, x = period_x, y = 0, w = period_w, h = height })
 end
 
 local function white_ms(t)
     return merge_recursive(t, { src = source_id, x = ms_x, y = 0, w = ms_w, h = height })
+end
+
+local function white_colon(t)
+    return merge_recursive(t, { src = source_id, x = colon_x, y = 0, w = colon_w, h = height })
 end
 
 local function white_integer(t)
@@ -38,8 +44,16 @@ local function green(t)
     return merge_recursive(merge_recursive(t, natural), { x = 0, y = height, })
 end
 
+local function green_percent(t)
+    return merge_recursive(t, { src = source_id, x = percent_x, y = height, w = percent_w, h = height })
+end
+
 local function yellow(t)
     return merge_recursive(merge_recursive(t, natural), { x = 0, y = height * 2, })
+end
+
+local function yellow_percent(t)
+    return merge_recursive(t, { src = source_id, x = percent_x, y = height * 2, w = percent_w, h = height })
 end
 
 --- プラスが青 マイナスが赤のimageを取得
@@ -94,7 +108,9 @@ return {
     white = white,
     white_integer = white_integer,
     green = green,
+    green_percent = green_percent,
     yellow = yellow,
+    yellow_percent = yellow_percent,
     red = red,
     red_ms = red_ms,
     blue = blue,
@@ -108,4 +124,7 @@ return {
     white_percent = white_percent,
     white_period = white_period,
     white_ms = white_ms,
+    white_colon = white_colon,
+
+    percent_w = percent_w
 }
