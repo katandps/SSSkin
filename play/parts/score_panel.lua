@@ -39,6 +39,7 @@ local function load(skin)
     })
 
     append_all(skin.image, {
+        nirmala_ui_bold.yellow_period({ id = "num_info_panel_rate_period", }),
         nirmala_ui_bold.yellow_percent({ id = "num_info_panel_rate_percent", }),
     })
 
@@ -79,6 +80,18 @@ local function load(skin)
                 { x = geometry.score_panel_x + 160 - nirmala_ui_bold.width * 5, y = geometry.score_panel_y + 160, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
             }
         },
+        {
+            id = "num_info_panel_rate_period",
+            dst = {
+                { x = geometry.score_panel_x + 160 - nirmala_ui_bold.width * 3, y = geometry.score_panel_y + 80, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+            }
+        },
+        {
+            id = "num_info_panel_rate_percent",
+            dst = {
+                { x = geometry.score_panel_x + 160, y = geometry.score_panel_y + 80, w = nirmala_ui_bold.percent_w, h = nirmala_ui_bold.height },
+            }
+        }
     })
 end
 return { load = load }

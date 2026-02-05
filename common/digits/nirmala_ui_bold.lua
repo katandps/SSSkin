@@ -52,6 +52,10 @@ local function yellow(t)
     return merge_recursive(merge_recursive(t, natural), { x = 0, y = height * 2, })
 end
 
+local function yellow_period(t)
+    return merge_recursive(t, { src = source_id, x = period_x, y = height * 2, w = period_w, h = height })
+end
+
 local function yellow_percent(t)
     return merge_recursive(t, { src = source_id, x = percent_x, y = height * 2, w = percent_w, h = height })
 end
@@ -110,6 +114,7 @@ return {
     green = green,
     green_percent = green_percent,
     yellow = yellow,
+    yellow_period = yellow_period,
     yellow_percent = yellow_percent,
     red = red,
     red_ms = red_ms,
