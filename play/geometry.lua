@@ -21,6 +21,8 @@ local INCH_27 = { -- 43インチ比率から1.6倍
     score_panel_x = 200,
     score_panel_y = 400,
 
+    rest_panel_y = 250,
+
     judge_panel_x = 1400,
     judge_panel_y = 300,
 
@@ -50,6 +52,8 @@ local INCH_43 = {
 
     score_panel_x = 200,
     score_panel_y = 400,
+
+    rest_panel_y = 250,
 
     judge_panel_x = 810,
     judge_panel_y = 300,
@@ -212,6 +216,11 @@ local function build()
         score_panel_w = 200,
         score_panel_h = 200,
 
+        rest_panel_x = score_panel_x(display, player_side),
+        rest_panel_y = display.rest_panel_y,
+        rest_panel_w = 200,
+        rest_panel_h = 100,
+
         bga_area_x = bga_area_x(display, player_side),
 
         judge_panel_x = display.judge_panel_x,
@@ -226,6 +235,7 @@ local function build()
 
         gauge_value_x = gauge_value_x(display, player_side),
         gauge_value_y = display.gauge_value_y,
+
     }
 end
 
