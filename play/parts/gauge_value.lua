@@ -1,10 +1,10 @@
-local append_all       = require("utils/append_all")
-local anticyclone_bold = require("common/digits/anticyclone_bold")
-local NUMBERS          = require("play/consts").NUMBERS
-local GAUGE_TYPES      = require("play/consts").GAUGE_TYPES
-local main_state       = require("main_state")
+local append_all  = require("utils/append_all")
+local font        = require("common/digits/anticyclone_bold")
+local NUMBERS     = require("play/consts").NUMBERS
+local GAUGE_TYPES = require("play/consts").GAUGE_TYPES
+local main_state  = require("main_state")
 
-local geometry         = require("play/geometry").build()
+local geometry    = require("play/geometry").build()
 
 local function gauge_type(type)
     local function func()
@@ -15,17 +15,22 @@ local function gauge_type(type)
 end
 
 local function load(skin)
-    anticyclone_bold.load(skin)
+    font.load(skin)
 
     append_all(skin.value, {
-        anticyclone_bold.white({
+        font.white({
             id = "gaugevalue",
             digit = 3,
             ref = NUMBERS.NUMBER_GROOVEGAUGE,
         }),
-        anticyclone_bold.white({ id = "gaugevalue_ad", digit = 1, ref = NUMBERS.NUMBER_GROOVEGAUGE_AFTERDOT }),
+        font.white({ id = "gaugevalue_ad", digit = 1, ref = NUMBERS.NUMBER_GROOVEGAUGE_AFTERDOT }),
     })
-    local x, y, w, h = geometry.gauge_value_x, geometry.gauge_value_y, anticyclone_bold.width, anticyclone_bold.height
+
+    append_all(skin.image, {
+        font.white_period({ id = "gaugevalue_period" }),
+    })
+
+    local x, y, w, h = geometry.gauge_value_x, geometry.gauge_value_y, font.width, font.height
     append_all(skin.destination, {
         -- ASSIST EASY
         {
@@ -34,9 +39,14 @@ local function load(skin)
             dst = { { x = x, y = y, w = w, h = h, r = 255, g = 0, b = 255, } }
         },
         {
+            id = "gaugevalue_period",
+            draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_ASSIST_EASY),
+            dst = { { x = x + w * 3, y = y, w = font.period_width, h = h, r = 255, g = 0, b = 255, } }
+        },
+        {
             id = "gaugevalue_ad",
             draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_ASSIST_EASY),
-            dst = { { x = x + w * 3 + 10, y = y, w = w, h = h, r = 255, g = 0, b = 255, } }
+            dst = { { x = x + w * 3 + font.period_width, y = y, w = w, h = h, r = 255, g = 0, b = 255, } }
         },
         --  EASY
         {
@@ -45,9 +55,14 @@ local function load(skin)
             dst = { { x = x, y = y, w = w, h = h, r = 80, g = 255, b = 80, } }
         },
         {
+            id = "gaugevalue_period",
+            draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_EASY),
+            dst = { { x = x + w * 3, y = y, w = font.period_width, h = h, r = 80, g = 255, b = 80, } }
+        },
+        {
             id = "gaugevalue_ad",
             draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_EASY),
-            dst = { { x = x + w * 3 + 10, y = y, w = w, h = h, r = 80, g = 255, b = 80, } }
+            dst = { { x = x + w * 3 + font.period_width, y = y, w = w, h = h, r = 80, g = 255, b = 80, } }
         },
         --  NORMAL
         {
@@ -56,9 +71,14 @@ local function load(skin)
             dst = { { x = x, y = y, w = w, h = h, r = 0, g = 255, b = 255, } }
         },
         {
+            id = "gaugevalue_period",
+            draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_NORMAL),
+            dst = { { x = x + w * 3, y = y, w = font.period_width, h = h, r = 0, g = 255, b = 255, } }
+        },
+        {
             id = "gaugevalue_ad",
             draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_NORMAL),
-            dst = { { x = x + w * 3 + 10, y = y, w = w, h = h, r = 0, g = 255, b = 255, } }
+            dst = { { x = x + w * 3 + font.period_width, y = y, w = w, h = h, r = 0, g = 255, b = 255, } }
         },
         -- HARD
         {
@@ -67,9 +87,14 @@ local function load(skin)
             dst = { { x = x, y = y, w = w, h = h, r = 255, g = 0, b = 0, } }
         },
         {
+            id = "gaugevalue_period",
+            draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_HARD),
+            dst = { { x = x + w * 3, y = y, w = font.period_width, h = h, r = 255, g = 0, b = 0, } }
+        },
+        {
             id = "gaugevalue_ad",
             draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_HARD),
-            dst = { { x = x + w * 3 + 10, y = y, w = w, h = h, r = 255, g = 0, b = 0, } }
+            dst = { { x = x + w * 3 + font.period_width, y = y, w = w, h = h, r = 255, g = 0, b = 0, } }
         },
         -- EXHARD
         {
@@ -78,9 +103,14 @@ local function load(skin)
             dst = { { x = x, y = y, w = w, h = h, r = 255, g = 255, b = 0, } }
         },
         {
+            id = "gaugevalue_period",
+            draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_EXHARD),
+            dst = { { x = x + w * 3, y = y, w = font.period_width, h = h, r = 255, g = 255, b = 0, } }
+        },
+        {
             id = "gaugevalue_ad",
             draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_EXHARD),
-            dst = { { x = x + w * 3 + 10, y = y, w = w, h = h, r = 255, g = 255, b = 0, } }
+            dst = { { x = x + w * 3 + font.period_width, y = y, w = w, h = h, r = 255, g = 255, b = 0, } }
         },
         -- HAZARD
         {
@@ -89,9 +119,14 @@ local function load(skin)
             dst = { { x = x, y = y, w = w, h = h, r = 255, g = 255, b = 255, } }
         },
         {
+            id = "gaugevalue_period",
+            draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_HAZARD),
+            dst = { { x = x + w * 3, y = y, w = font.period_width, h = h, r = 255, g = 255, b = 255, } }
+        },
+        {
             id = "gaugevalue_ad",
             draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_HAZARD),
-            dst = { { x = x + w * 3 + 10, y = y, w = w, h = h, r = 255, g = 255, b = 255, } }
+            dst = { { x = x + w * 3 + font.period_width, y = y, w = w, h = h, r = 255, g = 255, b = 255, } }
         },
         -- GRADE
         {
@@ -100,9 +135,14 @@ local function load(skin)
             dst = { { x = x, y = y, w = w, h = h, r = 255, g = 0, b = 0, } }
         },
         {
+            id = "gaugevalue_period",
+            draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_GRADE),
+            dst = { { x = x + w * 3, y = y, w = font.period_width, h = h, r = 255, g = 0, b = 0, } }
+        },
+        {
             id = "gaugevalue_ad",
             draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_GRADE),
-            dst = { { x = x + w * 3 + 10, y = y, w = w, h = h, r = 255, g = 0, b = 0, } }
+            dst = { { x = x + w * 3 + font.period_width, y = y, w = w, h = h, r = 255, g = 0, b = 0, } }
         },
         -- EX GRADE
         {
@@ -111,9 +151,14 @@ local function load(skin)
             dst = { { x = x, y = y, w = w, h = h, r = 255, g = 0, b = 0, } }
         },
         {
+            id = "gaugevalue_period",
+            draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_EX_GRADE),
+            dst = { { x = x + w * 3, y = y, w = font.period_width, h = h, r = 255, g = 0, b = 0, } }
+        },
+        {
             id = "gaugevalue_ad",
             draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_EX_GRADE),
-            dst = { { x = x + w * 3 + 10, y = y, w = w, h = h, r = 255, g = 0, b = 0, } }
+            dst = { { x = x + w * 3 + font.period_width, y = y, w = w, h = h, r = 255, g = 0, b = 0, } }
         },
         -- EXHARD GRADE
         {
@@ -122,9 +167,14 @@ local function load(skin)
             dst = { { x = x, y = y, w = w, h = h, r = 255, g = 255, b = 0, } }
         },
         {
+            id = "gaugevalue_period",
+            draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_EXHARD_GRADE),
+            dst = { { x = x + w * 3, y = y, w = font.period_width, h = h, r = 255, g = 255, b = 0, } }
+        },
+        {
             id = "gaugevalue_ad",
             draw = gauge_type(GAUGE_TYPES.GAUGE_TYPE_EXHARD_GRADE),
-            dst = { { x = x + w * 3 + 10, y = y, w = w, h = h, r = 255, g = 255, b = 0, } }
+            dst = { { x = x + w * 3 + font.period_width, y = y, w = w, h = h, r = 255, g = 255, b = 0, } }
         },
 
     })
