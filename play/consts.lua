@@ -11,6 +11,8 @@ local NUMBERS = {
     NUMBER_JUDGETIMING                   = 12,
     NUMBER_LANECOVER1                    = 14,
 
+    NUMBER_TOTALNOTES                    = 74,
+
     NUMBER_SCORE                         = 101,
     NUMBER_SCORE_RATE                    = 102,
     NUMBER_SCORE_RATE_AFTERDOT           = 103,
@@ -56,6 +58,10 @@ local NUMBERS = {
     NUMBER_POOR_PLUS_MISS                = 426,
     NUMBER_BAD_PLUS_POOR_PLUS_MISS       = 427,
 }
+local FLOATS = {
+    FLOAT_CHART_TOTALGAUGE = 368,
+}
+
 local VALUE = {
     VALUE_JUDGE_1P_DURATION = 525,
 }
@@ -177,6 +183,7 @@ local DISPLAY = {
 
 return {
     BUTTONS = BUTTONS,
+    FLOATS = FLOATS,
     GAUGE_TYPES = GAUGE_TYPES,
     NUMBERS = NUMBERS,
     OFFSETS = OFFSETS,

@@ -28,9 +28,11 @@ local function main()
     skin.timingvisualizer = { { id = "timing" } }
 
     -- 記述順に描画される
+    -- background
     require("play/background/default").load(skin)
-    require("play/parts/lane").load(skin)
 
+    -- play area
+    require("play/parts/lane").load(skin)
     require("play/keybeam/default").load(skin)
     require("play/note/default").load(skin)
     require("play/parts/lane_frame").load(skin)
@@ -39,15 +41,22 @@ local function main()
     require("play/parts/judge").load(skin)
     require("play/judge/judge_timing").load(skin)
     require("play/judge/score_ghost").load(skin)
+
+    -- panels
     require("play/parts/bpm").load(skin)
     require("play/parts/gauge_value").load(skin)
     require("play/parts/score_panel").load(skin)
     require("play/parts/rest_panel").load(skin)
+    require("play/parts/song_info").load(skin)
     require("play/parts/judge_detail").load(skin)
     require("play/parts/title").load(skin)
     require("play/parts/bga").load(skin)
     require("play/parts/judge_graph").load(skin)
+
+    -- finish effect
     require("play/parts/finish/default").load(skin)
+
+    -- overlays
     require("play/parts/fadeout").load(skin)
 
     return skin
