@@ -190,8 +190,9 @@ local function build()
     local lane_left_margin = lane_left_margin(display, player_side)
 
     return {
-        inch_27 = INCH_27,
-        inch_43 = INCH_43,
+        total_width = 1920,
+        total_height = 1080,
+
         lane_white_key_width = display.lane_white_key_width,
         lane_black_key_width = display.lane_black_key_width,
         lane_scratch_width = display.lane_scratch_width,

@@ -15,6 +15,8 @@ local ms_x = 374
 local ms_w = 38
 local colon_x = 412
 local colon_w = 14
+local slash_x = 426
+local slash_w = 14
 
 local function white(t)
     return merge_recursive(merge_recursive(t, natural), { x = 0, y = 0, })
@@ -34,6 +36,10 @@ end
 
 local function white_colon(t)
     return merge_recursive(t, { src = source_id, x = colon_x, y = 0, w = colon_w, h = height })
+end
+
+local function white_slash(t)
+    return merge_recursive(t, { src = source_id, x = slash_x, y = 0, w = slash_w, h = height }) -- todo fix
 end
 
 local function white_integer(t)
@@ -130,6 +136,7 @@ return {
     white_period = white_period,
     white_ms = white_ms,
     white_colon = white_colon,
+    white_slash = white_slash,
 
-    percent_w = percent_w
+    percent_w = percent_w,
 }

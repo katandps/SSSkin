@@ -52,6 +52,7 @@ local function main()
     require("play/parts/title").load(skin)
     require("play/parts/bga").load(skin)
     require("play/parts/judge_graph").load(skin)
+    require("play/parts/clock").load(skin)
 
     -- finish effect
     require("play/parts/finish/default").load(skin)

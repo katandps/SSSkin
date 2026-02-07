@@ -11,6 +11,13 @@ local NUMBERS = {
     NUMBER_JUDGETIMING                   = 12,
     NUMBER_LANECOVER1                    = 14,
 
+    NUMBER_TIME_YEAR                     = 21,
+    NUMBER_TIME_MONTH                    = 22,
+    NUMBER_TIME_DAY                      = 23,
+    NUMBER_TIME_HOUR                     = 24,
+    NUMBER_TIME_MINUTE                   = 25,
+    NUMBER_TIME_SECOND                   = 26,
+
     NUMBER_TOTALNOTES                    = 74,
 
     NUMBER_SCORE                         = 101,
