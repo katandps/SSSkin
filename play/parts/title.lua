@@ -4,7 +4,9 @@ local STRINGS = require("play/consts").STRINGS
 
 local title_h = 28
 
-local skin = { text = {}, destination = {} }
+local skin = { font = {}, text = {}, destination = {} }
+
+table.insert(skin.font, { id = "genshin-gothic-heavy", path = "common/font/GenShinGothic-Heavy.ttf" })
 
 -- 難易度表
 table.insert(skin.text, {
