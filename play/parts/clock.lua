@@ -5,6 +5,7 @@ local load = require("utils/load")
 
 local font = require("common/digits/nirmala_ui_bold")
 local NUMBERS = require("play/consts").NUMBERS
+local RESOURCE_IDS = require("play/consts").RESOURCE_IDS
 local geometry = require("play/geometry").build()
 
 local clock_width = font.width * 21
@@ -32,17 +33,17 @@ local w = font.width
 local h = font.height
 append_all(skin.destination, {
     -- date
-    { id = -111,           dst = { { x = x_pos, y = 0, w = clock_width, h = clock_height, a = 30 } } },
-    { id = "clock-year",   dst = { { x = x_pos + 20, y = 0, w = w, h = h } } },
-    { id = "clock-slash",  dst = { { x = x_pos + 20 + w * 4, y = 0, w = w, h = h } } },
-    { id = "clock-month",  dst = { { x = x_pos + 20 + w * 5, y = 0, w = w, h = h } } },
-    { id = "clock-slash",  dst = { { x = x_pos + 20 + w * 7, y = 0, w = w, h = h } } },
-    { id = "clock-day",    dst = { { x = x_pos + 20 + w * 8, y = 0, w = w, h = h } } },
+    { id = RESOURCE_IDS.WHITE, dst = { { x = x_pos, y = 0, w = clock_width, h = clock_height, a = 30 } } },
+    { id = "clock-year",       dst = { { x = x_pos + 20, y = 0, w = w, h = h } } },
+    { id = "clock-slash",      dst = { { x = x_pos + 20 + w * 4, y = 0, w = w, h = h } } },
+    { id = "clock-month",      dst = { { x = x_pos + 20 + w * 5, y = 0, w = w, h = h } } },
+    { id = "clock-slash",      dst = { { x = x_pos + 20 + w * 7, y = 0, w = w, h = h } } },
+    { id = "clock-day",        dst = { { x = x_pos + 20 + w * 8, y = 0, w = w, h = h } } },
     -- time
-    { id = "clock-hour",   dst = { { x = x_pos + 20 + w * 11, y = 0, w = w, h = h } } },
-    { id = "clock-colon",  dst = { { x = x_pos + 20 + w * 13, y = 0, w = w, h = h } } },
-    { id = "clock-minute", dst = { { x = x_pos + 20 + w * 14, y = 0, w = w, h = h } } },
-    { id = "clock-colon",  dst = { { x = x_pos + 20 + w * 16, y = 0, w = w, h = h } } },
-    { id = "clock-second", dst = { { x = x_pos + 20 + w * 17, y = 0, w = w, h = h } } },
+    { id = "clock-hour",       dst = { { x = x_pos + 20 + w * 11, y = 0, w = w, h = h } } },
+    { id = "clock-colon",      dst = { { x = x_pos + 20 + w * 13, y = 0, w = w, h = h } } },
+    { id = "clock-minute",     dst = { { x = x_pos + 20 + w * 14, y = 0, w = w, h = h } } },
+    { id = "clock-colon",      dst = { { x = x_pos + 20 + w * 16, y = 0, w = w, h = h } } },
+    { id = "clock-second",     dst = { { x = x_pos + 20 + w * 17, y = 0, w = w, h = h } } },
 })
 return skin

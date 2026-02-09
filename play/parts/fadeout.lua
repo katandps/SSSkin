@@ -2,6 +2,7 @@
 
 local header = require("play/header")
 local TIMERS = require("play/consts").TIMERS
+local RESOURCE_IDS = require("play/consts").RESOURCE_IDS
 
 local skin = { destination = {} }
 -- 手動で終了
@@ -17,7 +18,7 @@ table.insert(skin.destination, {
 })
 -- Failed
 table.insert(skin.destination, {
-    id = -111,
+    id = RESOURCE_IDS.WHITE,
     timer = TIMERS.TIMER_FAILED,
     loop = 500,
     dst = {

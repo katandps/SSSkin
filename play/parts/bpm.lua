@@ -5,6 +5,7 @@ local consts = require("play/consts")
 
 local NUMBERS = consts.NUMBERS
 local OPTIONS = consts.OPTIONS
+local RESOURCE_IDS = consts.RESOURCE_IDS
 
 local append_all = require("utils/append_all")
 local load = require("utils/load")
@@ -49,7 +50,7 @@ local hiphen_width = 20
 append_all(skin.destination, {
     -- background black
     {
-        id = -111,
+        id = RESOURCE_IDS.WHITE,
         dst = {
             { x = bpm_center_x - bpm_w / 2, y = bpm_y, w = bpm_w, h = bpm_h, a = 50 }
         }
@@ -79,7 +80,7 @@ append_all(skin.destination, {
         }
     },
     { -- min側のハイフン
-        id = -111,
+        id = RESOURCE_IDS.WHITE,
         op = { OPTIONS.OPTION_BPMCHANGE },
         dst = {
             { x = bpm_center_x - anticyclone_bold.width * 2.2 - hiphen_width / 2, y = num_y + anticyclone_bold.height * sideNumRate * 0.4, w = hiphen_width, h = anticyclone_bold.height * 0.2 * sideNumRate }
@@ -87,7 +88,7 @@ append_all(skin.destination, {
     },
     {
         -- max側のハイフン
-        id = -111,
+        id = RESOURCE_IDS.WHITE,
         op = { OPTIONS.OPTION_BPMCHANGE },
         dst = {
             { x = bpm_center_x + anticyclone_bold.width * 2.2 - hiphen_width / 2, y = num_y + anticyclone_bold.height * sideNumRate * 0.4, w = hiphen_width, h = anticyclone_bold.height * 0.2 * sideNumRate }

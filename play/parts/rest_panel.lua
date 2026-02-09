@@ -6,6 +6,7 @@ local load = require("utils/load")
 local NUMBERS = require("play/consts").NUMBERS
 local main_state = require("main_state")
 local geometry = require("play/geometry").build()
+local RESOURCE_IDS = require("play/consts").RESOURCE_IDS
 
 local panel_x = geometry.rest_panel_x
 local panel_y = geometry.rest_panel_y
@@ -46,7 +47,7 @@ append_all(skin.image, {
 })
 append_all(skin.destination, {
     { -- 背景
-        id = -111,
+        id = RESOURCE_IDS.WHITE,
         dst = {
             { x = panel_x, y = panel_y, w = panel_w, h = panel_h, r = 50, g = 50, b = 50, a = 128 },
         }

@@ -5,6 +5,7 @@ local append_all = require("utils/append_all")
 local load = require("utils/load")
 local NUMBERS = require("play/consts").NUMBERS
 local VALUES = require("play/consts").VALUES
+local RESOURCE_IDS = require("play/consts").RESOURCE_IDS
 
 local geometry = require("play/geometry").build()
 local skin = { value = {}, image = {}, destination = {} }
@@ -47,7 +48,7 @@ append_all(skin.image, {
 
 append_all(skin.destination, {
     { -- 背景
-        id = -111,
+        id = RESOURCE_IDS.WHITE,
         dst = {
             { x = geometry.score_panel_x, y = geometry.score_panel_y, w = geometry.score_panel_w, h = geometry.score_panel_h, r = 50, g = 50, b = 50, a = 128 },
         }
