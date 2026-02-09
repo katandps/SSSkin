@@ -226,7 +226,7 @@ local function build()
 
         judge_panel_x = display.judge_panel_x,
         judge_panel_y = display.judge_panel_y,
-        judge_panel_w = 300,
+        judge_panel_w = 360,
         judge_panel_h = 300,
 
         judge_graph_x = display.judge_graph_x,

@@ -54,44 +54,49 @@ local h = digits.height
 
 append_all(skin.destination, {
     -- background
-    { id = RESOURCE_IDS.WHITE,            dst = { { x = panel_x, y = panel_y, w = panel_w, h = panel_h, r = 50, g = 50, b = 50, a = 192 } } },
+    { id = RESOURCE_IDS.WHITE,                 dst = { { x = panel_x, y = panel_y, w = panel_w, h = panel_h, r = 50, g = 50, b = 50, a = 192 } } },
+    { id = RESOURCE_IDS.WHITE,                 dst = { { x = panel_x, y = panel_y + panel_h - h * 1, w = panel_w, h = 33, r = 0, g = 255, b = 255, a = 20 } } },
 
     -- texts
-    { id = "text_pgreat_nirmala_ui_bold", dst = { { x = panel_x + 5, y = panel_y - h * 1 + panel_h, w = 36, h = 33 } } },
-    { id = "text_great_nirmala_ui_bold",  dst = { { x = panel_x + 5, y = panel_y - h * 2 + panel_h, w = 36, h = 33 } } },
-    { id = "text_good_nirmala_ui_bold",   dst = { { x = panel_x + 5, y = panel_y - h * 3 + panel_h, w = 36, h = 33 } } },
-    { id = "text_bad_nirmala_ui_bold",    dst = { { x = panel_x + 5, y = panel_y - h * 4 + panel_h, w = 36, h = 33 } } },
-    { id = "text_poor_nirmala_ui_bold",   dst = { { x = panel_x + 5, y = panel_y - h * 5 + panel_h, w = 36, h = 33 } } },
-    { id = "text_miss_nirmala_ui_bold",   dst = { { x = panel_x + 5, y = panel_y - h * 6 + panel_h, w = 36, h = 33 } } },
+    { id = "text_pgreat_nirmala_ui_bold",      dst = { { x = panel_x + w, y = panel_y - h * 1 + panel_h, w = 36, h = 33 } } },
+    { id = "text_great_nirmala_ui_bold",       dst = { { x = panel_x + w, y = panel_y - h * 2 + panel_h, w = 36, h = 33 } } },
+    { id = "text_good_nirmala_ui_bold",        dst = { { x = panel_x + w, y = panel_y - h * 3 + panel_h, w = 36, h = 33 } } },
+    { id = "text_bad_nirmala_ui_bold",         dst = { { x = panel_x + w, y = panel_y - h * 4 + panel_h, w = 36, h = 33 } } },
+    { id = "text_poor_nirmala_ui_bold",        dst = { { x = panel_x + w, y = panel_y - h * 5 + panel_h, w = 36, h = 33 } } },
+    { id = "text_miss_nirmala_ui_bold",        dst = { { x = panel_x + w, y = panel_y - h * 6 + panel_h, w = 36, h = 33 } } },
+    { id = "text_combo_break_nirmala_ui_bold", dst = { { x = panel_x + w, y = panel_y, w = 36, h = 33 } } },
+    { id = "text_miss_count_nirmala_ui_bold",  dst = { { x = panel_x + w * 13, y = panel_y, w = 36, h = 33 } } },
 
-    { id = "judge-count-pg",              dst = { { x = 47 + panel_x, y = panel_y - h * 1 + panel_h, w = w, h = h } } },
-    { id = "judge-count-gr",              dst = { { x = 47 + panel_x, y = panel_y - h * 2 + panel_h, w = w, h = h } } },
-    { id = "judge-count-gd",              dst = { { x = 47 + panel_x, y = panel_y - h * 3 + panel_h, w = w, h = h } } },
-    { id = "judge-count-bd",              dst = { { x = 47 + panel_x, y = panel_y - h * 4 + panel_h, w = w, h = h } } },
-    { id = "judge-count-pr",              dst = { { x = 47 + panel_x, y = panel_y - h * 5 + panel_h, w = w, h = h } } },
-    { id = "judge-count-fl",              dst = { { x = 47 + panel_x, y = panel_y - h * 6 + panel_h, w = w, h = h } } },
+    -- counts
+    { id = "judge-count-pg",                   dst = { { x = panel_x + w * 5, y = panel_y - h * 1 + panel_h, w = w, h = h } } },
+    { id = "judge-count-gr",                   dst = { { x = panel_x + w * 5, y = panel_y - h * 2 + panel_h, w = w, h = h } } },
+    { id = "judge-count-gd",                   dst = { { x = panel_x + w * 5, y = panel_y - h * 3 + panel_h, w = w, h = h } } },
+    { id = "judge-count-bd",                   dst = { { x = panel_x + w * 5, y = panel_y - h * 4 + panel_h, w = w, h = h } } },
+    { id = "judge-count-pr",                   dst = { { x = panel_x + w * 5, y = panel_y - h * 5 + panel_h, w = w, h = h } } },
+    { id = "judge-count-fl",                   dst = { { x = panel_x + w * 5, y = panel_y - h * 6 + panel_h, w = w, h = h } } },
 
-    { id = "judge-count-fpg",             dst = { { x = 47 + panel_x + w * 6, y = panel_y - h * 1 + panel_h, w = w, h = h } } },
-    { id = "judge-count-fgr",             dst = { { x = 47 + panel_x + w * 6, y = panel_y - h * 2 + panel_h, w = w, h = h } } },
-    { id = "judge-count-fgd",             dst = { { x = 47 + panel_x + w * 6, y = panel_y - h * 3 + panel_h, w = w, h = h } } },
-    { id = "judge-count-fbd",             dst = { { x = 47 + panel_x + w * 6, y = panel_y - h * 4 + panel_h, w = w, h = h } } },
-    { id = "judge-count-fpr",             dst = { { x = 47 + panel_x + w * 6, y = panel_y - h * 5 + panel_h, w = w, h = h } } },
-    { id = "judge-count-ffl",             dst = { { x = 47 + panel_x + w * 6, y = panel_y - h * 6 + panel_h, w = w, h = h } } },
-    { id = "judge-count-total-early",     dst = { { x = 47 + panel_x + w * 6, y = panel_y - h * 7 + panel_h, w = w, h = h } } },
+    -- fast counts
+    { id = "judge-count-fpg",                  dst = { { x = panel_x + w * 11, y = panel_y - h * 1 + panel_h, w = w, h = h } } },
+    { id = "judge-count-fgr",                  dst = { { x = panel_x + w * 11, y = panel_y - h * 2 + panel_h, w = w, h = h } } },
+    { id = "judge-count-fgd",                  dst = { { x = panel_x + w * 11, y = panel_y - h * 3 + panel_h, w = w, h = h } } },
+    { id = "judge-count-fbd",                  dst = { { x = panel_x + w * 11, y = panel_y - h * 4 + panel_h, w = w, h = h } } },
+    { id = "judge-count-fpr",                  dst = { { x = panel_x + w * 11, y = panel_y - h * 5 + panel_h, w = w, h = h } } },
+    { id = "judge-count-ffl",                  dst = { { x = panel_x + w * 11, y = panel_y - h * 6 + panel_h, w = w, h = h } } },
+    { id = "judge-count-total-early",          dst = { { x = panel_x + w * 11, y = panel_y - h * 7 + panel_h, w = w, h = h } } },
 
-
-    { id = "judge-count-spg",             dst = { { x = 47 + panel_x + w * 12, y = panel_y - h * 1 + panel_h, w = w, h = h } } },
-    { id = "judge-count-sgr",             dst = { { x = 47 + panel_x + w * 12, y = panel_y - h * 2 + panel_h, w = w, h = h } } },
-    { id = "judge-count-sgd",             dst = { { x = 47 + panel_x + w * 12, y = panel_y - h * 3 + panel_h, w = w, h = h } } },
-    { id = "judge-count-sbd",             dst = { { x = 47 + panel_x + w * 12, y = panel_y - h * 4 + panel_h, w = w, h = h } } },
-    { id = "judge-count-spr",             dst = { { x = 47 + panel_x + w * 12, y = panel_y - h * 5 + panel_h, w = w, h = h } } },
-    { id = "judge-count-sfl",             dst = { { x = 47 + panel_x + w * 12, y = panel_y - h * 6 + panel_h, w = w, h = h } } },
-    { id = "judge-count-total-late",      dst = { { x = 47 + panel_x + w * 12, y = panel_y - h * 7 + panel_h, w = w, h = h } } },
+    -- slow counts
+    { id = "judge-count-spg",                  dst = { { x = panel_x + w * 17, y = panel_y - h * 1 + panel_h, w = w, h = h } } },
+    { id = "judge-count-sgr",                  dst = { { x = panel_x + w * 17, y = panel_y - h * 2 + panel_h, w = w, h = h } } },
+    { id = "judge-count-sgd",                  dst = { { x = panel_x + w * 17, y = panel_y - h * 3 + panel_h, w = w, h = h } } },
+    { id = "judge-count-sbd",                  dst = { { x = panel_x + w * 17, y = panel_y - h * 4 + panel_h, w = w, h = h } } },
+    { id = "judge-count-spr",                  dst = { { x = panel_x + w * 17, y = panel_y - h * 5 + panel_h, w = w, h = h } } },
+    { id = "judge-count-sfl",                  dst = { { x = panel_x + w * 17, y = panel_y - h * 6 + panel_h, w = w, h = h } } },
+    { id = "judge-count-total-late",           dst = { { x = panel_x + w * 17, y = panel_y - h * 7 + panel_h, w = w, h = h } } },
 
     -- COMBO BREAK
-    { id = "judge-count-combo-break",     dst = { { x = 47 + panel_x, y = panel_y, w = w, h = h } } },
+    { id = "judge-count-combo-break",          dst = { { x = panel_x + w * 5, y = panel_y, w = w, h = h } } },
     -- MISS COUNT
-    { id = "judge-count-misscount",       dst = { { x = 47 + panel_x + w * 12, y = panel_y, w = w, h = h } } },
+    { id = "judge-count-misscount",            dst = { { x = panel_x + w * 17, y = panel_y, w = w, h = h } } },
 
 })
 return skin
