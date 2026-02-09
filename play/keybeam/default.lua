@@ -21,34 +21,33 @@ local timer_ref = {
 }
 local lane_x_positions = geometry.lane_x_positions
 
-local function load(skin)
-    table.insert(skin.source, { id = "src_keybeam", path = "play/keybeam/default.png" })
+local skin = { source = {}, image = {}, destination = {} }
 
-    append_all(skin.image, {
-        { id = "kb_s", src = "src_keybeam", x = 0,   y = 0, w = 108, h = h }, -- keybeam scratch
-        { id = "kb_w", src = "src_keybeam", x = 108, y = 0, w = 60,  h = h }, -- keybeam white
-        { id = "kb_b", src = "src_keybeam", x = 168, y = 0, w = 48,  h = h }, -- keybeam black
-    })
+table.insert(skin.source, { id = "src_keybeam", path = "play/keybeam/default.png" })
 
+append_all(skin.image, {
+    { id = "kb_s", src = "src_keybeam", x = 0,   y = 0, w = 108, h = h }, -- keybeam scratch
+    { id = "kb_w", src = "src_keybeam", x = 108, y = 0, w = 60,  h = h }, -- keybeam white
+    { id = "kb_b", src = "src_keybeam", x = 168, y = 0, w = 48,  h = h }, -- keybeam black
+})
+
+table.insert(skin.destination, {
+    id = "kb_s",
+    timer = timer_ref[8],
+    dst = {
+        { x = geometry.lane_left_margin + lane_x_positions[8], y = geometry.lane_under_margin, w = geometry.lane_scratch_width, h = h * 0.2 },
+    }
+})
+
+for i = 1, 7 do
     table.insert(skin.destination, {
-        id = "kb_s",
-        timer = timer_ref[8],
+        id = kind[i],
+        offset = { OFFSETS.OFFSET_LIFT },
+        timer = timer_ref[i],
+        blend = 1,
         dst = {
-            { x = geometry.lane_left_margin + lane_x_positions[8], y = geometry.lane_under_margin, w = geometry.lane_scratch_width, h = h * 0.2 },
+            { x = geometry.lane_left_margin + lane_x_positions[i], y = geometry.lane_under_margin, w = width[i], h = h * 0.2 }
         }
     })
-
-    for i = 1, 7 do
-        table.insert(skin.destination, {
-            id = kind[i],
-            offset = { OFFSETS.OFFSET_LIFT },
-            timer = timer_ref[i],
-            blend = 1,
-            dst = {
-                { x = geometry.lane_left_margin + lane_x_positions[i], y = geometry.lane_under_margin, w = width[i], h = h * 0.2 }
-            }
-        })
-    end
 end
-
-return { load = load }
+return skin

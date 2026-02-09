@@ -1,7 +1,7 @@
 ---
 --- `list1`の全要素を`list`に追加します。
 ---
-local function append_all(list, list1)
+return function(list, list1)
     -- list, list1はtableでなければならない
     if type(list) ~= "table" then
         error("list must be a table, got " .. type(list), 2)
@@ -14,5 +14,3 @@ local function append_all(list, list1)
         table.insert(list, v)
     end
 end
-
-return append_all

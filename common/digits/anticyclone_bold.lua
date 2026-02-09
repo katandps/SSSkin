@@ -18,34 +18,15 @@ local function white_period(t)
     return merge_recursive(t, { src = "src_anticyclone_bold", x = width * 11, y = 0, w = period_width, h = height })
 end
 
-local function load(skin)
-    append_all(skin.source, { { id = "src_anticyclone_bold", path = "common/digits/anticyclone_bold.png" } })
-end
-
---- 数字1個分の画像をimageにして取得
-local function white_image(skin, i)
-    append_all(skin.image, { {
-        id = "anticyclone_bold_white_" .. i,
-        src = "src_anticyclone_bold",
-        x = i * width,
-        y = 0,
-        w = width,
-        h = height,
-    } })
-end
-
-local function white_pick(i)
-    return "anticyclone_bold_white_" .. i
-end
+local skin = { source = {} }
+append_all(skin.source, { { id = "src_anticyclone_bold", path = "common/digits/anticyclone_bold.png" } })
 
 return {
-    load = load,
+    skin = skin,
     white = white,
     white0 = white0,
     white_period = white_period,
     width = width,
     height = height,
-    white_image = white_image,
-    white_pick = white_pick,
     period_width = period_width,
 }

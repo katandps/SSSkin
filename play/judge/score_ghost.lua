@@ -2,34 +2,34 @@
 
 local nirmala_ui_bold = require("common/digits/nirmala_ui_bold")
 local append_all = require("utils/append_all")
+local load = require("utils/load")
 local NUMBERS = require("play/consts").NUMBERS
 local OFFSETS = require("play/consts").OFFSETS
 
 local geometry = require("play/geometry").build()
 
-local function load(skin)
-    nirmala_ui_bold.load(skin)
+local skin = { value = {}, destination = {} }
+load(skin, nirmala_ui_bold.skin, "score_ghost_font")
 
-    -- ハイスコア
-    append_all(skin.value, {
-        nirmala_ui_bold.white_integer({
-            id = "ghost_diff_high_score",
-            digit = 5,
-            ref = NUMBERS.NUMBER_DIFF_HIGHSCORE
-        }),
-    })
+-- ハイスコア
+append_all(skin.value, {
+    nirmala_ui_bold.white_integer({
+        id = "ghost_diff_high_score",
+        digit = 5,
+        ref = NUMBERS.NUMBER_DIFF_HIGHSCORE
+    }),
+})
 
-    local x = geometry.lane_left_margin + geometry.lane_width / 2 - nirmala_ui_bold.width * 2 - 80
-    local y = geometry.lane_under_margin + geometry.judge_detail_default_y
+local x = geometry.lane_left_margin + geometry.lane_width / 2 - nirmala_ui_bold.width * 2 - 80
+local y = geometry.lane_under_margin + geometry.judge_detail_default_y
 
-    append_all(skin.destination, {
-        {
-            id = "ghost_diff_high_score",
-            offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGEDETAIL_1P },
-            dst = {
-                { x = x, y = y, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
-            }
-        },
-    })
-end
-return { load = load }
+append_all(skin.destination, {
+    {
+        id = "ghost_diff_high_score",
+        offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGEDETAIL_1P },
+        dst = {
+            { x = x, y = y, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+        }
+    },
+})
+return skin

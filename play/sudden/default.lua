@@ -1,5 +1,6 @@
 local geometry = require("play/geometry").build()
 local append_all = require("utils/append_all")
+local load = require("utils/load")
 local NUMBERS = require("play/consts").NUMBERS
 local OFFSETS = require("play/consts").OFFSETS
 local OPTIONS = require("play/consts").OPTIONS
@@ -13,51 +14,50 @@ local function calc_lanecover_value()
     return (1 - lane_height / geometry.lane_all_height) * 1000
 end
 
-local function load(skin)
-    nirmala_ui_bold.load(skin)
+local skin = { source = {}, slider = {}, value = {}, destination = {} }
+load(skin, nirmala_ui_bold.skin, "font")
 
-    append_all(skin.source, { { id = "src_lanecover", path = "play/sudden/cover.bmp" } })
+append_all(skin.source, { { id = "src_lanecover", path = "play/sudden/cover.bmp" } })
 
-    table.insert(skin.slider,
-        { id = "lanecover", src = "src_lanecover", x = 0, y = 0, w = -1, h = -1, angle = 2, range = geometry.lane_height, type = 4 }
-    )
+table.insert(skin.slider,
+    { id = "lanecover", src = "src_lanecover", x = 0, y = 0, w = -1, h = -1, angle = 2, range = geometry.lane_height, type = 4 }
+)
 
-    append_all(skin.value, {
-        nirmala_ui_bold.white({
-            id = "num_lanecover",
-            digit = 4,
-            value = calc_lanecover_value,
-        }),
-        nirmala_ui_bold.green({
-            id = "num_green_number",
-            digit = 4,
-            ref = NUMBERS.NUMBER_DURATION_GREEN
-        }),
-    })
+append_all(skin.value, {
+    nirmala_ui_bold.white({
+        id = "num_lanecover",
+        digit = 4,
+        value = calc_lanecover_value,
+    }),
+    nirmala_ui_bold.green({
+        id = "num_green_number",
+        digit = 4,
+        ref = NUMBERS.NUMBER_DURATION_GREEN
+    }),
+})
 
 
-    append_all(skin.destination, {
-        {
-            id = "lanecover",
-            offset = { OFFSETS.OFFSET_LIFT },
-            dst = {
-                { x = geometry.lane_left_margin, y = geometry.lane_under_margin + geometry.lane_height, w = geometry.lane_width, h = geometry.lane_height },
-            }
-        },
-        {
-            id = "num_lanecover",
-            op = { OPTIONS.OPTION_LANECOVER1_CHANGING },
-            dst = {
-                { x = geometry.lane_left_margin + geometry.lane_width * 0.3, y = 1044, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
-            }
-        },
-        {
-            id = "num_green_number",
-            op = { OPTIONS.OPTION_LANECOVER1_CHANGING },
-            dst = {
-                { x = geometry.lane_left_margin + geometry.lane_width * 0.6, y = 1044, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
-            }
-        },
-    })
-end
-return { load = load }
+append_all(skin.destination, {
+    {
+        id = "lanecover",
+        offset = { OFFSETS.OFFSET_LIFT },
+        dst = {
+            { x = geometry.lane_left_margin, y = geometry.lane_under_margin + geometry.lane_height, w = geometry.lane_width, h = geometry.lane_height },
+        }
+    },
+    {
+        id = "num_lanecover",
+        op = { OPTIONS.OPTION_LANECOVER1_CHANGING },
+        dst = {
+            { x = geometry.lane_left_margin + geometry.lane_width * 0.3, y = 1044, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+        }
+    },
+    {
+        id = "num_green_number",
+        op = { OPTIONS.OPTION_LANECOVER1_CHANGING },
+        dst = {
+            { x = geometry.lane_left_margin + geometry.lane_width * 0.6, y = 1044, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
+        }
+    },
+})
+return skin

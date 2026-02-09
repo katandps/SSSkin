@@ -92,29 +92,11 @@ local function red_ms(t)
     return merge_recursive(t, { src = source_id, x = ms_x, y = height * 3, w = ms_w, h = height })
 end
 
-
-local function load(skin)
-    append_all(skin.source, { { id = "src_number_nirmala_ui_bold", path = "common/digits/nirmala_ui_bold.png" } })
-end
-
---- 数字1個分の画像をimageにして取得
-local function white_image(skin, i)
-    append_all(skin.image, { {
-        id = "nirmala_ui_bold_white_" .. i,
-        src = "src_number_nirmala_ui_bold",
-        x = i * width,
-        y = 0,
-        w = width,
-        h = height,
-    } })
-end
-
-local function white_pick(i)
-    return "nirmala_ui_bold_white_" .. i
-end
+local skin = { source = {} }
+append_all(skin.source, { { id = "src_number_nirmala_ui_bold", path = "common/digits/nirmala_ui_bold.png" } })
 
 return {
-    load = load,
+    skin = skin,
     white = white,
     white_integer = white_integer,
     green = green,
@@ -130,8 +112,6 @@ return {
     minus_plus = minus_plus,
     width = width,
     height = height,
-    white_image = white_image,
-    white_pick = white_pick,
     white_percent = white_percent,
     white_period = white_period,
     white_ms = white_ms,
