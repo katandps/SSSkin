@@ -1,3 +1,8 @@
+--- スキンのメイン部分
+--- 各パーツを読み込む
+
+local load = require("utils/load")
+
 local function main()
     -- skin initialize
     local header = require("play/header")
@@ -29,7 +34,7 @@ local function main()
 
     -- 記述順に描画される
     -- background
-    require("play/background/default").load(skin)
+    load(skin, require("play/background/default"))
 
     -- play area
     require("play/parts/lane").load(skin)
