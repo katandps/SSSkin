@@ -53,6 +53,7 @@ local gauge_types = {
 
 skin.gauge = {
     id = "gauge",
+    range = 0, -- 点滅アニメーションの幅 点滅させない
     nodes = {
         -- overclear / underclear / overclear(dark) / underclear(dark) / chip / chip(dark)
         "gauge_white", "gauge_white", "gauge_black", "gauge_black", "gauge_white", "gauge_black", -- ASSIST EASY
