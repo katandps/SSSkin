@@ -234,9 +234,11 @@ local function build()
         judge_graph_w = display.judge_graph_w,
         judge_graph_h = display.judge_graph_h,
 
+
         gauge_value_x = gauge_value_x(display, player_side),
         gauge_value_y = display.gauge_value_y,
-
+        gauge_panel_w = 160,
+        gauge_panel_h = 70
     }
 end
 

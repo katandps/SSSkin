@@ -8,7 +8,6 @@ local skin = {
     liftCover = {},
     hiddenCover = {},
     graph = {},
-    gauge = {},
     timingvisualizer = { { id = "timing" } },
 }
 
