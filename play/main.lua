@@ -8,7 +8,6 @@ local skin = {
     liftCover = {},
     hiddenCover = {},
     graph = {},
-    timingvisualizer = { { id = "timing" } },
 }
 
 load(skin, require("play/header"), "header")
@@ -39,6 +38,7 @@ load(skin, require("play/parts/title"), "title")
 load(skin, require("play/parts/bga"), "bga")
 load(skin, require("play/parts/judge_graph"), "judge_graph")
 load(skin, require("play/parts/clock"), "clock")
+load(skin, require("play/parts/timing_visualizer"), "timing_visualizer")
 
 -- finish effect
 load(skin, require("play/parts/finish/default"), "finish")
