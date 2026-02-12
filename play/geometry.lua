@@ -18,13 +18,14 @@ local INCH_27 = { -- 43インチ比率から1.6倍
     judge_default_y = 320,
     judge_detail_default_y = 352,
 
-    score_panel_x = 200,
+    score_panel_x = 100,
     score_panel_y = 400,
 
+    -- rest_panel_x = 100, -- score_panel_xと同じ
     rest_panel_y = 250,
 
     judge_panel_x = 1400,
-    judge_panel_y = 300,
+    judge_panel_y = 320,
 
     judge_graph_x = 1400,
     judge_graph_y = 100,
@@ -50,13 +51,13 @@ local INCH_43 = {
     judge_default_y = 200,
     judge_detail_default_y = 220,
 
-    score_panel_x = 200,
+    score_panel_x = 100,
     score_panel_y = 400,
 
     rest_panel_y = 250,
 
     judge_panel_x = 810,
-    judge_panel_y = 300,
+    judge_panel_y = 320,
     judge_graph_x = 760,
     judge_graph_y = 100,
     judge_graph_w = 400,
@@ -100,12 +101,12 @@ end
 
 local function score_panel_x(display, player_side)
     if display.SIZE == 27 then
-        return 200
+        return 100
     elseif display.SIZE == 43 then
         if player_side.SCRATCH == "LEFT" then
             return 1320
         elseif player_side.SCRATCH == "RIGHT" then
-            return 200
+            return 100
         else
             error("Invalid player side type: " .. serialize_value(player_side))
         end
@@ -234,11 +235,17 @@ local function build()
         judge_graph_w = display.judge_graph_w,
         judge_graph_h = display.judge_graph_h,
 
+        timing_visualizer_x = display.judge_graph_x,
+        timing_visualizer_y = display.judge_graph_y + display.judge_graph_h + 20,
+        timing_visualizer_w = display.judge_graph_w,
+        timing_visualizer_h = 30,
 
         gauge_value_x = gauge_value_x(display, player_side),
         gauge_value_y = display.gauge_value_y,
         gauge_panel_w = 160,
-        gauge_panel_h = 70
+        gauge_panel_h = 70,
+
+        judge_timing_x = 400,
     }
 end
 
