@@ -13,7 +13,7 @@ local width = 60
 local height = geometry.note_height
 local range = 150
 local x = geometry.judge_timing_x
-local y = geometry.lane_under_margin - range / 2
+local y = geometry.judge_timing_y
 local panel_width = width * 2 + font.width * 3
 local panel_height = range + 40
 local skin = { source = {}, slider = {}, destination = {}, value = {} }
@@ -54,19 +54,19 @@ append_all(skin.value, {
 append_all(skin.destination, {
     {
         id = -111,
-        dst = { { x = x - 20, y = y - 20, w = panel_width + 40, h = panel_height + 40, r = 0, g = 0, b = 0, a = 128 } }
+        dst = { { x = x, y = y, w = panel_width + 40, h = panel_height + 40, r = 50, g = 50, b = 50, a = 128 } }
     },
     {
         id = "judge_timing_slider",
-        dst = { { x = x, y = y + range / 2, w = width, h = height } }
+        dst = { { x = x + 20, y = y + range / 2 + 20, w = width, h = height } }
     },
     {
         id = RESOURCE_IDS.WHITE,
-        dst = { { x = x + width, y = y + range / 2, w = width, h = height, r = 200, g = 80, b = 80, } }
+        dst = { { x = x + width + 20, y = y + range / 2 + 20, w = width * 2 - 20, h = height, r = 200, g = 80, b = 80, } }
     },
     {
         id = "judge_timing_value",
-        dst = { { x = x + width * 2 + font.width / 2, y = y + range / 2 - font.height / 2 + height / 2, w = font.width, h = font.height } }
+        dst = { { x = x + width * 2 + font.width / 2, y = y + range / 2 + 20 - font.height / 2 + height / 2, w = font.width, h = font.height } }
     },
 })
 return skin

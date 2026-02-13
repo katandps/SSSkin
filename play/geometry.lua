@@ -115,6 +115,22 @@ local function score_panel_x(display, player_side)
     end
 end
 
+local function judge_timing_x(display, player_side)
+    if display.SIZE == 27 then
+        return 360
+    elseif display.SIZE == 43 then
+        if player_side.SCRATCH == "LEFT" then
+            return 1600
+        elseif player_side.SCRATCH == "RIGHT" then
+            return 360
+        else
+            error("Invalid player side type: " .. serialize_value(player_side))
+        end
+    else
+        error("Invalid display: " .. serialize_value(display))
+    end
+end
+
 local function lane_left_margin(display, player_side)
     if display.SIZE == 27 then
         return 615
@@ -245,7 +261,8 @@ local function build()
         gauge_panel_w = 160,
         gauge_panel_h = 70,
 
-        judge_timing_x = 400,
+        judge_timing_x = judge_timing_x(display, player_side),
+        judge_timing_y = 250,
     }
 end
 
