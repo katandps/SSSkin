@@ -1,12 +1,24 @@
+--- ノートのスキン定義
+
 local geometry = require("play/geometry").build()
 local append_all = require("utils/append_all")
+local property = require("play/properties")
 
 local OFFSETS = require("play/consts").OFFSETS
 
 local skin = { source = {}, image = {}, destination = {} }
+
+local function note_path(note_type)
+    if note_type == property.PROPERTY.NOTE_TYPE_OCEAN then
+        return "play/note/ocean.png"
+    else
+        return "play/note/default.png"
+    end
+end
+
 append_all(skin.source, {
     { id = "src_green1dot", path = "play/note/green1dot.png" },
-    { id = "src_notes",     path = "play/note/notes.png" },
+    { id = "src_notes",     path = note_path(property.note_type()) },
 })
 
 append_all(skin.image, {

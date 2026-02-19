@@ -12,6 +12,7 @@ local header = {
     input = 500,
     close = 500,
     fadeout = 500,
+    category = config.category,
     property = config.property,
     filepath = config.filepath,
     offset = config.offset,

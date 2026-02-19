@@ -21,6 +21,11 @@ local PROPERTY = {
     JUDGE_LINE_GLOW = 1001,
     --- 判定ライン：発光付き（タイミング）
     JUDGE_LINE_GLOW_TIMING = 1002,
+
+    --- ノートタイプ：デフォルト
+    NOTE_TYPE_DEFAULT = 1100,
+    --- ノートタイプ：オーシャン
+    NOTE_TYPE_OCEAN = 1101,
 }
 
 
@@ -50,14 +55,14 @@ local function judge_line_type()
     return skin_config.option["Judge Line Type"]
 end
 
+local function note_type()
+    return skin_config.option["Note Type"]
+end
+
 local property = {
     {
-        name = "---全般設定---",
-        item = { { name = "-", op = PROPERTY.DUMMY_PROPERTY } }
-    },
-    {
         name = "Display Size",
-        category = "General",
+        category = "property_category_id_display_size",
         item = {
             { name = "27inch", op = PROPERTY.SIZE_27INCH },
             { name = "43inch", op = PROPERTY.SIZE_43INCH }
@@ -65,19 +70,15 @@ local property = {
     },
     {
         name = "Player Side",
-        category = "General",
+        category = "property_category_id_player_side",
         item = {
             { name = "1P", op = PROPERTY.SIDE_1P },
             { name = "2P", op = PROPERTY.SIDE_2P }
         }
     },
     {
-        name = "---パーツ設定---",
-        item = { { name = "-", op = PROPERTY.DUMMY_PROPERTY } }
-    },
-    {
         name = "Judge Line Type",
-        category = "Custom Parts",
+        category = "property_category_id_judge_line_type",
         item = {
             { name = "Simple",       op = PROPERTY.JUDGE_LINE_SIMPLE },
             { name = "Glow",         op = PROPERTY.JUDGE_LINE_GLOW },
@@ -85,8 +86,12 @@ local property = {
         }
     },
     {
-        name = "---パーツ位置調整---",
-        item = { { name = "-", op = PROPERTY.DUMMY_PROPERTY } }
+        name = "Note Type",
+        category = "property_category_id_note_type",
+        item = {
+            { name = "Default", op = PROPERTY.NOTE_TYPE_DEFAULT },
+            { name = "Ocean",   op = PROPERTY.NOTE_TYPE_OCEAN }
+        }
     },
 }
 
@@ -99,11 +104,28 @@ local offset = {
 }
 
 return {
+    category = {
+        {
+            name = "全般設定(General Settings)",
+            item = {
+                "property_category_id_display_size",
+                "property_category_id_player_side",
+            }
+        },
+        {
+            name = "カスタムパーツ(Custom Parts)",
+            item = {
+                "property_category_id_judge_line_type",
+                "property_category_id_note_type",
+            }
+        },
+    },
     property = property,
     filepath = filepath,
     offset = offset,
     display = display,
     player_side = player_side,
     judge_line_type = judge_line_type,
+    note_type = note_type,
     PROPERTY = PROPERTY,
 }
