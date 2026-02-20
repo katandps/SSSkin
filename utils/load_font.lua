@@ -1,16 +1,10 @@
 local M = {}
 
 local is_windows = require("utils/load_font_utils/is_windows")
+local separator = require("utils/load_font_utils/separator")
 local make_directory = require("utils/load_font_utils/make_directory")
-
-local function strip_query(url)
-    return (url:gsub("%?.*$", ""))
-end
-
-local function filename_from_url(url)
-    local clean = strip_query(url)
-    return clean:match("/([^/]+)$") or "font"
-end
+local file_exists = require("utils/load_font_utils/file_exists")
+local touch_and_check = require("utils/load_font_utils/touch_and_check")
 
 local download_file = require("utils/load_font_utils/download_file")
 
@@ -21,12 +15,17 @@ local beatoraja_path = require("utils/load_font_utils/beatoraja_path")
 
 local copy_file = require("utils/load_font_utils/copy_file")
 
+local function font_download_dir()
+    return beatoraja_path() ..
+        separator .. "skin" .. separator .. "SSSkin" .. separator .. "download" .. separator .. "fonts"
+end
+
 --- Download true type font file to download/fonts as filename
 ---
 --- url: Direct URL to a .ttf
 --- filename: output filename
 function M.download_google_font(url, filename)
-    log("[load_font] download_google_font called: url=" .. tostring(url) .. ", filename=" .. tostring(filename))
+    log("[load_font] do called: url=" .. tostring(url) .. ", filename=" .. tostring(filename))
 
     if type(url) ~= "string" or url == "" then
         log("[load_font] url is required")
@@ -34,13 +33,16 @@ function M.download_google_font(url, filename)
     end
 
     -- スキン実行ディレクトリ配下のdownload/fontsを常に使う
-    local sep = is_windows() and "\\" or "/"
-    local download_dir = beatoraja_path() .. sep .. "skin" .. sep .. "SSSkin" .. sep .. "download" .. sep .. "fonts"
+    local download_dir = font_download_dir()
     log("[load_font] make_directory: " .. download_dir)
     make_directory(download_dir)
 
-    local name = filename or filename_from_url(url)
-    log("[load_font] filename resolved: " .. name)
+    log("[load_font] filename resolved: " .. filename)
+    local out_path = download_dir .. separator .. filename
+    if file_exists(out_path) then
+        log("[load_font] file already exists, skipping download: " .. out_path)
+        return true, "file already exists: " .. out_path
+    end
 
     local tmp_base = os.tmpname()
     log("[load_font] download_file: url=" .. url .. ", tmp_path=" .. tmp_base)
@@ -49,12 +51,7 @@ function M.download_google_font(url, filename)
         return false, "download failed: " .. url
     end
 
-    local out_path = download_dir .. sep .. name
-    -- touchファイルを作成
-    local touch_path = download_dir .. sep .. ".touch_font_write"
-    log("[load_font] touching file: " .. touch_path)
-    local f = io.open(touch_path, "w")
-    if f then f:close() end
+    touch_and_check(download_dir)
     local ok = copy_file(tmp_base, out_path)
     if not ok then
         log("[load_font] failed to write font file: " .. out_path)
