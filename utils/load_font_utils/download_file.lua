@@ -1,7 +1,7 @@
-local quote_cmd = require("utils/quote_cmd")
-local ps_quote = require("utils/ps_quote")
-local exec = require("utils/exec")
-local is_windows = require("utils/is_windows")
+local quote_cmd = require("utils/load_font_utils/quote_cmd")
+local ps_quote = require("utils/load_font_utils/ps_quote")
+local exec = require("utils/load_font_utils/exec")
+local is_windows = require("utils/load_font_utils/is_windows")
 
 return function(url, out_path)
     local user_agent =

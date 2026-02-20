@@ -1,7 +1,7 @@
 local M = {}
 
-local is_windows = require("utils/is_windows")
-local make_directory = require("utils/make_directory")
+local is_windows = require("utils/load_font_utils/is_windows")
+local make_directory = require("utils/load_font_utils/make_directory")
 
 local function strip_query(url)
     return (url:gsub("%?.*$", ""))
@@ -12,14 +12,14 @@ local function filename_from_url(url)
     return clean:match("/([^/]+)$") or "font"
 end
 
-local download_file = require("utils/download_file")
+local download_file = require("utils/load_font_utils/download_file")
 
 local log = require("utils/log")
 
 -- 引数なしで実行パス（カレントディレクトリ）の絶対パスを取得
-local beatoraja_path = require("utils/beatoraja_path")
+local beatoraja_path = require("utils/load_font_utils/beatoraja_path")
 
-local copy_file = require("utils/copy_file")
+local copy_file = require("utils/load_font_utils/copy_file")
 
 --- Download true type font file to download/fonts as filename
 ---

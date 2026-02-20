@@ -1,4 +1,4 @@
-local is_windows = require("utils/is_windows")
+local is_windows = require("utils/load_font_utils/is_windows")
 
 -- beatoraja本体の絶対パスを取得する
 return function()
