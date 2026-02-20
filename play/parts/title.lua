@@ -9,7 +9,7 @@ local skin = { font = {}, text = {}, destination = {} }
 local load_font = require("utils/load_font")
 load_font.download_google_font(
     "https://github.com/notofonts/noto-cjk/raw/f8d157532fbfaeda587e826d4cd5b21a49186f7c/google-fonts/NotoSansJP%5Bwght%5D.ttf",
-    { filename = "noto-sans-jp.ttf" })
+    "noto-sans-jp.ttf")
 
 table.insert(skin.font, { id = "noto-sans-jp-regular", path = "download/fonts/noto-sans-jp.ttf" })
 -- table.insert(skin.font, { id = "genshin-gothic-heavy", path = "common/font/GenShinGothic-Heavy.ttf" })
