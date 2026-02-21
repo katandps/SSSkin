@@ -24,7 +24,7 @@ end
 --- url: Direct URL to a .ttf
 --- filename: output filename
 --- path_to_ttf: これを指定すると、urlからダウンロードされたファイルをzipファイルとみなし、展開してpath_to_ttfで指定されたファイルを取り出す。zipファイル以外を指定した場合は失敗する。
-function M.download_google_font(url, filename, path_to_ttf)
+function M.download_font(url, filename, path_to_ttf)
     log("[load_font] do called: url=" .. tostring(url) .. ", filename=" .. tostring(filename))
 
     if type(url) ~= "string" or url == "" then
