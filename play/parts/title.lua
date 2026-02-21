@@ -7,17 +7,19 @@ local title_h = 28
 local skin = { font = {}, text = {}, destination = {} }
 
 local load_font = require("utils/load_font")
+local font_name = "NOTONOTO_HS_v0.0.3_Medium"
 load_font.download_google_font(
-    "https://github.com/notofonts/noto-cjk/raw/f8d157532fbfaeda587e826d4cd5b21a49186f7c/google-fonts/NotoSansJP%5Bwght%5D.ttf",
-    "noto-sans-jp.ttf")
+    "https://github.com/yuru7/NOTONOTO/releases/download/v0.0.3/NOTONOTO_HS_v0.0.3.zip",
+    font_name .. ".ttf",
+    "NOTONOTO_HS_v0.0.3/NOTONOTOConsole_HS/NOTONOTOConsoleHS-Medium.ttf"
+)
 
-table.insert(skin.font, { id = "noto-sans-jp-regular", path = "download/fonts/noto-sans-jp.ttf" })
--- table.insert(skin.font, { id = "genshin-gothic-heavy", path = "common/font/GenShinGothic-Heavy.ttf" })
+table.insert(skin.font, { id = font_name, path = "download/fonts/" .. font_name .. ".ttf" })
 
 -- 難易度表
 table.insert(skin.text, {
     id = "info_difficulty",
-    font = "noto-sans-jp-regular",
+    font = font_name,
     size = title_h,
     align = 0, -- 左揃え
     overflow = 1,
@@ -33,7 +35,7 @@ table.insert(skin.destination, {
 -- フルタイトル
 table.insert(skin.text, {
     id = "info_title",
-    font = "noto-sans-jp-regular",
+    font = font_name,
     size = title_h,
     align = 0, -- 左揃え
     overflow = 1,
@@ -49,7 +51,7 @@ table.insert(skin.destination, {
 -- アーティスト
 table.insert(skin.text, {
     id = "info_artist",
-    font = "noto-sans-jp-regular",
+    font = font_name,
     size = title_h,
     align = 0, -- 左揃え
     overflow = 1,
