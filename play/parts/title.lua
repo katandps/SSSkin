@@ -2,7 +2,9 @@
 
 local STRINGS = require("play/consts").STRINGS
 
-local title_h = 28
+local table_h = 20
+local title_h = 26
+local artist_h = 20
 
 local skin = { font = {}, text = {}, destination = {} }
 
@@ -20,7 +22,7 @@ table.insert(skin.font, { id = font_name, path = "download/fonts/" .. font_name 
 table.insert(skin.text, {
     id = "info_difficulty",
     font = font_name,
-    size = title_h,
+    size = table_h,
     align = 0, -- 左揃え
     overflow = 1,
     ref = STRINGS.STRING_TABLE_FULL
@@ -28,7 +30,7 @@ table.insert(skin.text, {
 table.insert(skin.destination, {
     id = "info_difficulty",
     dst = {
-        { x = 60, y = 144, w = 1040, h = title_h - 4 },
+        { x = 60, y = 128, w = 1040, h = table_h },
     }
 })
 
@@ -44,7 +46,7 @@ table.insert(skin.text, {
 table.insert(skin.destination, {
     id = "info_title",
     dst = {
-        { x = 60, y = 100, w = 1040, h = title_h },
+        { x = 60, y = 90, w = 1040, h = title_h },
     }
 })
 
@@ -52,7 +54,7 @@ table.insert(skin.destination, {
 table.insert(skin.text, {
     id = "info_artist",
     font = font_name,
-    size = title_h,
+    size = artist_h,
     align = 0, -- 左揃え
     overflow = 1,
     ref = STRINGS.STRING_FULLARTIST
@@ -60,7 +62,7 @@ table.insert(skin.text, {
 table.insert(skin.destination, {
     id = "info_artist",
     dst = {
-        { x = 60, y = 60, w = 1040, h = title_h - 4 },
+        { x = 60, y = 60, w = 1040, h = artist_h },
     }
 })
 return skin
