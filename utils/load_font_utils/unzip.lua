@@ -1,4 +1,3 @@
-local log = require("utils/log")
 ---
 -- unzip
 -- zipファイルから指定ファイルを展開して保存する
@@ -52,7 +51,7 @@ local function unzip(zip_path, target_file, out_path)
         f_in:close()
         f_out:close()
         log("[unzip] cleaning up: " .. extracted_path)
-        -- os.execute('rmdir /S /Q ' .. quote_cmd(extracted_path))
+        os.execute('rmdir /S /Q ' .. quote_cmd(extracted_path))
         log("[unzip] success: " .. out_path)
         if renamed then
             log("[unzip] restoring file name: " .. zip_path_with_ext .. " -> " .. zip_path)

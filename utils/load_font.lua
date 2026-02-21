@@ -68,7 +68,7 @@ function M.download_google_font(url, filename, path_to_ttf)
     end
 
     log("[load_font] removing tmp file: " .. tmp_base)
-    -- os.remove(tmp_base)
+    os.remove(tmp_base)
     log("[load_font] font file downloaded: " .. out_path)
     return true
 end
