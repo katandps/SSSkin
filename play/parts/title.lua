@@ -1,6 +1,7 @@
 --- 曲のテキスト情報表示
 
 local STRINGS = require("play/consts").STRINGS
+local load = require("utils/load")
 
 local table_h = 20
 local title_h = 26
@@ -8,20 +9,13 @@ local artist_h = 20
 
 local skin = { font = {}, text = {}, destination = {} }
 
-local load_font = require("utils/load_font")
-local font_name = "NOTONOTO_HS_v0.0.3_Medium"
-load_font.download_font(
-    "https://github.com/yuru7/NOTONOTO/releases/download/v0.0.3/NOTONOTO_HS_v0.0.3.zip",
-    font_name .. ".ttf",
-    "NOTONOTO_HS_v0.0.3/NOTONOTOConsole_HS/NOTONOTOConsoleHS-Medium.ttf"
-)
-
-table.insert(skin.font, { id = font_name, path = "download/fonts/" .. font_name .. ".ttf" })
+local font = require("common/font/NOTONOTOConsoleHS_medium")
+load(skin, font.skin)
 
 -- 難易度表
 table.insert(skin.text, {
     id = "info_difficulty",
-    font = font_name,
+    font = font.id,
     size = table_h,
     align = 0, -- 左揃え
     overflow = 1,
@@ -37,7 +31,7 @@ table.insert(skin.destination, {
 -- フルタイトル
 table.insert(skin.text, {
     id = "info_title",
-    font = font_name,
+    font = font.id,
     size = title_h,
     align = 0, -- 左揃え
     overflow = 1,
@@ -53,7 +47,7 @@ table.insert(skin.destination, {
 -- アーティスト
 table.insert(skin.text, {
     id = "info_artist",
-    font = font_name,
+    font = font.id,
     size = artist_h,
     align = 0, -- 左揃え
     overflow = 1,
