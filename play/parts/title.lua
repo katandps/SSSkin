@@ -1,6 +1,7 @@
 --- 曲のテキスト情報表示
 
 local STRINGS = require("play/consts").STRINGS
+local property = require("play/properties")
 local load = require("utils/load")
 
 local table_h = 20
@@ -9,7 +10,7 @@ local artist_h = 20
 
 local skin = { font = {}, text = {}, destination = {} }
 
-local font = require("common/font/NOTONOTOConsoleHS_medium")
+local font = property.ui_font()
 load(skin, font.skin)
 
 -- 難易度表

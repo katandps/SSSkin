@@ -15,6 +15,10 @@ local PROPERTY = {
     -- 2Pサイド
     SIDE_2P = 931,
 
+    -- UIフォント
+    UI_FONT_NOTONOTO_CONSOLE_HS_MEDIUM = 950,
+    UI_FONT_GENSHIN_GOTHIC_HEAVY = 951,
+
     --- 判定ライン：シンプル
     JUDGE_LINE_SIMPLE = 1000,
     --- 判定ライン：発光付き
@@ -26,6 +30,8 @@ local PROPERTY = {
     NOTE_TYPE_DEFAULT = 1100,
     --- ノートタイプ：オーシャン
     NOTE_TYPE_OCEAN = 1101,
+
+
 }
 
 
@@ -59,6 +65,17 @@ local function note_type()
     return skin_config.option["Note Type"]
 end
 
+local function ui_font()
+    local op = skin_config.option["UI Font"]
+    if op == PROPERTY.UI_FONT_NOTONOTO_CONSOLE_HS_MEDIUM then
+        return require("common/font/NOTONOTOConsoleHS_medium")
+    elseif op == PROPERTY.UI_FONT_GENSHIN_GOTHIC_HEAVY then
+        return require("common/font/GenShinGothic_heavy")
+    else
+        error("Invalid UI Font option: " .. tostring(op))
+    end
+end
+
 local property = {
     {
         name = "Display Size",
@@ -74,6 +91,14 @@ local property = {
         item = {
             { name = "1P", op = PROPERTY.SIDE_1P },
             { name = "2P", op = PROPERTY.SIDE_2P }
+        }
+    },
+    {
+        name = "UI Font",
+        category = "property_category_id_ui_font",
+        item = {
+            { name = "NOTONOTO Console HS Medium", op = PROPERTY.UI_FONT_NOTONOTO_CONSOLE_HS_MEDIUM },
+            { name = "源真ゴシック Heavy", op = PROPERTY.UI_FONT_GENSHIN_GOTHIC_HEAVY }
         }
     },
     {
@@ -95,14 +120,6 @@ local property = {
     },
 }
 
-local filepath = {
-    { name = "dummy", path = "play/resource/*.png" }
-}
-
-local offset = {
-    { name = "dummy_offset", id = 40, a = true }
-}
-
 return {
     category = {
         {
@@ -110,6 +127,8 @@ return {
             item = {
                 "property_category_id_display_size",
                 "property_category_id_player_side",
+                "property_category_id_ui_font",
+
             }
         },
         {
@@ -121,11 +140,12 @@ return {
         },
     },
     property = property,
-    filepath = filepath,
-    offset = offset,
+    filepath = {},
+    offset = {},
     display = display,
     player_side = player_side,
     judge_line_type = judge_line_type,
     note_type = note_type,
+    ui_font = ui_font,
     PROPERTY = PROPERTY,
 }
