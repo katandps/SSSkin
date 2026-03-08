@@ -118,6 +118,7 @@ local OFFSETS = {
 
 local OPTIONS = {
     OPTION_AUTOPLAYOFF         = 32,
+    OPTION_NOW_LOADING         = 80,
 
     OPTION_BPMCHANGE           = 177,
     OPTION_LANECOVER1_CHANGING = 270,
@@ -141,6 +142,10 @@ local OPTIONS = {
 
 local BUTTONS = {
     BUTTON_RANDOM_1P = 42,
+}
+
+local BARGRAPHS = {
+    BARGRAPH_LOAD_PROGRESS = 102,
 }
 
 --- skin.valueに使えるオプション
@@ -202,4 +207,5 @@ return {
     VALUES = VALUES,
     PLAYERS = PLAYERS,
     DISPLAY = DISPLAY,
+    BARGRAPHS = BARGRAPHS,
 }

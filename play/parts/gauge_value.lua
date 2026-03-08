@@ -18,7 +18,7 @@ local function current_gauge_type_is(type)
     return func
 end
 local skin = { source = {}, value = {}, image = {}, destination = {}, gauge = {} }
-table.insert(skin.source, { id = "resource_gauge", path = "play/parts/gauge.bmp" })
+table.insert(skin.source, { id = "resource_gauge", path = "common/white_1dot.bmp" })
 
 load(skin, font.skin, "gauge_value_font")
 
