@@ -1,7 +1,7 @@
 --!strict
 --- propertyとconstsから設定値を取得して座標の設定値を構築する
 local property = require("play/properties")
-local serialize_value = require("utils/serialize_value").serialize_value
+local serialize_value = require("utils/serialize_value")
 
 local INCH_27 = { -- 43インチ比率から1.6倍
     SIZE = 27,
