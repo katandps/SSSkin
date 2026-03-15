@@ -11,6 +11,8 @@ local skin = { source = {}, image = {}, destination = {} }
 local function note_path(note_type)
     if note_type == property.PROPERTY.NOTE_TYPE_OCEAN then
         return "play/note/ocean.png"
+    elseif note_type == property.PROPERTY.NOTE_TYPE_TROPICAL then
+        return "play/note/tropical.png"
     else
         return "play/note/default.png"
     end

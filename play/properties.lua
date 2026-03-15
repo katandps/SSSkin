@@ -30,8 +30,8 @@ local PROPERTY = {
     NOTE_TYPE_DEFAULT = 1100,
     --- ノートタイプ：オーシャン
     NOTE_TYPE_OCEAN = 1101,
-
-
+    --- ノートタイプ：トロピカル
+    NOTE_TYPE_TROPICAL = 1102,
 }
 
 
@@ -114,8 +114,9 @@ local property = {
         name = "Note Type",
         category = "property_category_id_note_type",
         item = {
-            { name = "Default", op = PROPERTY.NOTE_TYPE_DEFAULT },
-            { name = "Ocean",   op = PROPERTY.NOTE_TYPE_OCEAN }
+            { name = "Default",  op = PROPERTY.NOTE_TYPE_DEFAULT },
+            { name = "Ocean",    op = PROPERTY.NOTE_TYPE_OCEAN },
+            { name = "Tropical", op = PROPERTY.NOTE_TYPE_TROPICAL },
         }
     },
 }
