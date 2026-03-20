@@ -32,6 +32,13 @@ local PROPERTY = {
     NOTE_TYPE_OCEAN = 1101,
     --- ノートタイプ：トロピカル
     NOTE_TYPE_TROPICAL = 1102,
+
+    --- BGAオフの時に黒塗りにする
+    BGA_OFF_BLACK = 1200,
+    --- BGAオフの時にステージファイルを表示する
+    BGA_OFF_STAGEFILE = 1201,
+    --- BGAオフの時にクロマキーで抜く
+    BGA_OFF_CHROMA_KEY = 1202,
 }
 
 
@@ -74,6 +81,10 @@ local function ui_font()
     else
         error("Invalid UI Font option: " .. tostring(op))
     end
+end
+
+local function bga_off_type()
+    return skin_config.option["BGA Off Type"]
 end
 
 local property = {
@@ -119,7 +130,17 @@ local property = {
             { name = "Tropical", op = PROPERTY.NOTE_TYPE_TROPICAL },
         }
     },
+    {
+        name = "BGA Off Type",
+        category = "property_category_id_bga_off_type",
+        item = {
+            { name = "Black",     op = PROPERTY.BGA_OFF_BLACK },
+            { name = "Stagefile", op = PROPERTY.BGA_OFF_STAGEFILE },
+            { name = "ChromaKey", op = PROPERTY.BGA_OFF_CHROMA_KEY },
+        }
+    },
 }
+
 
 return {
     category = {
@@ -129,7 +150,7 @@ return {
                 "property_category_id_display_size",
                 "property_category_id_player_side",
                 "property_category_id_ui_font",
-
+                "property_category_id_bga_off_type",
             }
         },
         {
@@ -148,5 +169,6 @@ return {
     judge_line_type = judge_line_type,
     note_type = note_type,
     ui_font = ui_font,
+    bga_off_type = bga_off_type,
     PROPERTY = PROPERTY,
 }

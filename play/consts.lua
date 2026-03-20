@@ -118,6 +118,8 @@ local OFFSETS = {
 
 local OPTIONS = {
     OPTION_AUTOPLAYOFF         = 32,
+    OPTION_BGAOFF              = 40,
+    OPTION_BGAON               = 41,
     OPTION_NOW_LOADING         = 80,
 
     OPTION_BPMCHANGE           = 177,
@@ -170,6 +172,7 @@ local GAUGE_TYPES = {
 }
 
 local RESOURCE_IDS = {
+    IMAGE_STAGEFILE = -100,
     WHITE = -111
 }
 
