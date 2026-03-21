@@ -39,7 +39,7 @@ load(skin, require("play/parts/judge_graph"), "judge_graph")
 load(skin, require("play/parts/clock"), "clock")
 load(skin, require("play/parts/timing_visualizer"), "timing_visualizer")
 load(skin, require("play/parts/judge_timing"), "judge_timing")
--- load(skin, require("play/parts/bomb"), "bomb")
+load(skin, require("play/parts/bomb"), "bomb")
 
 load(skin, require("play/parts/loading"), "loading")
 

@@ -4,6 +4,9 @@
 local log = require("utils/log")
 local serialize_value = require("utils/serialize_value")
 local TIMERS = require("play/consts").TIMERS
+local geometry = require("play/geometry").build()
+local lane_x_positions = geometry.lane_x_positions
+local lane_each_width = geometry.lane_each_width
 
 local skin = { source = {}, image = {}, imageset = {}, destination = {} }
 
@@ -11,6 +14,8 @@ table.insert(skin.source, { id = "src_bomb_ox", path = "play/parts/bomb/ox.png" 
 
 
 local VALUE_JUDGE_1P_SCRATCH = 500
+local bomb_width = 100
+local bomb_height = 100
 
 
 local o_timer_list = { TIMERS.TIMER_BOMB_1P_KEY1, TIMERS.TIMER_BOMB_1P_KEY2, TIMERS.TIMER_BOMB_1P_KEY3, TIMERS
@@ -59,7 +64,7 @@ for key = 1, 8 do
         timer = o_timer_list[key],
         loop = -1,
         dst = {
-            { time = 0,   x = key * 100, y = 800, w = 100, h = 100, a = 0 },
+            { time = 0,   x = geometry.lane_left_margin + lane_x_positions[key] + lane_each_width[key] / 2 - bomb_width / 2, y = geometry.judge_line_y + 50, w = bomb_width, h = bomb_height, a = 0 },
             { time = 200, a = 255 },
             { time = 400, a = 0 },
         }
