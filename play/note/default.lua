@@ -73,21 +73,21 @@ skin.note = {
     size = {},
     dst = {
         -- key 1
-        { x = geometry.lane_left_margin + lane_x_positions[1], y = geometry.lane_under_margin - 14, w = geometry.lane_white_key_width, h = geometry.lane_height },
+        { x = geometry.lane_left_margin + lane_x_positions[1], y = geometry.lane_under_margin, w = geometry.lane_white_key_width, h = geometry.lane_height },
         -- key 2
-        { x = geometry.lane_left_margin + lane_x_positions[2], y = geometry.lane_under_margin - 14, w = geometry.lane_black_key_width, h = geometry.lane_height },
+        { x = geometry.lane_left_margin + lane_x_positions[2], y = geometry.lane_under_margin, w = geometry.lane_black_key_width, h = geometry.lane_height },
         -- key 3
-        { x = geometry.lane_left_margin + lane_x_positions[3], y = geometry.lane_under_margin - 14, w = geometry.lane_white_key_width, h = geometry.lane_height },
+        { x = geometry.lane_left_margin + lane_x_positions[3], y = geometry.lane_under_margin, w = geometry.lane_white_key_width, h = geometry.lane_height },
         -- key 4
-        { x = geometry.lane_left_margin + lane_x_positions[4], y = geometry.lane_under_margin - 14, w = geometry.lane_black_key_width, h = geometry.lane_height },
+        { x = geometry.lane_left_margin + lane_x_positions[4], y = geometry.lane_under_margin, w = geometry.lane_black_key_width, h = geometry.lane_height },
         -- key 5
-        { x = geometry.lane_left_margin + lane_x_positions[5], y = geometry.lane_under_margin - 14, w = geometry.lane_white_key_width, h = geometry.lane_height },
+        { x = geometry.lane_left_margin + lane_x_positions[5], y = geometry.lane_under_margin, w = geometry.lane_white_key_width, h = geometry.lane_height },
         -- key 6
-        { x = geometry.lane_left_margin + lane_x_positions[6], y = geometry.lane_under_margin - 14, w = geometry.lane_black_key_width, h = geometry.lane_height },
+        { x = geometry.lane_left_margin + lane_x_positions[6], y = geometry.lane_under_margin, w = geometry.lane_black_key_width, h = geometry.lane_height },
         -- key 7
-        { x = geometry.lane_left_margin + lane_x_positions[7], y = geometry.lane_under_margin - 14, w = geometry.lane_white_key_width, h = geometry.lane_height },
+        { x = geometry.lane_left_margin + lane_x_positions[7], y = geometry.lane_under_margin, w = geometry.lane_white_key_width, h = geometry.lane_height },
         -- scratch
-        { x = geometry.lane_left_margin + lane_x_positions[8], y = geometry.lane_under_margin - 14, w = geometry.lane_scratch_width,   h = geometry.lane_height },
+        { x = geometry.lane_left_margin + lane_x_positions[8], y = geometry.lane_under_margin, w = geometry.lane_scratch_width,   h = geometry.lane_height },
     },
     -- 小節線
     group = {

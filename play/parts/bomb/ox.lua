@@ -21,9 +21,6 @@ local bomb_height = 100
 local o_timer_list = { TIMERS.TIMER_BOMB_1P_KEY1, TIMERS.TIMER_BOMB_1P_KEY2, TIMERS.TIMER_BOMB_1P_KEY3, TIMERS
     .TIMER_BOMB_1P_KEY4, TIMERS.TIMER_BOMB_1P_KEY5, TIMERS.TIMER_BOMB_1P_KEY6, TIMERS.TIMER_BOMB_1P_KEY7, TIMERS
     .TIMER_BOMB_1P_SCRATCH }
-local x_timer_list = { TIMERS.TIMER_BOMB_1P_KEY1, TIMERS.TIMER_BOMB_1P_KEY2, TIMERS.TIMER_BOMB_1P_KEY3, TIMERS
-    .TIMER_BOMB_1P_KEY4, TIMERS.TIMER_BOMB_1P_KEY5, TIMERS.TIMER_BOMB_1P_KEY6, TIMERS.TIMER_BOMB_1P_KEY7, TIMERS
-    .TIMER_BOMB_1P_SCRATCH }
 local judge_value = { 501, 502, 503, 504, 505, 506, 507, VALUE_JUDGE_1P_SCRATCH }
 
 
@@ -54,7 +51,7 @@ for key = 1, 8 do
         id = set_bomb_id,
         ref = judge_value[key],
         images = {
-            "img_bomb_o" .. key, "img_bomb_o" .. key, "img_bomb_o" .. key, "img_bomb_o" .. key,
+            "img_bomb_o" .. key, "img_bomb_o" .. key, "img_bomb_x" .. key, "img_bomb_x" .. key,
         },
         timer = o_timer_list[key],
     })
@@ -64,7 +61,7 @@ for key = 1, 8 do
         timer = o_timer_list[key],
         loop = -1,
         dst = {
-            { time = 0,   x = geometry.lane_left_margin + lane_x_positions[key] + lane_each_width[key] / 2 - bomb_width / 2, y = geometry.judge_line_y + 50, w = bomb_width, h = bomb_height, a = 0 },
+            { time = 0,   x = geometry.lane_left_margin + lane_x_positions[key] + lane_each_width[key] / 2 - bomb_width / 2, y = geometry.judge_line_y - bomb_height / 2 + geometry.note_height / 2, w = bomb_width, h = bomb_height, a = 0 },
             { time = 200, a = 255 },
             { time = 400, a = 0 },
         }
