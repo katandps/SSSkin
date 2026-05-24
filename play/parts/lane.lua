@@ -6,7 +6,6 @@ local skin = { destination = {} }
 append_all(skin.destination, {
     {
         id = RESOURCE_IDS.WHITE,
-        offset = 3,
         dst = {
             { x = geometry.lane_left_margin, y = geometry.lane_under_margin, w = geometry.lane_width, h = geometry.lane_height, r = 0, g = 0, b = 0 },
         }

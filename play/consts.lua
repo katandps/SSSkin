@@ -57,6 +57,7 @@ local NUMBERS = {
 
     NUMBER_DURATION                      = 312, -- 表示時間(ms)
     NUMBER_DURATION_GREEN                = 313, -- 表示時間(緑数字)
+    NUMBER_LIFT                          = 314,
     NUMBER_MAINBPM_DURATION_LANECOVER_ON = 1316,
 
     NUMBER_TOTALEARLY                    = 423,

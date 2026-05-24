@@ -9,8 +9,9 @@ local main_state = require("main_state")
 
 --- モニタサイズが変わっても正しく表示されるようにレーンカバーの値を再計算する
 local function calc_lanecover_value()
-    local cover = main_state.number(NUMBERS.NUMBER_LANECOVER1)
-    local lane_height = geometry.lane_height * (1000 - cover) / 1000 -- pixel換算
+    local lift = main_state.number(NUMBERS.NUMBER_LIFT)
+    local cover = main_state.number(NUMBERS.NUMBER_LANECOVER1) * (1000 - lift) / 1000 -- リフトで減少した幅を考慮したレーンカバーの値
+    local lane_height = geometry.lane_height * (1000 - cover) / 1000                  -- pixel換算
     return (1 - lane_height / geometry.lane_all_height) * 1000
 end
 

@@ -5,7 +5,6 @@ local load = require("utils/load")
 
 -- skin initialize
 local skin = {
-    liftCover = {},
     hiddenCover = {},
 }
 
@@ -21,6 +20,7 @@ load(skin, require("play/keybeam/default"), "keybeam")
 load(skin, require("play/note/default"), "note")
 load(skin, require("play/parts/lane_frame"), "lane_frame")
 load(skin, require("play/parts/judgeline/load"), "judgeline")
+load(skin, require("play/lift/default"), "lift")
 load(skin, require("play/sudden/default"), "sudden")
 load(skin, require("play/parts/judge"), "judge")
 load(skin, require("play/judge/judge_timing"), "judge_timing")

@@ -93,7 +93,6 @@ skin.note = {
     group = {
         {
             id = "section_line",
-            offset = 3,
             dst = {
                 { x = geometry.lane_left_margin, y = geometry.lane_under_margin, w = geometry.lane_width, h = 2, r = 128, g = 128, b = 128 }
             }
@@ -102,7 +101,6 @@ skin.note = {
     time = {
         {
             id = "section_line",
-            offset = 3,
             dst = {
                 { x = geometry.lane_left_margin, y = geometry.lane_under_margin, w = geometry.lane_width, h = 2, r = 64, g = 192, b = 192 }
             }
@@ -111,7 +109,6 @@ skin.note = {
     bpm = {
         {
             id = "section_line",
-            offset = 3,
             dst = {
                 { x = geometry.lane_left_margin, y = geometry.lane_under_margin, w = geometry.lane_width, h = 2, r = 0, g = 192, b = 0 }
             }
@@ -120,7 +117,6 @@ skin.note = {
     stop = {
         {
             id = "section_line",
-            offset = 3,
             dst = {
                 { x = geometry.lane_left_margin, y = geometry.lane_under_margin, w = geometry.lane_width, h = 2, r = 192, g = 192, b = 0 }
             }
