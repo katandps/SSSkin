@@ -5,6 +5,7 @@ local OFFSETS = require("play/consts").OFFSETS
 local append_all = require("utils/append_all")
 local RESOURCE_IDS = require("play/consts").RESOURCE_IDS
 local TIMERS = require("play/consts").TIMERS
+local consts = require("play/parts/judgeline/consts")
 
 local skin = { destination = {} }
 local left_margin = geometry.lane_left_margin
@@ -12,24 +13,24 @@ local lane_x_positions = geometry.lane_x_positions
 
 table.insert(skin.destination, {
     id = RESOURCE_IDS.WHITE,
-    offsets = { OFFSETS.OFFSET_NOTES_1P, OFFSETS.OFFSET_LIFT },
-    dst = { { x = left_margin, y = geometry.judge_line_y, w = geometry.lane_width, h = geometry.note_height, r = 80, g = 0, b = 0 }, }
+    offsets = consts.offsets,
+    dst = { { x = left_margin, y = consts.y_position, w = geometry.lane_width, h = geometry.note_height, r = 80, g = 0, b = 0 }, }
 })
 
 
 local function animation(position, width)
     return {
-        { time = 0,   x = geometry.lane_left_margin + position, y = geometry.judge_line_y, w = width, h = geometry.note_height, a = 255 },
-        { time = 250, x = geometry.lane_left_margin + position, y = geometry.judge_line_y, w = width, h = geometry.note_height, a = 128 },
-        { time = 500, x = geometry.lane_left_margin + position, y = geometry.judge_line_y, w = width, h = geometry.note_height, a = 0 },
+        { time = 0,   x = geometry.lane_left_margin + position, y = consts.y_position, w = width, h = geometry.note_height, a = 255 },
+        { time = 250, x = geometry.lane_left_margin + position, y = consts.y_position, w = width, h = geometry.note_height, a = 128 },
+        { time = 500, x = geometry.lane_left_margin + position, y = consts.y_position, w = width, h = geometry.note_height, a = 0 },
     }
 end
 
 local function dst(timer, position, width)
     return {
         id = RESOURCE_IDS.WHITE,
-        offsets = { OFFSETS.OFFSET_NOTES_1P, OFFSETS.OFFSET_LIFT },
-        loop = -1,
+        offsets = consts.offsets,
+        loop = consts.NO_LOOP,
         timer = timer,
         dst = animation(position, width),
     }

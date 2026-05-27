@@ -41,8 +41,8 @@ append_all(skin.destination, {
     },
     {
         id = "num_liftcover",
-        op = { OPTIONS.OPTION_LIFT_COVER1_CHANGING },
-        offset = { OFFSETS.OFFSET_LIFT },
+        op = { OPTIONS.OPTION_LANECOVER1_CHANGING },
+        offset = { OFFSETS.OFFSET_NOTES_1P, OFFSETS.OFFSET_LIFT },
         dst = {
             { x = geometry.lane_left_margin + geometry.lane_width * 0.3, y = geometry.lane_under_margin, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },
         }

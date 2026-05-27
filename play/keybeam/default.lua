@@ -33,6 +33,7 @@ append_all(skin.image, {
 
 table.insert(skin.destination, {
     id = "kb_s",
+    offsets = { OFFSETS.OFFSET_LIFT },
     timer = timer_ref[8],
     dst = {
         { x = geometry.lane_left_margin + lane_x_positions[8], y = geometry.lane_under_margin, w = geometry.lane_scratch_width, h = h * 0.2 },
@@ -42,7 +43,7 @@ table.insert(skin.destination, {
 for i = 1, 7 do
     table.insert(skin.destination, {
         id = kind[i],
-        offset = { OFFSETS.OFFSET_LIFT },
+        offsets = { OFFSETS.OFFSET_LIFT },
         timer = timer_ref[i],
         blend = 1,
         dst = {

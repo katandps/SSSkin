@@ -1,14 +1,15 @@
 --- 読み込み中表示
-local append_all  = require("utils/append_all")
-local BARGRAPHS   = require("play/consts").BARGRAPHS
-local log         = require("utils/log")
+local append_all       = require("utils/append_all")
+local BARGRAPHS        = require("play/consts").BARGRAPHS
+local log              = require("utils/log")
 
-local geometry    = require("play/geometry").build()
-local OFFSETS     = require("play/consts").OFFSETS
-local OPTIONS     = require("play/consts").OPTIONS
+local geometry         = require("play/geometry").build()
+local OFFSETS          = require("play/consts").OFFSETS
+local OPTIONS          = require("play/consts").OPTIONS
+local JUDGELINE_CONSTS = require("play/parts/judgeline/consts")
 
-local left_margin = geometry.lane_left_margin
-local skin        = { source = {}, graph = {}, destination = {} }
+local left_margin      = geometry.lane_left_margin
+local skin             = { source = {}, graph = {}, destination = {} }
 
 table.insert(skin.source, { id = "src_loading", path = "common/white_1dot.bmp" })
 
@@ -27,8 +28,8 @@ append_all(skin.destination, {
     {
         id = "graph-load-progress",
         op = { OPTIONS.OPTION_NOW_LOADING },
-        offsets = { OFFSETS.OFFSET_NOTES_1P, OFFSETS.OFFSET_LIFT },
-        dst = { { x = left_margin, y = geometry.judge_line_y, w = geometry.lane_width, h = geometry.note_height, r = 128, g = 128, b = 128 }, }
+        offsets = JUDGELINE_CONSTS.offsets,
+        dst = { { x = left_margin, y = JUDGELINE_CONSTS.y_position, w = geometry.lane_width, h = geometry.note_height, r = 64, g = 64, b = 192 }, }
     },
 })
 
