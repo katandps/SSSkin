@@ -2,11 +2,14 @@ local merge_recursive = require("utils/merge_recursive")
 local append_all = require("utils/append_all")
 
 local width = 14
+local mini_width = 9
 local height = 33
+local mini_height = 25
 local divy = 1
 local source_id = "src_number_nirmala_ui_bold"
 local natural = { src = source_id, divx = 11, divy = divy, w = width * 11, h = height }
 local integer = { src = source_id, divx = 24, divy = divy, w = width * 24, h = height }
+local mini = { src = source_id, divx = 10, divy = divy, w = mini_width * 10, h = mini_height }
 local percent_x = 336
 local percent_w = 24
 local period_x = 360
@@ -24,6 +27,10 @@ end
 
 local function white_percent(t)
     return merge_recursive(t, { src = source_id, x = percent_x, y = 0, w = percent_w, h = height })
+end
+
+local function white_mini(t)
+    return merge_recursive(merge_recursive(t, mini), { x = 0, y = height * 5, })
 end
 
 local function white_period(t)
@@ -99,6 +106,7 @@ return {
     skin = skin,
     white = white,
     white_integer = white_integer,
+    white_mini = white_mini,
     green = green,
     green_percent = green_percent,
     yellow = yellow,
@@ -112,6 +120,8 @@ return {
     minus_plus = minus_plus,
     width = width,
     height = height,
+    mini_width = mini_width,
+    mini_height = mini_height,
     white_percent = white_percent,
     white_period = white_period,
     white_ms = white_ms,
