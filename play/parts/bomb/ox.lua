@@ -4,6 +4,7 @@
 local log = require("utils/log")
 local serialize_value = require("utils/serialize_value")
 local TIMERS = require("play/consts").TIMERS
+local VALUE = require("play/consts").VALUE
 local OFFSETS = require("play/consts").OFFSETS
 local geometry = require("play/geometry").build()
 local lane_x_positions = geometry.lane_x_positions
@@ -13,17 +14,22 @@ local skin = { source = {}, image = {}, imageset = {}, destination = {} }
 
 table.insert(skin.source, { id = "src_bomb_ox", path = "play/parts/bomb/ox.png" })
 
-
-local VALUE_JUDGE_1P_SCRATCH = 500
 local bomb_width = 100
 local bomb_height = 100
-
 
 local o_timer_list = { TIMERS.TIMER_BOMB_1P_KEY1, TIMERS.TIMER_BOMB_1P_KEY2, TIMERS.TIMER_BOMB_1P_KEY3, TIMERS
     .TIMER_BOMB_1P_KEY4, TIMERS.TIMER_BOMB_1P_KEY5, TIMERS.TIMER_BOMB_1P_KEY6, TIMERS.TIMER_BOMB_1P_KEY7, TIMERS
     .TIMER_BOMB_1P_SCRATCH }
-local judge_value = { 501, 502, 503, 504, 505, 506, 507, VALUE_JUDGE_1P_SCRATCH }
-
+local judge_value = {
+    VALUE.VALUE_JUDGE_1P_KEY1,
+    VALUE.VALUE_JUDGE_1P_KEY2,
+    VALUE.VALUE_JUDGE_1P_KEY3,
+    VALUE.VALUE_JUDGE_1P_KEY4,
+    VALUE.VALUE_JUDGE_1P_KEY5,
+    VALUE.VALUE_JUDGE_1P_KEY6,
+    VALUE.VALUE_JUDGE_1P_KEY7,
+    VALUE.VALUE_JUDGE_1P_SCRATCH
+}
 
 for key = 1, 8 do
     table.insert(skin.image, {
