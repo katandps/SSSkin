@@ -188,18 +188,11 @@ local function lane_x_positions(display, player_side)
     end
 end
 
-local function lane_each_width(display, player_side)
-    local type = player_side.SCRATCH
+local function lane_each_width(display)
     local w = display.lane_white_key_width
     local b = display.lane_black_key_width
     local s = display.lane_scratch_width
-    if type == "LEFT" then
-        return { s, w, b, w, b, w, b, w, }
-    elseif type == "RIGHT" then
-        return { w, b, w, b, w, b, w, s, }
-    else
-        error("Invalid player side type: " .. serialize_value(player_side))
-    end
+    return { w, b, w, b, w, b, w, s, }
 end
 
 local function build_display()
@@ -241,7 +234,7 @@ local function build()
         judge_line_y = display.lane_under_margin,
 
         lane_x_positions = lane_x_positions(display, player_side),
-        lane_each_width = lane_each_width(display, player_side),
+        lane_each_width = lane_each_width(display),
         lane_width = lane_width,
 
         score_panel_x = score_panel_x(display, player_side),
