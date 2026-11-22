@@ -26,6 +26,7 @@ local y = geometry.lane_under_margin + geometry.judge_detail_default_y
 append_all(skin.destination, {
     {
         id = "ghost_diff_high_score",
+        op = {-1080}, -- not on practice
         offsets = { OFFSETS.OFFSET_LIFT, OFFSETS.OFFSET_JUDGEDETAIL_1P },
         dst = {
             { x = x, y = y, w = nirmala_ui_bold.width, h = nirmala_ui_bold.height },

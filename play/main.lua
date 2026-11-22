@@ -26,6 +26,7 @@ load(skin, require("play/keybeam/default"), "keybeam")
 load(skin, require("play/parts/judge"), "judge")
 load(skin, require("play/judge/judge_timing"), "judge_timing")
 load(skin, require("play/judge/score_ghost"), "score_ghost")
+load(skin, require("play/practice"), "practice")
 
 -- panels
 load(skin, require("play/parts/bpm"), "bpm")
