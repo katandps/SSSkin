@@ -59,7 +59,7 @@ end
 
 local function chip_43()
     local judge_height = 60
-    local text_width = 260
+    local text_width = 264
     local number_width = 60
     local num_space = -3
     table.insert(skin.source, { id = "src_judge", path = "play/judge/reiko-square-43.png" }) -- 43inch用
