@@ -1,22 +1,21 @@
-local is_windows = require("utils/load_font_utils/is_windows")
-
 -- beatoraja本体の絶対パスを取得する
 return function()
-    if is_windows() then
-        local cmd = "powershell -NoProfile -Command Get-Location | Select-Object -ExpandProperty Path"
-        local pipe = io.popen(cmd)
-        if not pipe then return nil end
-        local result = pipe:read("*a")
-        pipe:close()
-        result = result and result:gsub("\r?\n", "") or nil
-        return result ~= "" and result or nil
-    else
-        local cmd = "pwd"
-        local pipe = io.popen(cmd)
-        if not pipe then return nil end
-        local result = pipe:read("*a")
-        pipe:close()
-        result = result and result:gsub("\r?\n", "") or nil
-        return result ~= "" and result or nil
+    local ok, result = pcall(function()
+        local System = luajava.bindClass("java.lang.System")
+        return System:getProperty("user.dir")
+    end)
+    if ok and result and result ~= "" then
+        return tostring(result)
     end
+
+    -- フォールバック: java.io.File
+    ok, result = pcall(function()
+        local File = luajava.bindClass("java.io.File")
+        return File:new("."):getCanonicalPath()
+    end)
+    if ok and result and result ~= "" then
+        return tostring(result)
+    end
+
+    return nil
 end
