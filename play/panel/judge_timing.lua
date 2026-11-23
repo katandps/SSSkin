@@ -20,7 +20,7 @@ local skin = { source = {}, slider = {}, destination = {}, value = {} }
 
 load(skin, font.skin, "judge_timing_font")
 append_all(skin.source, {
-    { id = "src_judge_timing", path = "play/parts/judge_timing.bmp", x = 0, y = 0, w = width, h = height },
+    { id = "src_judge_timing", path = "play/panel/judge_timing.bmp", x = 0, y = 0, w = width, h = height },
 })
 
 local function judge_timing_to_y()
