@@ -13,6 +13,8 @@ local function note_path(note_type)
         return "play/note/ocean.png"
     elseif note_type == property.PROPERTY.NOTE_TYPE_TROPICAL then
         return "play/note/tropical.png"
+    elseif note_type == property.PROPERTY.NOTE_TYPE_TROPICAL_VIVID then
+        return "play/note/tropical_vivid.png"
     else
         return "play/note/default.png"
     end

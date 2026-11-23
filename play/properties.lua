@@ -32,6 +32,8 @@ local PROPERTY = {
     NOTE_TYPE_OCEAN = 1101,
     --- ノートタイプ：トロピカル
     NOTE_TYPE_TROPICAL = 1102,
+    --- ノートタイプ：トロピカルビビッド
+    NOTE_TYPE_TROPICAL_VIVID = 1103,
 
     --- BGAオフの時に黒塗りにする
     BGA_OFF_BLACK = 1200,
@@ -128,6 +130,7 @@ local property = {
             { name = "Default",  op = PROPERTY.NOTE_TYPE_DEFAULT },
             { name = "Ocean",    op = PROPERTY.NOTE_TYPE_OCEAN },
             { name = "Tropical", op = PROPERTY.NOTE_TYPE_TROPICAL },
+            { name = "Tropical Vivid", op = PROPERTY.NOTE_TYPE_TROPICAL_VIVID },
         }
     },
     {
